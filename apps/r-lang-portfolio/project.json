@@ -1,0 +1,9 @@
+{
+  "name": "r-lang-portfolio",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/r-lang-portfolio",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project r-lang-portfolio --web",
+  "targets": {}
+}
