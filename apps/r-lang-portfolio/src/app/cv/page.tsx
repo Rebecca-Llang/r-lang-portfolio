@@ -1,8 +1,8 @@
 export default function CV() {
   return (
-    <main>
+    <div>
       <h1>CV</h1>
       {/* Your about page content */}
-    </main>
+    </div>
   );
 }

@@ -2,6 +2,7 @@ import './styles/global.css';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import Nav from './components/nav';
+import { Footer } from './components/footer';
 
 // Initialize the Inter font
 const inter = Inter({ subsets: ['latin'] });
@@ -28,9 +29,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="flex flex-col min-h-screen">
         <Nav />
-        {children}
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

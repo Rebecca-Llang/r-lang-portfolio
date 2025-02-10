@@ -1,8 +1,8 @@
 export default function Projects() {
   return (
-    <main>
+    <div>
       <h1>Projects</h1>
       {/* Your about page content */}
-    </main>
+    </div>
   );
 }

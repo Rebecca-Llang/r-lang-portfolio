@@ -1,8 +1,8 @@
 export default function ContactMe() {
   return (
-    <main>
+    <div>
       <h1>Contact Me</h1>
       {/* Your about page content */}
-    </main>
+    </div>
   );
 }
