@@ -1,3 +1,8 @@
 export default function CV() {
-  return <div>CV</div>;
+  return (
+    <main>
+      <h1>CV</h1>
+      {/* Your about page content */}
+    </main>
+  );
 }

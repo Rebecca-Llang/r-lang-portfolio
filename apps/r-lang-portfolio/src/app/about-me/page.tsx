@@ -1,8 +1,8 @@
 export default function AboutMe() {
   return (
-    <div>
+    <main>
       <h1>About Me</h1>
       {/* Your about page content */}
-    </div>
+    </main>
   );
 }
