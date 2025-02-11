@@ -1,5 +1,6 @@
 import { CVinfo, Contact, CVsections } from '../models/cv';
 
+// In cv-info.tsx
 export const cvSections: CVsections[] = [
   {
     section: 'About Me',
@@ -8,19 +9,19 @@ export const cvSections: CVsections[] = [
     section: 'Education',
   },
   {
-    section: 'Experience',
-  },
-  {
     section: 'Skills',
   },
   {
-    section: 'Interests',
+    section: 'Experience',
   },
   {
     section: 'Projects',
   },
   {
     section: 'Contact',
+  },
+  {
+    section: 'Interests',
   },
 ];
 
