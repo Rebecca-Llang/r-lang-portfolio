@@ -6,6 +6,7 @@ export async function getRepos() {
     const [personalRes, keaRes] = await Promise.all([
       fetch('https://api.github.com/users/Rebecca-Llang/repos', {
         next: { revalidate: 2000 },
+        //   next: { revalidate: 172800 }, for 48hrs
       }),
       fetch('https://api.github.com/repos/kea-commerce/kea-commerce'),
     ]);

@@ -114,40 +114,85 @@ export const cvInfo: CVinfo[] = [
     title: 'Strong Tech Skills',
     date: '2024 - ongoing',
     subtitle: 'Technology skills',
-    content:
-      'Javascript, Typescript, React.js, React Query, SQLite3, Knex.js, Git, Github, HTML, CSS, Tailwind CSS, .NET, C#',
+    content: [
+      'Javascript',
+      'Typescript',
+      'React.js',
+      'React Query',
+      'SQLite3',
+      'Knex.js',
+      'Git',
+      'Github',
+      'HTML',
+      'CSS',
+      'Tailwind CSS',
+      'NX',
+    ].join(' • '),
   },
   {
     section: 'Skills',
     title: 'Learning Tech Skills',
-    date: '2025 - ongoing',
+    date: '2024/2025 - ongoing',
     subtitle: 'Technology skills',
-    content:
-      'Javascript, Typescript, React.js, React Query, SQLite3, Knex.js, Git, Github, HTML, CSS, Tailwind CSS, .NET, C#',
+    content: [
+      'Git',
+      'Tailwind CSS',
+      '.NET',
+      'C#',
+      'Python',
+      'NX',
+      'LLM Learning',
+      'AWS',
+    ].join(' • '),
   },
   {
     section: 'Skills',
     title: 'Soft Skills',
     date: '2025',
     subtitle: 'Soft skills',
-    content:
-      'Teamwork & Collaboration, Active Listening, Emotional Intelligence, Conflict Resolution, Culture Building, Customer Service',
+    content: [
+      'Teamwork & Collaboration',
+      'Active Listening',
+      'Emotional Intelligence',
+      'Conflict Resolution',
+      'Culture Building',
+      'Customer Service',
+    ].join(' • '),
   },
   {
     section: 'Interests',
     title: 'Interests',
     date: '2025',
     subtitle: 'Interests',
-    content:
-      'Painting & floristry, Karaoke & boardgames, Health, Wellness & cooking',
+    content: [
+      'Painting',
+      'Floristry',
+      'Karaoke',
+      'Boardgames',
+      'Health & Wellness',
+      'Cooking & Baking',
+      'Programming & AI',
+      'The Ocean',
+      'The Bush',
+    ].join(' • '),
   },
-  // #TODO add Nora & portfolio to projects
+  // #TODO update Nora & portfolio to projects
   {
     section: 'Projects',
     title: 'Nora AI',
     date: '2025 - ongoing',
     subtitle: 'Personal project with mentor support',
     content: 'Nora is incredible',
+    details:
+      'Technologies Used: React, TypeScript, Node.js, Express, Google Maps API & Knex.js/SQLite3',
+  },
+  {
+    section: 'Projects',
+    title: "Rebecca Lang's Portfolio",
+    date: '2025 - ongoing',
+    subtitle: 'Personal project',
+    content:
+      'Portfolio to show my skills in the fullstack and ai arena. Learn all about Rebecca Lang and the fruits of her computer',
     details:
       'Technologies Used: React, TypeScript, Node.js, Express, Google Maps API & Knex.js/SQLite3',
   },
