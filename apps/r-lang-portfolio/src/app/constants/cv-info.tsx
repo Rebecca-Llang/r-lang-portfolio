@@ -1,6 +1,5 @@
 import { CVinfo, Contact, CVsections } from '../models/cv';
 
-// In cv-info.tsx
 export const cvSections: CVsections[] = [
   {
     section: 'About Me',
@@ -37,20 +36,24 @@ export const contact: Contact[] = [
     title: 'Email',
     details: 'rebeccalang50@gmail.com',
     icon: 'email',
+    link: '/contact-me',
   },
   {
     section: 'Contact',
     title: 'LinkedIn',
-    details: 'https://www.linkedin.com/in/rebecca-lang-nz/',
+    link: 'https://www.linkedin.com/in/rebecca-lang-nz/',
     icon: 'linkedin',
+    details: 'linkedin.com/in/rebecca-lang-nz',
   },
   {
     section: 'Contact',
     title: 'Github',
-    details: 'https://github.com/Rebecca-Llang',
+    link: 'https://github.com/Rebecca-Llang',
     icon: 'github',
+    details: 'github.com/Rebecca-Llang',
   },
 ];
+
 export const cvInfo: CVinfo[] = [
   {
     section: 'Education',
@@ -108,32 +111,95 @@ export const cvInfo: CVinfo[] = [
   },
   {
     section: 'Skills',
-    title: 'Tech Skills',
-    date: '2025',
+    title: 'Strong Tech Skills',
+    date: '2024 - ongoing',
     subtitle: 'Technology skills',
-    content:
-      'Javascript, Typescript, React.js, React Query, SQLite3, Knex.js, Git, Github, HTML, CSS, Tailwind CSS, .NET, C#',
+    content: [
+      'Javascript',
+      'Typescript',
+      'React.js',
+      'React Query',
+      'SQLite3',
+      'Knex.js',
+      'Git',
+      'Github',
+      'HTML',
+      'CSS',
+      'Tailwind CSS',
+      'NX',
+    ].join(' • '),
+  },
+  {
+    section: 'Skills',
+    title: 'Learning Tech Skills',
+    date: '2024/2025 - ongoing',
+    subtitle: 'Technology skills',
+    content: [
+      'Git',
+      'Tailwind CSS',
+      '.NET',
+      'C#',
+      'Python',
+      'NX',
+      'LLM Learning',
+      'AWS',
+    ].join(' • '),
   },
   {
     section: 'Skills',
     title: 'Soft Skills',
     date: '2025',
     subtitle: 'Soft skills',
-    content:
-      'Teamwork & Collaboration, Active Listening, Emotional Intelligence, Conflict Resolution, Culture Building, Customer Service',
+    content: [
+      'Teamwork & Collaboration',
+      'Active Listening',
+      'Emotional Intelligence',
+      'Conflict Resolution',
+      'Culture Building',
+      'Customer Service',
+    ].join(' • '),
   },
   {
     section: 'Interests',
     title: 'Interests',
     date: '2025',
     subtitle: 'Interests',
+    content: [
+      'Painting',
+      'Floristry',
+      'Karaoke',
+      'Boardgames',
+      'Health & Wellness',
+      'Cooking & Baking',
+      'Programming & AI',
+      'The Ocean',
+      'The Bush',
+    ].join(' • '),
+  },
+  // #TODO update Nora & portfolio to projects
+  {
+    section: 'Projects',
+    title: 'Nora AI',
+    date: '2025 - ongoing',
+    subtitle: 'Personal project with mentor support',
+    content: 'Nora is incredible',
+    details:
+      'Technologies Used: React, TypeScript, Node.js, Express, Google Maps API & Knex.js/SQLite3',
+  },
+  {
+    section: 'Projects',
+    title: "Rebecca Lang's Portfolio",
+    date: '2025 - ongoing',
+    subtitle: 'Personal project',
     content:
-      'Painting & floristry, Karaoke & boardgames, Health, Wellness & cooking',
+      'Portfolio to show my skills in the fullstack and ai arena. Learn all about Rebecca Lang and the fruits of her computer',
+    details:
+      'Technologies Used: React, TypeScript, Node.js, Express, Google Maps API & Knex.js/SQLite3',
   },
   {
     section: 'Projects',
     title: 'DonateMate',
-    date: '2024',
+    date: 'October 2024',
     subtitle: 'Product Owner and Programmer',
     content:
       'I led the design, planning  and presentation of DonateMate. This app allowed donors to filter organisations by donation type, and provided profiles for donation centres to share and prioritise needs. I worked on Auth0, Maps API, and filtering by donation type. As well as a vertical slice through the organisation profile page to the database. As PO, I allocated tickets, refined scope and supported my team through their own tickets. I managed group time and availability, to maximise the final product.',
@@ -160,6 +226,4 @@ export const cvInfo: CVinfo[] = [
     details:
       'Technologies Used: React.js, Typescript, Node.js, Express & Knex.js/SQLite3, Vitest',
   },
-
-  // TODO Add Nora as project, add portfolio as project,
 ];
