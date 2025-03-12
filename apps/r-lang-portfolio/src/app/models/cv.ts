@@ -12,6 +12,7 @@ export type Contact = {
   title: string;
   details: string | number;
   icon?: string;
+  link?: string;
 };
 
 export type CVsections = {

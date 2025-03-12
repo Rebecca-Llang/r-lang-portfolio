@@ -1,4 +1,7 @@
 import { contact, cvInfo, cvSections } from '../constants/cv-info';
+import { getRepoName, getRepos } from '../projects';
+
+const repos = await getRepos();
 
 export default function CV() {
   return (
@@ -54,8 +57,29 @@ export default function CV() {
 
                   {info.section === 'Projects' && (
                     <>
-                      <h3 className="text-xl font-medium">{info.title}</h3>
-                      <p className="mt-2">{info.content}</p>
+                      {repos.map(
+                        (repo) =>
+                          getRepoName(repo.name) === info.title && (
+                            <h3
+                              className="text-xl font-medium"
+                              key={info.title}
+                            >
+                              <a
+                                className="text-blue-900 hover:text-blue-800"
+                                href={repo.html_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {info.title}
+                              </a>
+                            </h3>
+                          )
+                      )}
+                      <p className="mt-2">
+                        {info.subtitle + '  |  ' + info.date}
+                      </p>
+                      <p className="mt-2">{'Details:' + ' ' + info.content}</p>
+                      <p className="mt-2">{info.details}</p>
                     </>
                   )}
 
@@ -70,7 +94,18 @@ export default function CV() {
                 {contact.map((contact) => (
                   <div key={contact.title} className="mb-3">
                     <h3 className="text-xl font-medium">{contact.title}</h3>
-                    <p className="text-gray-700">{contact.details}</p>
+                    {contact.title !== 'Phone' ? (
+                      <a
+                        href={contact.link.toString()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-700 hover:text-blue-800"
+                      >
+                        {contact.details}
+                      </a>
+                    ) : (
+                      <p className="text-gray-700">{contact.details}</p>
+                    )}
                   </div>
                 ))}
               </div>

@@ -86,11 +86,12 @@ export default async function Projects() {
                 : 'N/A'}
             </p>
             <p>
-              Last Updated:{' '}
-              {new Date(repo.updated_at).toLocaleDateString('en-US', {
-                month: 'long',
-                year: 'numeric',
-              })}
+              Last Updated:
+              {' ' +
+                new Date(repo.updated_at).toLocaleDateString('en-US', {
+                  month: 'long',
+                  year: 'numeric',
+                })}
             </p>
           </li>
         ))}
