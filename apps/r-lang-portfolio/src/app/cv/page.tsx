@@ -40,7 +40,7 @@ export default function CV() {
 
                     {info.section === 'Skills' && (
                       <div className="flex flex-wrap gap-2">
-                        <h3 className="">{info.title}</h3>
+                        <h3>{info.title}</h3>
                         {info.content.split(' • ').map((skill, index) => (
                           <>
                             <span
