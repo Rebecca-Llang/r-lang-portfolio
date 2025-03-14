@@ -31,7 +31,7 @@ export default async function Projects() {
   );
 
   return (
-    <>
+    <div>
       <h1>Projects</h1>
       <h2>My Github Projects</h2>
       <ul className="border-blue-400">
@@ -72,14 +72,14 @@ export default async function Projects() {
                       >
                         {peer.login}
                       </a>
-                      <div>
+                      <>
                         <Image
                           src={peer.avatar_url}
                           width={50}
                           height={50}
                           alt={`${peer.login}'s GitHub avatar`}
                         />
-                      </div>
+                      </>
                       {index < repo.collaborators.length - 1 ? ', ' : ''}
                     </>
                   ))
@@ -96,6 +96,6 @@ export default async function Projects() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }

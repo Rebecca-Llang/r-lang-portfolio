@@ -39,17 +39,15 @@ export default function CV() {
                     )}
 
                     {info.section === 'Skills' && (
-                      <div className="flex flex-wrap gap-2">
+                      <div key={info.title} className="flex flex-wrap gap-2">
                         <h3>{info.title}</h3>
                         {info.content.split(' • ').map((skill, index) => (
-                          <>
-                            <span
-                              key={index}
-                              className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm"
-                            >
-                              {skill}
-                            </span>
-                          </>
+                          <span
+                            key={index}
+                            className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm"
+                          >
+                            {skill}
+                          </span>
                         ))}
                       </div>
                     )}
@@ -58,7 +56,10 @@ export default function CV() {
                   {info.section === 'Experience' && (
                     <>
                       <h3 className="text-xl font-medium">{info.title}</h3>
-                      <p className="text-gray-600">{`${info.subtitle} | ${info.date}`}</p>
+                      <p
+                        key={info.subtitle}
+                        className="text-gray-600"
+                      >{`${info.subtitle} | ${info.date}`}</p>
                       <p className="mt-2">{info.content}</p>
                       <p className="mt-1 text-gray-700">{info.details}</p>
                     </>
