@@ -183,8 +183,7 @@ export const cvInfo: CVinfo[] = [
     date: '2025 - ongoing',
     subtitle: 'Personal project with mentor support',
     content: 'Nora is incredible',
-    details:
-      'Technologies Used: React, TypeScript, Node.js, Express, Google Maps API & Knex.js/SQLite3',
+    details: 'Technologies Used: Python, Ollama, ',
   },
   {
     section: 'Projects',
@@ -194,7 +193,7 @@ export const cvInfo: CVinfo[] = [
     content:
       'Portfolio to show my skills in the fullstack and ai arena. Learn all about Rebecca Lang and the fruits of her computer',
     details:
-      'Technologies Used: React, TypeScript, Node.js, Express, Google Maps API & Knex.js/SQLite3',
+      'Technologies Used: React, TypeScript, NX, Next.js, Github & Resend API, Tailwind CSS',
   },
   {
     section: 'Projects',

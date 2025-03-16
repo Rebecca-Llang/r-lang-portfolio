@@ -20,7 +20,9 @@ export const Footer = () => {
             >
               <Link
                 href={link.href}
-                className={`${isActive ? 'font-bold' : 'hover:text-blue-400'}`}
+                className={`text-eggshell ${
+                  isActive ? 'font-bold' : 'hover-grow'
+                }`}
               >
                 {link.title}
               </Link>

@@ -15,12 +15,14 @@ export default function Nav() {
 
           return (
             <li
-              className="pl-6 pr-12 pt-4 pb-4 text-white justify-items-center items-stretch"
+              className="pl-6 pr-12 pt-4 pb-4 justify-items-center items-stretch"
               key={link.href}
             >
               <Link
                 href={link.href}
-                className={`${isActive ? 'font-bold' : 'hover:text-blue-400'}`}
+                className={`text-eggshell  ${
+                  isActive ? 'font-bold' : 'hover-grow'
+                }`}
               >
                 {link.title}
               </Link>
