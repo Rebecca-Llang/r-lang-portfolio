@@ -45,25 +45,26 @@ export default async function Projects() {
             <li className="p-6" key={repo.ogRepoName}>
               <h3 className="pr-4 pb-5">{repo.name}</h3>
 
-              <p>
+              <p className="pb-3">
                 Repo:
                 <a
                   key={repo.id}
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="hover-grow h3"
                 >
                   {' ' + repo.ogRepoName}
                 </a>
               </p>
-              <p>Role: {repo.details.role}</p>
-              <p>
+              <p className="pb-3">Role: {repo.details.role}</p>
+              <p className="pb-3">
                 Description: {repo.description || 'No description available.'}
               </p>
 
-              <p>Details: {repo.details.details}</p>
+              <p className="pb-3">Details: {repo.details.details}</p>
 
-              <p className="flex flex-wrap gap-2">
+              <p className="flex flex-wrap gap-2 pb-4">
                 Languages:{' '}
                 {repo.languages.map((language, index) => (
                   <span
@@ -74,44 +75,40 @@ export default async function Projects() {
                   </span>
                 )) || 'N/A'}
               </p>
-              <div className="flex flex-wrap-row items-center">
-                <p className="mb-6">
-                  Collaborators:{' '}
-                  {repo.collaborators.length > 0
-                    ? repo.collaborators.map((peer: Peer) => (
-                        <span
-                          key={peer.login}
-                          className="flex items-center mr-4 mb-3"
-                        >
-                          <Image
-                            src={peer.avatar_url}
-                            width={50}
-                            height={50}
-                            alt={`${peer.login}'s GitHub avatar`}
-                            className="rounded-full"
-                          />
-                          <a
-                            href={peer.html_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="ml-2"
-                          >
-                            {peer.login}
-                          </a>
-                        </span>
-                      ))
-                    : 'N/A'}
-                </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 items-center pb-6">
+                {repo.collaborators.length > 0 ? (
+                  repo.collaborators.map((peer: Peer) => (
+                    <div key={peer.login} className="flex items-center gap-2">
+                      <Image
+                        src={peer.avatar_url}
+                        width={50}
+                        height={50}
+                        alt={`${peer.login}'s GitHub avatar`}
+                        className="rounded-full"
+                      />
+                      <a
+                        href={peer.html_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover-grow"
+                      >
+                        {peer.login}
+                      </a>
+                    </div>
+                  ))
+                ) : (
+                  <p>N/A</p>
+                )}
               </div>
 
-              <>
+              <div className="pt-3">
                 Last Updated:
                 {' ' +
                   new Date(repo.updated_at).toLocaleDateString('en-US', {
                     month: 'long',
                     year: 'numeric',
                   })}
-              </>
+              </div>
             </li>
           </div>
         </ul>

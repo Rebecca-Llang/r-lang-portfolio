@@ -57,7 +57,7 @@ export default function ContactForm() {
       </div>
 
       <button
-        className="button pt-5 mt-5 max-w-fit ml-28"
+        className="button mt-5 max-w-fit ml-28"
         type="submit"
         disabled={isLoading}
       >
