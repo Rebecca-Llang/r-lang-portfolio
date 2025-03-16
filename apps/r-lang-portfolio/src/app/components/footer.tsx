@@ -9,7 +9,7 @@ export const Footer = () => {
 
   return (
     <footer className="flex">
-      <ul className="flex justify-center gap-4 min-w-full bg-black">
+      <ul className="flex justify-center gap-4 min-w-full bg-black bg-opacity-80">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
 

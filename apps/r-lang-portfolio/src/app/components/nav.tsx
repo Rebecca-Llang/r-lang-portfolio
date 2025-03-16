@@ -9,7 +9,7 @@ export default function Nav() {
 
   return (
     <nav className="flex">
-      <ul className="flex justify-end gap-4 min-w-full bg-black">
+      <ul className="flex justify-end items-center gap-4 min-w-full min-h-20 bg-black bg-opacity-80">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
 

@@ -1,16 +1,16 @@
 import Image from 'next/image';
-import rebeccaPhoto from '../assets/RebeccaLang.jpg';
+import rebeccaPhoto from '../assets/RebeccaLang.png';
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center p-8 gap-8">
+    <div className="flex items-center justify-center min-h-screen p-8 gap-8">
       <Image
         src={rebeccaPhoto}
         alt="Photo of Rebecca Lang"
-        width={500}
-        height={500}
+        width={350}
+        height={350}
         priority={true}
-        className="flex-shrink-0 max-w-[400px] w-full h-auto"
+        className="flex-shrink-0 max-w-[350px] max-h-[400px] w-full h-auto rounded-full"
       />
       <div className="flex flex-col gap-4">
         <h1 className="text-4xl font-bold">Haere Mai!</h1>
