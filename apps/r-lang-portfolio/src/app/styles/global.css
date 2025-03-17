@@ -2,113 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  height: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+/* ===== Base Layer Styles ===== */
+@layer base {
+  body {
+    @apply bg-background text-text min-h-screen m-0 p-0;
+  }
+
+  h1 {
+    @apply text-h1 text-primary mb-6 mt-0;
+  }
+
+  h2 {
+    @apply text-h2 text-secondary mb-4 mt-0;
+  }
+
+  h3 {
+    @apply text-h3 text-accent mb-2 mt-0;
+  }
+
+  p {
+    @apply text-base text-text leading-relaxed mb-4;
+  }
+
+  a {
+    @apply text-third hover:text-secondary hover:text-lg transition-all duration-300 ease-in-out;
+  }
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: inherit;
-  line-height: inherit;
+/* ===== Components Layer ===== */
+@layer components {
+  .main {
+    @apply flex-1;
+  }
+
+  .button {
+    @apply bg-primary text-white font-medium py-2 px-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-105;
+  }
+
+  .button-secondary {
+    @apply bg-secondary text-white font-medium py-2 px-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-105;
+  }
+
+  .button-outline {
+    @apply border border-primary text-primary font-medium py-2 px-4 rounded-lg shadow-md hover:bg-primary hover:text-white transition-colors duration-200;
+  }
 }
 
-main {
-  flex: 1;
-}
+/* ===== Utilities (Optional) ===== */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
 
-p,
-pre {
-  margin: 0;
-}
-
-h1 {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  margin-top: 0;
-}
-
-h2 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  margin-top: 0;
-}
-
-h3 {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  margin-top: 0;
-}
-
-*,
-::before,
-::after {
-  box-sizing: border-box;
-  border-width: 0;
-  border-style: solid;
-  border-color: currentColor;
-}
-h1,
-h2 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-pre {
-  @apply font-mono bg-gray-700 rounded text-gray-200 overflow-scroll p-2;
-}
-svg {
-  @apply block align-middle;
-  shape-rendering: auto;
-  text-rendering: optimizeLegibility;
-}
-
-.shadow {
-  box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-.rounded {
-  border-radius: 1.5rem;
-}
-.wrapper {
-  width: 100%;
-}
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 768px;
-  padding-bottom: 3rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  color: rgba(55, 65, 81, 1);
-  width: 100%;
-}
-#nx-console-jetbrains {
-  margin-top: 2rem;
-}
-#nx-console-jetbrains:hover {
-  background-color: rgba(255, 49, 140, 1);
-}
-#nx-console-jetbrains svg {
-  color: rgba(255, 49, 140, 1);
-}
-
-/* Custom utility classes if needed */
-.shadow-custom {
-  box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  .hover-grow {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
 }

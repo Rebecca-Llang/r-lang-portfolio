@@ -10,7 +10,8 @@ export default function ContactForm() {
     error?: string;
     email?: string;
     message?: string;
-  }>({ email: '', message: '' });
+    name?: string;
+  }>({ name: '', email: '', message: '' });
 
   const handleAction = async (formData: FormData) => {
     setIsLoading(true);
@@ -26,31 +27,55 @@ export default function ContactForm() {
   };
 
   return (
-    <form action={handleAction}>
-      <div>
-        <label htmlFor="email">Your email</label>
+    <form action={handleAction} className="flex flex-col items-center">
+      <div className="pr-2 pb-2">
+        <label htmlFor="name" className="pr-4 text-text">
+          Name:
+        </label>
+        <input
+          type="name"
+          id="name"
+          name="name"
+          defaultValue={state.name}
+          required
+          placeholder=" your name"
+          className="pl-2 mr-1 text-accent min-w-80 min-h-10"
+        ></input>
+      </div>
+      <div className="pr-2 pb-2">
+        <label htmlFor="email" className="pr-4 text-text">
+          Email:
+        </label>
         <input
           type="email"
           id="email"
           name="email"
           defaultValue={state.email}
           required
-          placeholder="your@email.com"
+          placeholder=" your@email.com"
+          className="pl-2 text-accent min-w-80 min-h-10"
         ></input>
       </div>
-      <div>
-        <label htmlFor="message">Message</label>
+      <div className="flex flex-col-2 mr-7">
+        <label className="pr-5 pb-2 text-text" htmlFor="message">
+          Message:
+        </label>
         <textarea
           id="message"
           name="message"
           required
           defaultValue={state.message}
           placeholder="Type your message here..."
-          rows={4}
+          rows={8}
+          className="pl-2 pt-2 mr-3 text-accent min-w-80 min-h-80"
         />
       </div>
 
-      <button type="submit" disabled={isLoading}>
+      <button
+        className="button mt-5 max-w-fit"
+        type="submit"
+        disabled={isLoading}
+      >
         {isLoading ? 'Sending message' : 'Send Message'}
       </button>
 

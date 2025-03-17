@@ -28,8 +28,9 @@ export const contact: Contact[] = [
   {
     section: 'Contact',
     title: 'Phone',
-    details: '0220407118',
+    details: 'available upon request',
     icon: 'phone',
+    link: '/contact-me',
   },
   {
     section: 'Contact',
@@ -51,6 +52,13 @@ export const contact: Contact[] = [
     link: 'https://github.com/Rebecca-Llang',
     icon: 'github',
     details: 'github.com/Rebecca-Llang',
+  },
+  {
+    section: 'Contact',
+    title: 'References',
+    link: '/contact-me',
+    icon: 'references',
+    details: 'available upon request',
   },
 ];
 
@@ -183,8 +191,7 @@ export const cvInfo: CVinfo[] = [
     date: '2025 - ongoing',
     subtitle: 'Personal project with mentor support',
     content: 'Nora is incredible',
-    details:
-      'Technologies Used: React, TypeScript, Node.js, Express, Google Maps API & Knex.js/SQLite3',
+    details: 'Technologies Used: Python, Ollama, ',
   },
   {
     section: 'Projects',
@@ -194,7 +201,7 @@ export const cvInfo: CVinfo[] = [
     content:
       'Portfolio to show my skills in the fullstack and ai arena. Learn all about Rebecca Lang and the fruits of her computer',
     details:
-      'Technologies Used: React, TypeScript, Node.js, Express, Google Maps API & Knex.js/SQLite3',
+      'Technologies Used: React, TypeScript, NX, Next.js, Github & Resend API, Tailwind CSS',
   },
   {
     section: 'Projects',

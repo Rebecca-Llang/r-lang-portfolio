@@ -1,0 +1,4 @@
+{
+  "buildCommand": "npx nx run-many --target=build --all",
+  "outputDirectory": "dist/apps/your-app"
+}

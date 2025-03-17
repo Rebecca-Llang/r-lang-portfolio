@@ -9,7 +9,7 @@ export const Footer = () => {
 
   return (
     <footer className="flex">
-      <ul className="flex justify-center gap-4 min-w-full bg-black">
+      <ul className="flex justify-center gap-4 min-w-full bg-black bg-opacity-80">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
 
@@ -20,7 +20,9 @@ export const Footer = () => {
             >
               <Link
                 href={link.href}
-                className={`${isActive ? 'font-bold' : 'hover:text-blue-400'}`}
+                className={`text-eggshell ${
+                  isActive ? 'font-bold' : 'hover-grow'
+                }`}
               >
                 {link.title}
               </Link>
