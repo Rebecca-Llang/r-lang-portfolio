@@ -20,6 +20,7 @@ export default function Nav() {
             >
               <Link
                 href={link.href}
+                data-testid={link.href}
                 className={`text-eggshell  ${
                   isActive ? 'font-bold' : 'hover-grow'
                 }`}

@@ -28,8 +28,9 @@ export const contact: Contact[] = [
   {
     section: 'Contact',
     title: 'Phone',
-    details: '0220407118',
+    details: 'available upon request',
     icon: 'phone',
+    link: '/contact-me',
   },
   {
     section: 'Contact',
@@ -51,6 +52,13 @@ export const contact: Contact[] = [
     link: 'https://github.com/Rebecca-Llang',
     icon: 'github',
     details: 'github.com/Rebecca-Llang',
+  },
+  {
+    section: 'Contact',
+    title: 'References',
+    link: '/contact-me',
+    icon: 'references',
+    details: 'available upon request',
   },
 ];
 

@@ -26,6 +26,12 @@ export default [
     },
   },
   {
+    files: ['**/apps/r-lang-portfolio-e2e/src/support/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-namespace': 'off',
+    },
+  },
+  {
     files: [
       '**/*.ts',
       '**/*.tsx',

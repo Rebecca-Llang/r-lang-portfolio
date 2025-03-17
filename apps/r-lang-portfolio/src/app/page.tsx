@@ -8,9 +8,9 @@ export default function Home() {
         src={rebeccaPhoto}
         alt="Photo of Rebecca Lang"
         width={350}
-        height={350}
         priority={true}
         className="flex-shrink-0 max-w-[350px] max-h-[400px] w-full h-auto rounded-full"
+        data-testid="rebecca-photo"
       />
       <div className="flex flex-col gap-4">
         <h1 className="text-4xl font-bold">Haere Mai!</h1>
