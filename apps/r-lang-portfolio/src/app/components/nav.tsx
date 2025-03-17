@@ -9,7 +9,7 @@ export default function Nav() {
 
   return (
     <nav className="flex">
-      <ul className="flex justify-end items-center gap-4 min-w-full min-h-20 bg-black bg-opacity-80">
+      <ul className="flex justify-end items-center text-lg gap-4 min-w-full min-h-20 bg-black bg-opacity-80">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
 
@@ -21,8 +21,8 @@ export default function Nav() {
               <Link
                 href={link.href}
                 data-testid={link.href}
-                className={`text-eggshell  ${
-                  isActive ? 'font-bold' : 'hover-grow'
+                className={`text-eggshell transition-transform duration-200 transform ${
+                  isActive ? 'font-bold' : 'hover-grow-large'
                 }`}
               >
                 {link.title}

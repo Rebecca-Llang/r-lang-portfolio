@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 export type CVinfo = {
   section: string;
   title: string;
@@ -11,7 +13,7 @@ export type Contact = {
   section: string;
   title: string;
   details: string | number;
-  icon?: string;
+  icon?: ReactElement;
   link?: string;
 };
 

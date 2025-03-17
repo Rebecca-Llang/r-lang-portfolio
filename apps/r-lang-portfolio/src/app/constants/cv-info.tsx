@@ -1,4 +1,9 @@
 import { CVinfo, Contact, CVsections } from '../models/cv';
+import { FaGithub } from 'react-icons/fa6';
+import { FaLinkedin } from 'react-icons/fa6';
+import { FaEnvelope } from 'react-icons/fa6';
+import { FaPhoneAlt } from 'react-icons/fa';
+import { FaPeopleGroup } from 'react-icons/fa6';
 
 export const cvSections: CVsections[] = [
   {
@@ -29,35 +34,35 @@ export const contact: Contact[] = [
     section: 'Contact',
     title: 'Phone',
     details: 'available upon request',
-    icon: 'phone',
+    icon: <FaPhoneAlt />,
     link: '/contact-me',
   },
   {
     section: 'Contact',
     title: 'Email',
     details: 'rebeccalang50@gmail.com',
-    icon: 'email',
+    icon: <FaEnvelope />,
     link: '/contact-me',
   },
   {
     section: 'Contact',
     title: 'LinkedIn',
     link: 'https://www.linkedin.com/in/rebecca-lang-nz/',
-    icon: 'linkedin',
+    icon: <FaLinkedin />,
     details: 'linkedin.com/in/rebecca-lang-nz',
   },
   {
     section: 'Contact',
     title: 'Github',
     link: 'https://github.com/Rebecca-Llang',
-    icon: 'github',
+    icon: <FaGithub />,
     details: 'github.com/Rebecca-Llang',
   },
   {
     section: 'Contact',
     title: 'References',
     link: '/contact-me',
-    icon: 'references',
+    icon: <FaPeopleGroup />,
     details: 'available upon request',
   },
 ];
@@ -139,7 +144,7 @@ export const cvInfo: CVinfo[] = [
   },
   {
     section: 'Skills',
-    title: 'Learning Tech Skills',
+    title: 'Progressing Tech Skills',
     date: '2024/2025 - ongoing',
     subtitle: 'Technology skills',
     content: [

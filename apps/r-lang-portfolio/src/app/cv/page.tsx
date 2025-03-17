@@ -109,17 +109,23 @@ export default function CV() {
                 {contact.map((contact) => (
                   <div key={contact.title} className="mb-3">
                     <h3>{contact.title}</h3>
-                    {contact.title !== 'Phone' ? (
-                      <a
-                        href={contact.link.toString()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {contact.details}
-                      </a>
-                    ) : (
-                      <p>{contact.details}</p>
-                    )}
+                    <div className="flex flex-col-2">
+                      <div className="w-8 h-8 pb-2 flex justify-start items-center text-accent">
+                        {contact.icon}
+                      </div>
+
+                      {contact.title !== 'Phone' ? (
+                        <a
+                          href={contact.link.toString()}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {contact.details}
+                        </a>
+                      ) : (
+                        <p>{contact.details}</p>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
