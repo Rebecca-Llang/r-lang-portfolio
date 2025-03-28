@@ -40,6 +40,7 @@ export const Footer = () => {
               <div key={contact.title} className="text-eggshell">
                 <Link
                   href={contact.link}
+                  target="_blank"
                   className={`text-eggshell flex items-center gap-1 ${
                     isActive ? 'font-bold ' : 'hover-grow'
                   }`}

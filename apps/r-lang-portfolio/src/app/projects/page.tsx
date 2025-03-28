@@ -1,4 +1,4 @@
-import { getRepos, getContributors, getLanguages, getRepoName } from '.';
+import { getRepos, getContributors, getLanguages } from '.';
 import { Repo, Peer } from '../models/projects';
 import Image from 'next/image';
 
