@@ -1,5 +1,5 @@
 import { CVinfo, Contact, CVsections } from '../models/cv';
-import { FaGithub } from 'react-icons/fa6';
+import { FaGithub, FaLink } from 'react-icons/fa6';
 import { FaLinkedin } from 'react-icons/fa6';
 import { FaEnvelope } from 'react-icons/fa6';
 import { FaPhoneAlt } from 'react-icons/fa';
@@ -42,6 +42,7 @@ export const contact: Contact[] = [
     title: 'Email',
     details: 'rebeccalang50@gmail.com',
     icon: <FaEnvelope />,
+    linkIcon: <FaLink />,
     link: '/contact-me',
   },
   {
@@ -49,6 +50,7 @@ export const contact: Contact[] = [
     title: 'LinkedIn',
     link: 'https://www.linkedin.com/in/rebecca-lang-nz/',
     icon: <FaLinkedin />,
+    linkIcon: <FaLink />,
     details: 'linkedin.com/in/rebecca-lang-nz',
   },
   {
@@ -56,6 +58,7 @@ export const contact: Contact[] = [
     title: 'Github',
     link: 'https://github.com/Rebecca-Llang',
     icon: <FaGithub />,
+    linkIcon: <FaLink />,
     details: 'github.com/Rebecca-Llang',
   },
   {

@@ -1,6 +1,7 @@
 import { getRepos, getContributors, getLanguages, getRepoName } from '.';
 import { Repo, Peer } from '../models/projects';
 import Image from 'next/image';
+import { FaLink } from 'react-icons/fa';
 
 export default async function Projects() {
   const repos = await getRepos();
@@ -43,20 +44,22 @@ export default async function Projects() {
             className={`border-2 border-eggshell border-opacity-30 rounded-md p-4 mb-6`}
           >
             <li className="p-6" key={repo.ogRepoName}>
-              <h3 className="pr-4 pb-5">{repo.name}</h3>
+              <h3 className="pr-4 pb-5">{repo.name} </h3>
 
-              <p className="pb-3">
+              <p className="pb-3 flex items-center gap-1">
                 Repo:
                 <a
                   key={repo.id}
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover-grow h3"
+                  className="hover-grow h3 flex items-center gap-1"
                 >
-                  {' ' + repo.ogRepoName}
+                  {repo.ogRepoName}
+                  <FaLink />
                 </a>
               </p>
+
               <p className="pb-3">Role: {repo.details.role}</p>
               <p className="pb-3">
                 Description: {repo.description || 'No description available.'}
@@ -75,6 +78,7 @@ export default async function Projects() {
                   </span>
                 )) || 'N/A'}
               </p>
+              <p>Contributors:</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 items-center pb-6">
                 {repo.collaborators.length > 0 ? (
                   repo.collaborators.map((peer: Peer) => (

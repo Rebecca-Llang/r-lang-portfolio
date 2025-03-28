@@ -1,3 +1,4 @@
+import { FaLink } from 'react-icons/fa6';
 import { contact, cvInfo, cvSections } from '../constants/cv-info';
 import { getRepoName, getRepos } from '../projects';
 
@@ -74,9 +75,9 @@ export default function CV() {
                                 href={repo.html_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-accent"
+                                className="text-accent flex items-center gap-1"
                               >
-                                {info.title}
+                                {info.title} <FaLink />
                               </a>
                             </h3>
                           )
@@ -110,8 +111,9 @@ export default function CV() {
                   <div key={contact.title} className="mb-3">
                     <h3>{contact.title}</h3>
                     <div className="flex flex-col-2">
-                      <div className="w-8 h-8 pb-2 flex justify-start items-center text-accent">
+                      <div className="h-8 gap-1 pb-2 flex items-center text-accent">
                         {contact.icon}
+                        {contact.linkIcon}
                       </div>
 
                       {contact.title !== 'Phone' ? (
@@ -119,11 +121,12 @@ export default function CV() {
                           href={contact.link.toString()}
                           target="_blank"
                           rel="noopener noreferrer"
+                          className="pl-2"
                         >
                           {contact.details}
                         </a>
                       ) : (
-                        <p>{contact.details}</p>
+                        <p className="pl-2">{contact.details}</p>
                       )}
                     </div>
                   </div>

@@ -15,6 +15,7 @@ export type Contact = {
   details: string | number;
   icon?: ReactElement;
   link?: string;
+  linkIcon?: ReactElement;
 };
 
 export type CVsections = {
