@@ -33,6 +33,7 @@ export default function ContactForm() {
           Name:
         </label>
         <input
+          autoComplete="on"
           type="name"
           id="name"
           name="name"
@@ -47,6 +48,7 @@ export default function ContactForm() {
           Email:
         </label>
         <input
+          autoComplete="on"
           type="email"
           id="email"
           name="email"
@@ -61,6 +63,7 @@ export default function ContactForm() {
           Message:
         </label>
         <textarea
+          autoComplete="on"
           id="message"
           name="message"
           required
