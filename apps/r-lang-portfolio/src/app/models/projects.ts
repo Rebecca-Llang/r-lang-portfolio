@@ -1,7 +1,6 @@
 export interface Repo {
   id: number;
   name: string;
-  repo: string;
   html_url: string;
   description: string;
   updated_at: string;

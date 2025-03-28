@@ -1,4 +1,4 @@
-import { getRepos, getContributors, getLanguages } from '.';
+import { getRepos, getContributors, getLanguages, getRepoName } from '.';
 import { Repo, Peer } from '../models/projects';
 import Image from 'next/image';
 
@@ -15,7 +15,7 @@ export default async function Projects() {
       return {
         id: repo.id,
         ogRepoName: repo.name,
-        name: repo.repo,
+        name: getRepoName(repo.name),
         html_url: repo.html_url,
         description: repo.description || 'N/A',
         updated_at: repo.updated_at,
