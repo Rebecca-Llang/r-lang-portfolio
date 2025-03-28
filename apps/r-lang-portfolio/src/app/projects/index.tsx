@@ -38,23 +38,42 @@ export async function getRepos() {
   }
 }
 
-export async function getLanguages(languagesURL: string) {
+export function getFallbackLanguages(repoName: string): string[] {
+  const normalName =
+    Object.keys(repoDisplayNames).find(
+      (key) =>
+        key.toLowerCase() === repoName.toLowerCase() ||
+        repoDisplayNames[key].toLowerCase() === repoName.toLowerCase()
+    ) || repoName;
+
+  const projectDetails = details.find(
+    (detail) =>
+      detail.repoName.toLowerCase() === normalName.toLowerCase() ||
+      detail.repoName.toLowerCase().replace(/\s+/g, '-') ===
+        normalName.toLowerCase()
+  );
+
+  return projectDetails?.languages || ['No languages found'];
+}
+
+export async function getLanguages(languagesURL: string, repoName: string) {
   try {
     const res = await fetch(languagesURL);
 
     if (!res.ok) {
       console.error(`Failed to fetch languages from ${languagesURL}`);
-      return ['No languages found'];
+      return getFallbackLanguages(repoName);
     }
 
     const languages = await res.json();
     const repoLanguages = Object.keys(languages);
+
     return repoLanguages.length > 0
       ? repoLanguages
-      : ['No languages specified'];
+      : getFallbackLanguages(repoName);
   } catch (error) {
     console.error('Error fetching languages:', error);
-    return ['Error fetching languages'];
+    return getFallbackLanguages(repoName);
   }
 }
 

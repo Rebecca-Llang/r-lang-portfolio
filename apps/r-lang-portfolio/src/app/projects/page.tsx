@@ -8,14 +8,14 @@ export default async function Projects() {
   const fullRepos = await Promise.all(
     repos.map(async (repo: Repo) => {
       const [languages, collaborators] = await Promise.all([
-        getLanguages(repo.languages_url),
+        getLanguages(repo.languages_url, repo.name),
         getContributors(repo.name),
       ]);
 
       return {
         id: repo.id,
         ogRepoName: repo.name,
-        name: getRepoName(repo.name),
+        name: repo.repo,
         html_url: repo.html_url,
         description: repo.description || 'N/A',
         updated_at: repo.updated_at,

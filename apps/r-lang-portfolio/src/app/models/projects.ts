@@ -1,6 +1,7 @@
 export interface Repo {
   id: number;
   name: string;
+  repo: string;
   html_url: string;
   description: string;
   updated_at: string;
@@ -17,6 +18,7 @@ export type Details = {
   repoName: string;
   details: string;
   role: string;
+  languages: string[];
 };
 
 export type Peer = {
