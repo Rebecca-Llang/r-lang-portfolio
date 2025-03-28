@@ -7,7 +7,7 @@ export default function CV() {
   return (
     <div className="container mx-auto max-w-[90%] px-4">
       <h1 className="text-center pt-7 pb-2">Curriculum Vitae</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         {cvSections.map((section) => (
           <div
             className={`border-2 border-eggshell border-opacity-30 rounded-md p-4 ${
