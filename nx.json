@@ -53,10 +53,13 @@
     }
   ],
   "targetDefaults": {
-    "e2e-ci--**/*": {
-      "dependsOn": ["^build"]
-    }
+  "e2e-ci--**/*": {
+    "dependsOn": ["^build"]
   },
+  "build": {
+    "dependsOn": ["^build"]
+  }
+},
   "generators": {
     "@nx/next": {
       "application": {
