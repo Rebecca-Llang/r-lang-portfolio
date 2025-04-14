@@ -4,20 +4,23 @@ import { usePathname } from 'next/navigation';
 import { navLinks } from '../constants/navigation';
 import { contact } from '../constants/cv-info';
 import Link from 'next/link';
-import Icon from './icon';
+import Icon from './Icon';
 
 export const Footer = () => {
   const pathname = usePathname();
 
   return (
-    <footer className="flex items-center justify-between gap-4 min-w-full bg-black bg-opacity-80">
+    <footer
+      aria-label="Footer navigation"
+      className="flex items-center justify-between gap-4 min-w-full bg-black bg-opacity-80"
+    >
       <div className="flex items-center justify-evenly w-full px-6 py-4">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
 
           return (
             <ul key={link.title} className="list-none">
-              <li key={link.href}>
+              <li>
                 <Link
                   href={link.href}
                   className={`text-eggshell ${
@@ -47,7 +50,11 @@ export const Footer = () => {
                   }`}
                 >
                   {contact.title}
-                  {contact.icon && <Icon icon={contact.icon} size={16} />}
+                  {contact.icon && (
+                    <Icon
+                      icon={<contact.icon size={20} className="text-white" />}
+                    />
+                  )}
                 </Link>
               </div>
             );

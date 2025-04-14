@@ -2,7 +2,7 @@ import { getRepos, getContributors, getLanguages, getRepoName } from '.';
 import { Repo, Peer } from '../models/projects';
 import Image from 'next/image';
 import { FaLink } from 'react-icons/fa';
-import Icon from '../components/icon';
+import Icon from '../components/Icon';
 
 export default async function Projects() {
   const repos = await getRepos();
@@ -39,25 +39,25 @@ export default async function Projects() {
         <h2>My Github Projects</h2>
       </div>
 
-      {orderedRepos.map((repo) => (
-        <ul key={repo.id}>
-          <div
-            className={`border-2 border-eggshell border-opacity-30 rounded-md p-4 mb-6`}
+      <ul>
+        {orderedRepos.map((repo) => (
+          <li
+            key={repo.id}
+            className="border-2 border-eggshell border-opacity-30 rounded-md p-4 mb-6"
           >
-            <li className="p-6" key={repo.ogRepoName}>
-              <h3 className="pr-4 pb-5">{repo.name} </h3>
+            <div className="p-6">
+              <h3 className="pr-4 pb-5">{repo.name}</h3>
 
               <p className="pb-3 flex items-center gap-1">
                 Repo:
                 <a
-                  key={repo.id}
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover-grow h3 flex items-center gap-1"
                 >
                   {repo.ogRepoName}
-                  <Icon icon={FaLink} size={16} />
+                  <Icon icon={<FaLink size={16} />} />
                 </a>
               </p>
 
@@ -70,15 +70,18 @@ export default async function Projects() {
 
               <p className="flex flex-wrap gap-2 pb-4">
                 Languages:{' '}
-                {repo.languages.map((language, index) => (
-                  <span
-                    key={index}
-                    className="bg-accent text-white text-sm px-3 py-1 rounded-full"
-                  >
-                    {language}
-                  </span>
-                )) || 'N/A'}
+                {repo.languages?.length
+                  ? repo.languages.map((language, index) => (
+                      <span
+                        key={index}
+                        className="bg-accent text-white text-sm px-3 py-1 rounded-full"
+                      >
+                        {language}
+                      </span>
+                    ))
+                  : 'N/A'}
               </p>
+
               <p>Contributors:</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 items-center pb-6">
                 {repo.collaborators.length > 0 ? (
@@ -107,17 +110,16 @@ export default async function Projects() {
               </div>
 
               <div className="pt-3">
-                Last Updated:
-                {' ' +
-                  new Date(repo.updated_at).toLocaleDateString('en-US', {
-                    month: 'long',
-                    year: 'numeric',
-                  })}
+                Last Updated:{' '}
+                {new Date(repo.updated_at).toLocaleDateString('en-US', {
+                  month: 'long',
+                  year: 'numeric',
+                })}
               </div>
-            </li>
-          </div>
-        </ul>
-      ))}
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

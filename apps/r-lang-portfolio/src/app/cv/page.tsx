@@ -1,6 +1,6 @@
 import { contact, cvInfo, cvSections } from '../constants/cv-info';
 import { getRepoName, getRepos } from '../projects';
-import Icon from '../components/icon';
+import Icon from '../components/Icon';
 
 const repos = await getRepos();
 
@@ -112,10 +112,7 @@ export default function CV() {
                     <h3>{contact.title}</h3>
                     <div className="flex flex-col-2">
                       <div className="h-8 gap-1 pb-2 flex items-center text-accent">
-                        {contact.icon && <Icon icon={contact.icon} size={16} />}
-                        {contact.linkIcon && (
-                          <Icon icon={contact.linkIcon} size={16} />
-                        )}
+                        <Icon icon={<contact.icon size={20} />} />
                       </div>
 
                       {contact.title !== 'Phone' ? (

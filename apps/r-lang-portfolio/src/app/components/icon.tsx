@@ -1,18 +1,14 @@
 'use client';
 
-import { ComponentType } from 'react';
-import { IconBaseProps } from 'react-icons/lib';
-import type { IconType } from 'react-icons';
+import { ReactNode } from 'react';
 
 interface IconProps {
-  icon: IconType;
-  size?: number;
+  icon: ReactNode;
   className?: string;
 }
 
-function Icon({ icon: IconComponent, size = 16, className = '' }: IconProps) {
-  const Component = IconComponent as ComponentType<IconBaseProps>;
-  return <Component size={size} className={className} />;
+function Icon({ icon, className = '' }: IconProps) {
+  return <span className={className}>{icon}</span>;
 }
 
 export default Icon;
