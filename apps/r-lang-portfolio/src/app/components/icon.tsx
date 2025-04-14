@@ -10,11 +10,9 @@ interface IconProps {
   className?: string;
 }
 
-export default function Icon({
-  icon: IconComponent,
-  size = 16,
-  className = '',
-}: IconProps) {
+function Icon({ icon: IconComponent, size = 16, className = '' }: IconProps) {
   const Component = IconComponent as ComponentType<IconBaseProps>;
   return <Component size={size} className={className} />;
 }
+
+export default Icon;

@@ -2,7 +2,7 @@ import { getRepos, getContributors, getLanguages, getRepoName } from '.';
 import { Repo, Peer } from '../models/projects';
 import Image from 'next/image';
 import { FaLink } from 'react-icons/fa';
-import Icon from '../constants/icon';
+import Icon from '../components/icon';
 
 export default async function Projects() {
   const repos = await getRepos();
