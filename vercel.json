@@ -1,4 +1,8 @@
 {
-  "buildCommand": "npm ci && npm run build",
-  "outputDirectory": "dist/apps/r-lang-portfolio"
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/apps/r-lang-portfolio",
+  "framework": "nextjs",
+  "installCommand": "npm ci",
+  "devCommand": "npx nx dev r-lang-portfolio",
+  "regions": ["sfo1"]
 }

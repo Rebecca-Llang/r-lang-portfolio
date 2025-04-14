@@ -1,46 +1,79 @@
-import nx from '@nx/eslint-plugin';
+import globals from 'globals';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+/** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
-  ...nx.configs['flat/base'],
-  ...nx.configs['flat/typescript'],
-  ...nx.configs['flat/javascript'],
   {
-    ignores: ['**/dist'],
+    ignores: ['**/dist/**', '**/.next/**', '**/node_modules/**'],
   },
   {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.es2021,
+      },
+    },
+  },
+  {
+    files: ['**/*.{ts,tsx}'],
+    plugins: {
+      '@typescript-eslint': tseslint,
+    },
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        project: [
+          './apps/r-lang-portfolio/tsconfig.json',
+          './tsconfig.base.json',
+        ],
+        tsconfigRootDir: __dirname,
+        ecmaVersion: 2022,
+        sourceType: 'module',
+      },
+    },
     rules: {
-      '@nx/enforce-module-boundaries': [
-        'error',
-        {
-          enforceBuildableLibDependency: true,
-          allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
-          depConstraints: [
-            {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
-            },
-          ],
-        },
+      ...tseslint.configs['recommended'].rules,
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_' },
       ],
     },
   },
   {
-    files: ['**/apps/r-lang-portfolio-e2e/src/support/**/*.ts'],
+    files: ['**/*.{jsx,tsx}'],
+    plugins: {
+      react: reactPlugin,
+      'react-hooks': reactHooksPlugin,
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
     rules: {
-      '@typescript-eslint/no-namespace': 'off',
+      ...reactPlugin.configs.recommended.rules,
+      ...reactHooksPlugin.configs.recommended.rules,
+      'react/prop-types': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'no-console': 'warn',
     },
   },
   {
-    files: [
-      '**/*.ts',
-      '**/*.tsx',
-      '**/*.js',
-      '**/*.jsx',
-      '**/*.cjs',
-      '**/*.mjs',
-    ],
-    // Override or add rules here
-    rules: {},
+    files: ['**/cypress/**/*.ts', '**/cypress.config.ts', '**/e2e/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-namespace': 'off',
+    },
   },
 ];

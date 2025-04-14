@@ -16,6 +16,38 @@
       "configurations": {
         "production": {}
       }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "options": {
+        "buildTarget": "r-lang-portfolio:build",
+        "dev": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "r-lang-portfolio:build:production",
+          "dev": false
+        }
+      }
+    },
+    "dev": {
+      "executor": "@nx/next:server",
+      "options": {
+        "buildTarget": "r-lang-portfolio:build",
+        "dev": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/r-lang-portfolio/**/*.ts",
+          "apps/r-lang-portfolio/**/*.tsx",
+          "apps/r-lang-portfolio/**/*.html",
+          "apps/r-lang-portfolio/**/*.js"
+        ]
+      }
     }
   }
 }
+

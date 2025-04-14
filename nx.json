@@ -19,6 +19,7 @@
   },
   "nxCloudId": "67a2ce7abd8c3d729d383063",
   "plugins": [
+    
     {
       "plugin": "@nx/next/plugin",
       "options": {
@@ -28,6 +29,13 @@
         "serveStaticTargetName": "serve-static",
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
+      }
+    },
+    
+    {
+      "plugin": "@nrwl/linter",
+      "options": {
+        "targetName": "lint"
       }
     },
     {
@@ -40,12 +48,6 @@
       }
     },
     {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
@@ -53,13 +55,16 @@
     }
   ],
   "targetDefaults": {
-  "e2e-ci--**/*": {
-    "dependsOn": ["^build"]
+    "e2e-ci--**/*": {
+      "dependsOn": ["^build"]
+    },
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    }
   },
-  "build": {
-    "dependsOn": ["^build"]
-  }
-},
   "generators": {
     "@nx/next": {
       "application": {
