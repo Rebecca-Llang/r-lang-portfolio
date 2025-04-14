@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import type { IconType } from 'react-icons';
 
 export type CVinfo = {
   section: string;
@@ -13,9 +13,9 @@ export type Contact = {
   section: string;
   title: string;
   details: string | number;
-  icon?: ReactElement;
+  icon?: IconType;
   link?: string;
-  linkIcon?: ReactElement;
+  linkIcon?: IconType;
 };
 
 export type CVsections = {

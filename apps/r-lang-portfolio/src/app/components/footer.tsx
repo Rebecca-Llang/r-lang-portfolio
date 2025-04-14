@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { navLinks } from '../constants/navigation';
 import { contact } from '../constants/cv-info';
 import Link from 'next/link';
+import Icon from '../constants/icon';
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -46,7 +47,7 @@ export const Footer = () => {
                   }`}
                 >
                   {contact.title}
-                  {contact.icon}
+                  {contact.icon && <Icon icon={contact.icon} size={16} />}
                 </Link>
               </div>
             );

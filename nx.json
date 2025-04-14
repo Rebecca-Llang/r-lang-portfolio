@@ -33,7 +33,7 @@
     },
     
     {
-      "plugin": "@nrwl/linter",
+      "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
       }
