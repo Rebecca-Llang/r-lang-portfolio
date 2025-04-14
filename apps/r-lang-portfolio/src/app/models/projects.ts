@@ -17,6 +17,7 @@ export type Details = {
   repoName: string;
   details: string;
   role: string;
+  languages: string[];
 };
 
 export type Peer = {

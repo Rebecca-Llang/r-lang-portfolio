@@ -1,5 +1,6 @@
 import { contact, cvInfo, cvSections } from '../constants/cv-info';
 import { getRepoName, getRepos } from '../projects';
+import Icon from '../components/Icon';
 
 const repos = await getRepos();
 
@@ -7,7 +8,7 @@ export default function CV() {
   return (
     <div className="container mx-auto max-w-[90%] px-4">
       <h1 className="text-center pt-7 pb-2">Curriculum Vitae</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         {cvSections.map((section) => (
           <div
             className={`border-2 border-eggshell border-opacity-30 rounded-md p-4 ${
@@ -74,9 +75,9 @@ export default function CV() {
                                 href={repo.html_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-accent"
+                                className="text-accent flex items-center gap-1"
                               >
-                                {info.title}
+                                {info.title} →
                               </a>
                             </h3>
                           )
@@ -109,17 +110,24 @@ export default function CV() {
                 {contact.map((contact) => (
                   <div key={contact.title} className="mb-3">
                     <h3>{contact.title}</h3>
-                    {contact.title !== 'Phone' ? (
-                      <a
-                        href={contact.link.toString()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {contact.details}
-                      </a>
-                    ) : (
-                      <p>{contact.details}</p>
-                    )}
+                    <div className="flex flex-col-2">
+                      <div className="h-8 gap-1 pb-2 flex items-center text-accent">
+                        <Icon icon={<contact.icon size={20} />} />
+                      </div>
+
+                      {contact.title !== 'Phone' ? (
+                        <a
+                          href={contact.link.toString()}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="pl-2"
+                        >
+                          {contact.details}
+                        </a>
+                      ) : (
+                        <p className="pl-2">{contact.details}</p>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>

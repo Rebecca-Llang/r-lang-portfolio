@@ -1,4 +1,8 @@
 {
-  "buildCommand": "npx nx run-many --target=build --all",
-  "outputDirectory": "dist/apps/your-app"
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/apps/r-lang-portfolio",
+  "framework": "nextjs",
+  "installCommand": "npm ci",
+  "devCommand": "npx nx dev r-lang-portfolio",
+  "regions": ["sfo1"]
 }

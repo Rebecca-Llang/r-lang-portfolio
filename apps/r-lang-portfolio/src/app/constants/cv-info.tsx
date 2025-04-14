@@ -1,4 +1,12 @@
 import { CVinfo, Contact, CVsections } from '../models/cv';
+import {
+  FaGithub,
+  FaLinkedin,
+  FaPhoneAlt,
+  FaLink,
+  FaUsers,
+} from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 
 export const cvSections: CVsections[] = [
   {
@@ -29,35 +37,38 @@ export const contact: Contact[] = [
     section: 'Contact',
     title: 'Phone',
     details: 'available upon request',
-    icon: 'phone',
+    icon: FaPhoneAlt,
     link: '/contact-me',
   },
   {
     section: 'Contact',
     title: 'Email',
     details: 'rebeccalang50@gmail.com',
-    icon: 'email',
+    icon: MdEmail,
+    linkIcon: FaLink,
     link: '/contact-me',
   },
   {
     section: 'Contact',
     title: 'LinkedIn',
     link: 'https://www.linkedin.com/in/rebecca-lang-nz/',
-    icon: 'linkedin',
+    icon: FaLinkedin,
+    linkIcon: FaLink,
     details: 'linkedin.com/in/rebecca-lang-nz',
   },
   {
     section: 'Contact',
     title: 'Github',
     link: 'https://github.com/Rebecca-Llang',
-    icon: 'github',
+    icon: FaGithub,
+    linkIcon: FaLink,
     details: 'github.com/Rebecca-Llang',
   },
   {
     section: 'Contact',
     title: 'References',
     link: '/contact-me',
-    icon: 'references',
+    icon: FaUsers,
     details: 'available upon request',
   },
 ];
@@ -114,8 +125,7 @@ export const cvInfo: CVinfo[] = [
     title: 'About Me',
     date: '2025',
     subtitle: 'About Me',
-    content:
-      'Kia ora! I’m Rebecca, a full stack software developer passionate about people and creating user-centric solutions. My curiosity about technology, particularly how it’s built and refined to serve users, led me to pursue a career in this field. I graduated from Dev Academy, where I gained hands-on experience across the full tech stack, developing skills in modern technologies, Agile methodologies, and collaborative development. My final project focused heavily on web accessibility and UX, areas that continue to inspire my work. My enthusiasm for development has only deepened since. I’m excited to apply my technical and interpersonal skills in real-world projects. Currently, I’m actively involved in building an e-commerce site as part of a small group project, where I’m learning .NET and C# to expand my full stack capabilities. With a background in customer service and management, I excel in team settings, balancing kindness with efficiency. I’m committed to continuous learning and eager to take on new challenges in my first web development role.',
+    content: `Kia ora! I'm Rebecca, a full stack software developer passionate about people and creating user-centric solutions. My curiosity about technology, particularly how it's built and refined to serve users, led me to pursue a career in this field. I graduated from Dev Academy, where I gained hands-on experience across the full tech stack, developing skills in modern technologies, Agile methodologies, and collaborative development. My final project focused heavily on web accessibility and UX, areas that continue to inspire my work. My enthusiasm for development has only deepened since. I'm excited to apply my technical and interpersonal skills in real-world projects. Currently, I'm actively involved in building an e-commerce site as part of a small group project, where I'm learning .NET and C# to expand my full stack capabilities. With a background in customer service and management, I excel in team settings, balancing kindness with efficiency. I'm committed to continuous learning and eager to take on new challenges in my first web development role.`,
   },
   {
     section: 'Skills',
@@ -139,7 +149,7 @@ export const cvInfo: CVinfo[] = [
   },
   {
     section: 'Skills',
-    title: 'Learning Tech Skills',
+    title: 'Progressing Tech Skills',
     date: '2024/2025 - ongoing',
     subtitle: 'Technology skills',
     content: [
