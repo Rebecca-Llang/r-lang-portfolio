@@ -44,6 +44,7 @@ export default [
       },
     },
     rules: {
+      'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
       ...tseslint.configs['recommended'].rules,
       '@typescript-eslint/no-unused-vars': [
         'warn',
@@ -51,6 +52,7 @@ export default [
       ],
     },
   },
+
   {
     files: ['**/*.{jsx,tsx}'],
     plugins: {
