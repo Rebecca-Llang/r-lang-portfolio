@@ -1,8 +1,9 @@
 {
-  "name": "@my-monorepo/source",
+  "name": "r-lang-portfolio",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "nx": "nx",
     "build": "npx nx build r-lang-portfolio",
     "dev": "npx nx dev r-lang-portfolio",
     "serve": "npx nx serve r-lang-portfolio",
