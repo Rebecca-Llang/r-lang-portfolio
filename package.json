@@ -35,7 +35,7 @@
     "@swc/helpers": "~0.5.5",
     "@testing-library/react": "14.2.1",
     "@types/jest": "^29.5.12",
-    "@types/node": "18.16.9",
+    "@types/node": "18.17.0",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
@@ -65,6 +65,13 @@
     "typescript": "5.3.3"
   },
   "resolutions": {
-    "esbuild": "0.25.2"
-  }
+  "esbuild": "0.25.2",
+  "koa": "2.16.1",
+  "@module-federation/dts-plugin": "^0.11.5",
+  "@module-federation/manifest": "^0.11.5",
+  "@module-federation/rspack": "^0.11.5",
+  "@module-federation/enhanced": "^0.11.5",
+  "@module-federation/cli": "^0.11.5",
+  "@modern-js/node-bundle-require": "^2.0.0"
+}
 }
