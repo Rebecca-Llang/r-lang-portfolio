@@ -2,7 +2,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/apps/r-lang-portfolio",
   "framework": "nextjs",
-  "installCommand": "npm ci",
+  "installCommand": "npm ci --no-audit",
   "devCommand": "npx nx dev r-lang-portfolio",
   "regions": ["sfo1"]
 }

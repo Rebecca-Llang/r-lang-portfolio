@@ -1,8 +1,9 @@
 {
-  "name": "@my-monorepo/source",
+  "name": "r-lang-portfolio",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "nx": "nx",
     "build": "npx nx build r-lang-portfolio",
     "dev": "npx nx dev r-lang-portfolio",
     "serve": "npx nx serve r-lang-portfolio",
@@ -12,7 +13,7 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@nx/react": "^20.7.0",
+    "@nx/react": "^20.1.4",
     "next": "14.2.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -27,14 +28,14 @@
     "@nx/eslint-plugin": "^20.7.0",
     "@nx/jest": "20.7.0",
     "@nx/js": "20.7.0",
-    "@nx/next": "20.7.0",
+    "@nx/next": "^20.1.4",
     "@nx/workspace": "20.7.0",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.5",
     "@testing-library/react": "14.2.1",
     "@types/jest": "^29.5.12",
-    "@types/node": "18.16.9",
+    "@types/node": "18.17.0",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
@@ -64,6 +65,13 @@
     "typescript": "5.3.3"
   },
   "resolutions": {
-    "esbuild": "0.25.2"
-  }
+  "esbuild": "0.25.2",
+  "koa": "2.16.1",
+  "@module-federation/dts-plugin": "^0.11.5",
+  "@module-federation/manifest": "^0.11.5",
+  "@module-federation/rspack": "^0.11.5",
+  "@module-federation/enhanced": "^0.11.5",
+  "@module-federation/cli": "^0.11.5",
+  "@modern-js/node-bundle-require": "^2.0.0"
+}
 }
