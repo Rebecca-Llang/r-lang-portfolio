@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd . && npm run build",
+  "buildCommand": "npx nx reset && npx nx build r-lang-portfolio --skip-nx-cache",
   "outputDirectory": "dist/apps/r-lang-portfolio",
   "framework": "nextjs",
   "installCommand": "npm ci --no-audit",
