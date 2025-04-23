@@ -1,6 +1,6 @@
 // next.config.cjs
 
-const { composePlugins, withNx } = require('@nx/next/plugins/with-nx');
+const { withNx } = require('@nx/next/plugins/with-nx');
 
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
@@ -14,9 +14,4 @@ const nextConfig = {
   },
 };
 
-const plugins = [
-  // Add more Next.js plugins if needed
-  withNx,
-];
-
-module.exports = composePlugins(...plugins)(nextConfig);
+module.exports = withNx(nextConfig);

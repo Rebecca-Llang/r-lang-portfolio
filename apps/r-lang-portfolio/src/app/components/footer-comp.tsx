@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { navLinks } from '../constants/navigation';
 import { contact } from '../constants/cv-info';
 import Link from 'next/link';
-import Icon from './icon';
+import Icon from './icon-comp';
 
 const Footer = () => {
   const pathname = usePathname();
