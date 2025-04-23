@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { navLinks } from '../constants/navigation';
 import Link from 'next/link';
 
-export default function Nav() {
+function Nav() {
   const pathname = usePathname();
 
   return (
@@ -34,3 +34,5 @@ export default function Nav() {
     </nav>
   );
 }
+
+export default Nav;

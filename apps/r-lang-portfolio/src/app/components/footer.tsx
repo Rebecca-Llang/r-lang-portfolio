@@ -6,7 +6,7 @@ import { contact } from '../constants/cv-info';
 import Link from 'next/link';
 import Icon from './Icon';
 
-export const Footer = () => {
+const Footer = () => {
   const pathname = usePathname();
 
   return (
@@ -63,3 +63,4 @@ export const Footer = () => {
     </footer>
   );
 };
+export default Footer;
