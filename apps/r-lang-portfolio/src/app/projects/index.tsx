@@ -33,7 +33,7 @@ export async function getRepos() {
 
     return reposWithDetails;
   } catch (error) {
-    console.error('Error fetching repos:', error);
+    // console.error('Error fetching repos:', error);
     return [];
   }
 }
@@ -61,7 +61,7 @@ export async function getLanguages(languagesURL: string, repoName: string) {
     const res = await fetch(languagesURL);
 
     if (!res.ok) {
-      console.error(`Failed to fetch languages from ${languagesURL}`);
+      // console.error(`Failed to fetch languages from ${languagesURL}`);
       return getFallbackLanguages(repoName);
     }
 
@@ -72,7 +72,7 @@ export async function getLanguages(languagesURL: string, repoName: string) {
       ? repoLanguages
       : getFallbackLanguages(repoName);
   } catch (error) {
-    console.error('Error fetching languages:', error);
+    // console.error('Error fetching languages:', error);
     return getFallbackLanguages(repoName);
   }
 }
@@ -92,7 +92,7 @@ export const getContributors = async (repoName: string) => {
     });
 
     if (!res.ok) {
-      console.error(`Failed to fetch contributors for ${repoName}`);
+      // console.error(`Failed to fetch contributors for ${repoName}`);
       return [];
     }
 
@@ -103,7 +103,7 @@ export const getContributors = async (repoName: string) => {
       avatar_url: peer.avatar_url,
     }));
   } catch (error) {
-    console.error('Error fetching contributors:', error);
+    // console.error('Error fetching contributors:', error);
     return [];
   }
 };

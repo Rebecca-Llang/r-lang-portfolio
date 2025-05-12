@@ -13,7 +13,7 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@nx/react": "^20.1.4",
+    "@nx/react": "20.8.0",
     "next": "14.2.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -23,13 +23,13 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.0.2",
-    "@nx/cypress": "20.7.0",
-    "@nx/eslint": "20.7.0",
-    "@nx/eslint-plugin": "^20.7.0",
-    "@nx/jest": "20.7.0",
-    "@nx/js": "20.7.0",
-    "@nx/next": "^20.1.4",
-    "@nx/workspace": "20.7.0",
+    "@nx/cypress": "20.8.0",
+    "@nx/eslint": "20.8.0",
+    "@nx/eslint-plugin": "20.8.0",
+    "@nx/jest": "20.8.0",
+    "@nx/js": "20.8.0",
+    "@nx/next": "20.8.0",
+    "@nx/workspace": "20.8.0",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.5",
@@ -42,8 +42,8 @@
     "@typescript-eslint/parser": "^6.21.0",
     "autoprefixer": "^10.4.21",
     "babel-jest": "^29.7.0",
-    "cypress": "^13.13.0",
-    "esbuild": "^0.25.2",
+    "cypress": "14.3.3",
+    "esbuild": "^0.25.4",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.2.28",
     "eslint-config-prettier": "10.1.1",
@@ -55,7 +55,7 @@
     "globals": "^16.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "nx": "20.7.0",
+    "nx": "20.8.0",
     "postcss": "^8.5.3",
     "prettier": "^2.6.2",
     "tailwindcss": "^3.4.17",
@@ -64,14 +64,5 @@
     "tslib": "^2.3.0",
     "typescript": "5.3.3"
   },
-  "resolutions": {
-  "esbuild": "0.25.2",
-  "koa": "2.16.1",
-  "@module-federation/dts-plugin": "^0.11.5",
-  "@module-federation/manifest": "^0.11.5",
-  "@module-federation/rspack": "^0.11.5",
-  "@module-federation/enhanced": "^0.11.5",
-  "@module-federation/cli": "^0.11.5",
-  "@modern-js/node-bundle-require": "^2.0.0"
-}
+  "overrides": { "esbuild": "^0.25.4", "@modern-js/node-bundle-require": "^2.0.0", "@module-federation/cli": "0.9.0", "@module-federation/dts-plugin": "0.9.0", "@module-federation/enhanced": "0.9.0", "@module-federation/manifest": "0.9.0", "@module-federation/rspack": "0.9.0", "@module-federation/node": "2.6.26", "@module-federation/sdk": "0.9.0", "koa": ">=2.16.1"}
 }
