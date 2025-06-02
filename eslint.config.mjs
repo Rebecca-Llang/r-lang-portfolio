@@ -34,10 +34,7 @@ export default [
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        project: [
-          './apps/r-lang-portfolio/tsconfig.json',
-          './tsconfig.base.json',
-        ],
+        project: ['./apps/portfolio/tsconfig.json', './tsconfig.base.json'],
         tsconfigRootDir: __dirname,
         ecmaVersion: 2022,
         sourceType: 'module',

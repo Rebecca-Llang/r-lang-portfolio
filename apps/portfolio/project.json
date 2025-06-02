@@ -1,17 +1,17 @@
 {
-  "name": "r-lang-portfolio",
+  "name": "portfolio",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/r-lang-portfolio",
+  "sourceRoot": "apps/portfolio",
   "projectType": "application",
   "tags": [],
-  "// targets": "to see all targets run: nx show project r-lang-portfolio --web",
+  "// targets": "to see all targets run: nx show project portfolio --web",
   "targets": {
     "build": {
       "executor": "@nx/next:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/r-lang-portfolio"
+        "outputPath": "dist/apps/portfolio"
       },
       "configurations": {
         "production": {}
@@ -20,12 +20,12 @@
     "serve": {
       "executor": "@nx/next:server",
       "options": {
-        "buildTarget": "r-lang-portfolio:build",
+        "buildTarget": "portfolio:build",
         "dev": true
       },
       "configurations": {
         "production": {
-          "buildTarget": "r-lang-portfolio:build:production",
+          "buildTarget": "portfolio:build:production",
           "dev": false
         }
       }
@@ -33,7 +33,7 @@
     "dev": {
       "executor": "@nx/next:server",
       "options": {
-        "buildTarget": "r-lang-portfolio:build",
+        "buildTarget": "portfolio:build",
         "dev": true
       }
     },
@@ -41,10 +41,10 @@
       "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
-          "apps/r-lang-portfolio/**/*.ts",
-          "apps/r-lang-portfolio/**/*.tsx",
-          "apps/r-lang-portfolio/**/*.html",
-          "apps/r-lang-portfolio/**/*.js"
+          "apps/portfolio/**/*.ts",
+          "apps/portfolio/**/*.tsx",
+          "apps/portfolio/**/*.html",
+          "apps/portfolio/**/*.js"
         ]
       }
     }

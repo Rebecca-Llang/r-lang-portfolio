@@ -25,7 +25,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next-env.d.ts",
-    "../../dist/apps/r-lang-portfolio/.next/types/**/*.ts"
+    "../../dist/apps/portfolio/.next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

@@ -1,8 +1,8 @@
 {
-  "buildCommand": "npx nx reset && npx nx build r-lang-portfolio --skip-nx-cache",
-  "outputDirectory": "dist/apps/r-lang-portfolio",
+  "buildCommand": "npx nx reset && npx nx build portfolio --skip-nx-cache",
+  "outputDirectory": "dist/apps/portfolio",
   "framework": "nextjs",
   "installCommand": "npm ci --no-audit",
-  "devCommand": "npx nx dev r-lang-portfolio",
+  "devCommand": "npx nx dev portfolio",
   "regions": ["sfo1"]
 }

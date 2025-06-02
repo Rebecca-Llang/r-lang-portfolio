@@ -1,13 +1,13 @@
 {
-  "name": "r-lang-portfolio",
+  "name": "portfolio",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "nx": "nx",
-    "build": "npx nx build r-lang-portfolio",
-    "dev": "npx nx dev r-lang-portfolio",
-    "serve": "npx nx serve r-lang-portfolio",
-    "start": "npx nx serve r-lang-portfolio",
+    "build": "npx nx build portfolio",
+    "dev": "npx nx dev portfolio",
+    "serve": "npx nx serve portfolio",
+    "start": "npx nx serve portfolio",
     "lint": "eslint ."
   },
   "type": "module",
@@ -64,5 +64,7 @@
     "tslib": "^2.3.0",
     "typescript": "5.3.3"
   },
-  "overrides": { "esbuild": "^0.25.4", "@modern-js/node-bundle-require": "^2.0.0", "@module-federation/cli": "0.9.0", "@module-federation/dts-plugin": "0.9.0", "@module-federation/enhanced": "0.9.0", "@module-federation/manifest": "0.9.0", "@module-federation/rspack": "0.9.0", "@module-federation/node": "2.6.26", "@module-federation/sdk": "0.9.0", "koa": ">=2.16.1"}
+  "overrides": { 
+    "esbuild": "^0.25.4", 
+    "@modern-js/node-bundle-require": "^2.0.0", "@module-federation/cli": "0.9.0", "@module-federation/dts-plugin": "0.9.0", "@module-federation/enhanced": "0.9.0", "@module-federation/manifest": "0.9.0", "@module-federation/rspack": "0.9.0", "@module-federation/node": "2.6.26", "@module-federation/sdk": "0.9.0", "koa": ">=2.16.1"}
 }
