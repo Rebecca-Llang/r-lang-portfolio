@@ -3,9 +3,12 @@ services:
     name: r-lang-portfolio
     env: node
     plan: free
-    buildCommand: npm ci && npx nx build portfolio
+    buildCommand: npm ci --only=production && npx nx build portfolio
     startCommand: npx nx serve portfolio --prod
     envVars:
       - key: NODE_ENV
         value: production
+      - key: NX_VERBOSE_LOGGING
+        value: false
     healthCheckPath: /
+    autoDeploy: true
