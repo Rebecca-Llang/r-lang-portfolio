@@ -131,11 +131,11 @@ jobs:
       - run: npm run test:e2e:headless
 ```
 
-### Vercel Integration
+### Render Integration
 ```json
 {
   "scripts": {
-    "vercel-build": "npm run build && npm run test:e2e:headless"
+    "render-build": "npm run build && npm run test:e2e:headless"
   }
 }
 ```

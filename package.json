@@ -7,7 +7,7 @@
     "build": "npx nx build portfolio",
     "dev": "npx nx dev portfolio",
     "serve": "npx nx serve portfolio",
-    "start": "npx nx serve portfolio",
+    "start": "npx nx serve portfolio --prod",
     "lint": "eslint .",
     "test:e2e": "npx nx e2e r-lang-portfolio-e2e",
     "test:e2e:headless": "npx nx e2e r-lang-portfolio-e2e --headless",

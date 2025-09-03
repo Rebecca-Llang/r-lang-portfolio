@@ -1,7 +1,0 @@
-{
-  "buildCommand": "npx nx build portfolio",
-  "outputDirectory": "dist/apps/portfolio",
-  "framework": "nextjs",
-  "installCommand": "npm ci",
-  "devCommand": "npx nx dev portfolio"
-}

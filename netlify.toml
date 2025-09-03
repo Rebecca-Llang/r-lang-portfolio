@@ -1,0 +1,12 @@
+[build]
+  command = "npx nx build portfolio"
+  publish = "dist/apps/portfolio"
+  functions = "dist/apps/portfolio/.next/server"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

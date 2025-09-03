@@ -7,7 +7,7 @@ export default defineConfig({
       cypressDir: 'src',
     }),
     // Configure this to point to your production URL
-    baseUrl: 'https://r-lang-portfolio.vercel.app', // Your Vercel production domain
+    baseUrl: 'https://r-lang-portfolio.onrender.com', // Your Render production domain
     // Disable web server commands for production testing
     webServerCommands: {},
     ciWebServerCommand: '',
