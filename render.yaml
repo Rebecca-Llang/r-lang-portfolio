@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: r-lang-portfolio
+    env: node
+    plan: free
+    buildCommand: npm ci && npx nx build portfolio
+    startCommand: npx nx serve portfolio --prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /

@@ -128,7 +128,19 @@ npx prettier --write .
 
 ## Deployment
 
-This project is ready to deploy on Vercel. Configuration is in `vercel.json`.
+This project is configured for deployment on Render. Configuration files:
+- `render.yaml` - Render service configuration
+- `.render-buildpacks` - Buildpack specification
+
+### Deploy to Render
+1. Connect your GitHub repository to Render
+2. Create a new Web Service
+3. Render will automatically detect the configuration
+4. Your site will be available at `https://r-lang-portfolio.onrender.com`
+
+### Alternative Deployment Options
+- **Netlify**: Use `netlify.toml` configuration
+- **Docker**: Use `Dockerfile` and `docker-compose.yml`
 
 ## Useful Links
 

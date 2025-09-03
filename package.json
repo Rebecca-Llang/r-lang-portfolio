@@ -7,8 +7,13 @@
     "build": "npx nx build portfolio",
     "dev": "npx nx dev portfolio",
     "serve": "npx nx serve portfolio",
-    "start": "npx nx serve portfolio",
-    "lint": "eslint ."
+    "start": "npx nx serve portfolio --prod",
+    "lint": "eslint .",
+    "test:e2e": "npx nx e2e r-lang-portfolio-e2e",
+    "test:e2e:headless": "npx nx e2e r-lang-portfolio-e2e --headless",
+    "test:e2e:production": "cypress run --config-file apps/r-lang-portfolio-e2e/cypress.production.config.ts",
+    "test:e2e:deployment": "npx nx e2e r-lang-portfolio-e2e --spec=\"src/e2e/deployment.cy.ts\"",
+    "test:e2e:production-debug": "cypress run --config-file apps/r-lang-portfolio-e2e/cypress.production.config.ts --spec=\"src/e2e/production.cy.ts\""
   },
   "type": "module",
   "private": true,
