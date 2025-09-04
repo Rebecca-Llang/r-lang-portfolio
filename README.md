@@ -67,7 +67,7 @@ The portfolio includes:
    ```sh
    npm run dev
    # or
-   npx nx dev r-lang-portfolio
+   npx nx dev portfolio
    ```
 
 ## Project Structure
@@ -81,19 +81,19 @@ The portfolio includes:
 To run the dev server for your app, use:
 
 ```sh
-npx nx dev r-lang-portfolio
+npx nx dev portfolio
 ```
 
 To create a production bundle:
 
 ```sh
-npx nx build r-lang-portfolio
+npx nx build portfolio
 ```
 
 To see all available targets to run for a project, run:
 
 ```sh
-npx nx show project r-lang-portfolio
+npx nx show project portfolio
 ```
 
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
@@ -105,7 +105,7 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 ### Unit Tests
 Run unit tests with:
 ```sh
-npx nx test r-lang-portfolio
+npx nx test portfolio
 ```
 
 ### End-to-End Tests
