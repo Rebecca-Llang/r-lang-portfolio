@@ -3,7 +3,7 @@ services:
     name: r-lang-portfolio
     env: node
     plan: free
-    nodeVersion: 18.17.0
+    nodeVersion: 20.19.1
     buildCommand: npm ci && npx nx build portfolio
     startCommand: cd dist/apps/portfolio && next start -p $PORT
     envVars:
