@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: Rebecca-Lang-portfolio
+    name: r-lang-portfolio
     env: node
     plan: free
     nodeVersion: 18.17.0
