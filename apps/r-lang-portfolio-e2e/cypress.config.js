@@ -1,7 +1,9 @@
-import { nxE2EPreset } from '@nx/cypress/plugins/cypress-preset';
-import { defineConfig } from 'cypress';
+import { nxE2EPreset } from '@nx/cypress/plugins/cypress-preset.js';
+import { fileURLToPath } from 'url';
 
-export default defineConfig({
+const __filename = fileURLToPath(import.meta.url);
+
+export default {
   e2e: {
     ...nxE2EPreset(__filename, {
       cypressDir: 'src',
@@ -16,4 +18,4 @@ export default defineConfig({
     // See https://docs.cypress.io/app/references/migration-guide#Changes-to-cyorigin
     injectDocumentDomain: true,
   },
-});
+};

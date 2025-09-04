@@ -31,7 +31,11 @@ describe('Production Deployment Tests', () => {
   describe('API Endpoints', () => {
     it('should handle API routes correctly', () => {
       // Test if your API routes are working
-      cy.request('/api/route').then((response) => {
+      cy.request('/api/contact').then((response) => {
+        expect(response.status).to.be.oneOf([200, 404]); // 404 is ok if route doesn't exist
+      });
+
+      cy.request('/api/github').then((response) => {
         expect(response.status).to.be.oneOf([200, 404]); // 404 is ok if route doesn't exist
       });
     });
@@ -117,6 +121,9 @@ describe('Production Deployment Tests', () => {
         // Check for common security headers
         expect(response.headers).to.have.property('x-frame-options');
         expect(response.headers).to.have.property('x-content-type-options');
+        expect(response.headers).to.have.property('referrer-policy');
+        expect(response.headers).to.have.property('x-xss-protection');
+        expect(response.headers).to.have.property('content-security-policy');
       });
     });
 
