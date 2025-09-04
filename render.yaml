@@ -5,7 +5,7 @@ services:
     plan: free
     nodeVersion: 18.17.0
     buildCommand: npm ci && npx nx build portfolio
-    startCommand: npm run start-prod
+    startCommand: cd dist/apps/portfolio && next start -p $PORT
     envVars:
       - key: NODE_ENV
         value: production
