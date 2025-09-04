@@ -17,6 +17,13 @@ const nextConfig = {
   // Security configurations
   poweredByHeader: false, // Remove X-Powered-By header
   compress: true, // Enable compression
+  // Build optimization for caching
+  experimental: {
+    // Enable SWC minification for better performance
+    swcMinify: true,
+  },
+  // Optimize build output
+  output: 'standalone',
   // Headers configuration (additional to middleware)
   async headers() {
     return [

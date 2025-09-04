@@ -4,7 +4,7 @@ services:
     env: node
     plan: free
     nodeVersion: 20.19.1
-    buildCommand: npm ci && npx nx build portfolio
+    buildCommand: npm ci --prefer-offline && npx nx build portfolio
     startCommand: cd dist/apps/portfolio && next start -p $PORT
     envVars:
       - key: NODE_ENV
@@ -13,3 +13,7 @@ services:
         value: false
     healthCheckPath: /
     autoDeploy: true
+    buildCache:
+      paths:
+        - node_modules/
+        - apps/portfolio/.next/cache/
