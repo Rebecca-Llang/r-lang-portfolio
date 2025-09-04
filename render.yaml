@@ -1,15 +1,17 @@
 services:
   - type: web
-    name: r-lang-portfolio
+    name: Rebecca-Lang-portfolio
     env: node
     plan: free
     nodeVersion: 18.17.0
     buildCommand: npm ci && npx nx build portfolio
-    startCommand: npx nx serve portfolio --prod
+    startCommand: npm run start-prod
     envVars:
       - key: NODE_ENV
         value: production
       - key: NX_VERBOSE_LOGGING
         value: false
+      - key: PORT
+        value: 10000
     healthCheckPath: /
     autoDeploy: true

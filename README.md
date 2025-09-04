@@ -8,10 +8,10 @@ This monorepo is built with a modern web stack, including:
 - **React** (UI library)
 - **Nx** (monorepo management and tooling)
 - **TailwindCSS** (utility-first CSS framework)
-- **Cypress** Still to come (end-to-end testing)
-- **Jest** Still to come (unit testing)
+- **Cypress** (end-to-end testing)
+- **Jest** (unit testing)
 - **TypeScript** (type safety)
-- **Vercel** (deployment)
+- **Render** (deployment)
 
 The portfolio highlights my projects, experience, and contact information, and serves as a demonstration of best practices in modern web development.
 
@@ -39,7 +39,7 @@ This portfolio demonstrates my proficiency in:
 - **Testing:** Ensuring code quality with unit tests (Jest) and end-to-end tests (Cypress).
 - **Monorepo Management:** Organizing code and workflows efficiently with Nx.
 - **API Integration:** Connecting to backend services and APIs.
-- **CI/CD & Deployment:** Automated builds and deployments using Vercel and Nx Cloud.
+- **CI/CD & Deployment:** Automated builds and deployments using Render and Nx Cloud.
 - **Code Quality:** Enforcing standards with ESLint and Prettier.
 
 ## Portfolio Content
@@ -72,7 +72,7 @@ The portfolio includes:
 
 ## Project Structure
 
-- `apps/r-lang-portfolio/` - Main portfolio application (Next.js)
+- `apps/portfolio/` - Main portfolio application (Next.js)
 - `apps/r-lang-portfolio-e2e/` - End-to-end tests (Cypress)
 - `libs/` - (if you add shared libraries in the future)
 
@@ -81,13 +81,25 @@ The portfolio includes:
 To run the dev server for your app, use:
 
 ```sh
+npm run dev
+# or
 npx nx dev portfolio
 ```
 
 To create a production bundle:
 
 ```sh
+npm run build
+# or
 npx nx build portfolio
+```
+
+To serve the production build:
+
+```sh
+npm run serve
+# or
+npx nx serve portfolio
 ```
 
 To see all available targets to run for a project, run:
@@ -111,7 +123,19 @@ npx nx test portfolio
 ### End-to-End Tests
 Run Cypress e2e tests with:
 ```sh
+npm run test:e2e
+# or
 npx nx e2e r-lang-portfolio-e2e
+```
+
+Additional e2e test options:
+```sh
+# Run tests in headless mode
+npm run test:e2e:headless
+
+# Run specific test files
+npm run test:e2e:deployment
+npm run test:e2e:production-debug
 ```
 
 ## Linting & Formatting
@@ -119,6 +143,8 @@ npx nx e2e r-lang-portfolio-e2e
 To lint the codebase:
 ```sh
 npm run lint
+# or
+npx nx lint portfolio
 ```
 
 To format all files:
@@ -139,8 +165,24 @@ This project is configured for deployment on Render. Configuration files:
 4. Your site will be available at `https://r-lang-portfolio.onrender.com`
 
 ### Alternative Deployment Options
+- **Vercel**: Use `vercel.json` configuration
 - **Netlify**: Use `netlify.toml` configuration
 - **Docker**: Use `Dockerfile` and `docker-compose.yml`
+
+## Environment Setup
+
+Create a `.env.local` file in the `apps/portfolio` directory:
+
+```bash
+# Resend API Key for email functionality
+RESEND_API_KEY=your_resend_api_key_here
+
+# GitHub API Token (optional, for higher rate limits)
+GITHUB_TOKEN=your_github_token_here
+
+# Environment
+NODE_ENV=development
+```
 
 ## Useful Links
 

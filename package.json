@@ -12,6 +12,7 @@
     "dev": "npx nx dev portfolio",
     "serve": "npx nx serve portfolio",
     "start": "npx nx serve portfolio --prod",
+    "start-prod": "cd dist/apps/portfolio && next start -p $PORT",
     "lint": "eslint .",
     "test:e2e": "npx nx e2e r-lang-portfolio-e2e",
     "test:e2e:headless": "npx nx e2e r-lang-portfolio-e2e --headless",
