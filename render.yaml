@@ -3,6 +3,7 @@ services:
     name: r-lang-portfolio
     env: node
     plan: free
+    nodeVersion: 18.17.0
     buildCommand: npm ci --only=production && npx nx build portfolio
     startCommand: npx nx serve portfolio --prod
     envVars:
