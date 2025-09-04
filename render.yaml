@@ -11,7 +11,5 @@ services:
         value: production
       - key: NX_VERBOSE_LOGGING
         value: false
-      - key: PORT
-        value: 10000
     healthCheckPath: /
     autoDeploy: true
