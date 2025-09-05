@@ -1,58 +1,85 @@
-# My Portfolio
+# Rebecca Lang - Portfolio
 
-# r-lang-portfolio
-My personal portfolio, showcasing myself and my skills as a developer.
+A modern, responsive portfolio showcasing my development skills and projects. Built with Next.js, TypeScript, and deployed on Render.
 
-This monorepo is built with a modern web stack, including:
-- **Next.js** (React framework for SSR and SSG)
-- **React** (UI library)
-- **Nx** (monorepo management and tooling)
-- **TailwindCSS** (utility-first CSS framework)
-- **Cypress** (end-to-end testing)
-- **Jest** (unit testing)
-- **TypeScript** (type safety)
-- **Render** (deployment)
+## 🚀 Live Demo
 
-The portfolio highlights my projects, experience, and contact information, and serves as a demonstration of best practices in modern web development.
+**[View Portfolio](https://r-lang-portfolio.onrender.com)**
 
-## Table of Contents
+## 📋 Table of Contents
 
-- [Project Overview](#r-lang-portfolio)
-- [Skills Demonstrated](#skills-demonstrated)
-- [Portfolio Content](#portfolio-content)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Run Tasks](#run-tasks)
-- [Testing](#testing)
-- [Linting & Formatting](#linting--formatting)
-- [Deployment](#deployment)
-- [Useful Links](#useful-links)
-- [License](#license)
+- [Tech Stack](#-tech-stack)
+- [Skills Demonstrated](#-skills-demonstrated)
+- [Portfolio Content](#-portfolio-content)
+- [Features](#-features)
+- [Getting Started](#-getting-started)
+- [Project Structure](#-project-structure)
+- [Testing](#-testing)
+- [Deployment](#-deployment)
+- [Environment Setup](#-environment-setup)
+- [Useful Links](#-useful-links)
+- [License](#-license)
 
-## Skills Demonstrated
+## 🛠 Tech Stack
 
-This portfolio demonstrates my proficiency in:
+- **Next.js 14.2.32** - React framework with App Router
+- **React 18.2.0** - Modern UI library with hooks
+- **TypeScript 5.3.3** - Type-safe development
+- **Nx 20.8.0** - Monorepo management and build optimization
+- **TailwindCSS 3.4.17** - Utility-first CSS with responsive design
+- **Cypress 14.3.3** - Comprehensive end-to-end testing
+- **Render** - Cloud deployment with CI/CD
+- **Resend** - Modern email API integration
+- **GitHub API** - Dynamic content integration
 
-- **Frontend Development:** Building responsive, accessible, and performant UIs with React and Next.js.
-- **TypeScript:** Writing type-safe, maintainable code.
-- **Styling:** Using TailwindCSS for rapid, consistent, and modern UI design.
-- **Testing:** Ensuring code quality with unit tests (Jest) and end-to-end tests (Cypress).
-- **Monorepo Management:** Organizing code and workflows efficiently with Nx.
-- **API Integration:** Connecting to backend services and APIs.
-- **CI/CD & Deployment:** Automated builds and deployments using Render and Nx Cloud.
-- **Code Quality:** Enforcing standards with ESLint and Prettier.
+## 💼 Skills Demonstrated
 
-## Portfolio Content
+This portfolio showcases my technical capabilities:
 
-The portfolio includes:
+### Frontend Development
+- **Modern React Patterns:** Hooks, context, custom components, and performance optimization
+- **Next.js Expertise:** App Router, SSR/SSG, API routes, middleware, and image optimization
+- **Responsive Design:** Mobile-first approach with TailwindCSS utility classes
+- **Accessibility:** WCAG compliance with semantic HTML and ARIA attributes
+- **Performance:** Code splitting, lazy loading, and Core Web Vitals optimization
 
-- **About Me:** A brief introduction and background.
-- **Projects:** Detailed case studies and links to my best work, with descriptions, tech stacks, and outcomes.
-- **CV/Resume:** Viewable resume.
-- **Contact:** A form to get in touch with me directly.
+### Backend & Integration
+- **API Development:** RESTful endpoints with proper error handling and validation
+- **Third-party Integrations:** Resend email service and GitHub API with rate limiting
+- **TypeScript:** Strict typing, interfaces, generics, and advanced type patterns
+- **Environment Management:** Secure configuration and environment variable handling
 
+### DevOps & Quality Assurance
+- **Monorepo Architecture:** Nx workspace with dependency management and build optimization
+- **Testing Strategy:** Comprehensive E2E testing with Cypress covering user journeys
+- **CI/CD Pipeline:** Automated testing, building, and deployment with GitHub Actions
+- **Code Quality:** ESLint, Prettier, and TypeScript strict mode enforcement
+- **Cloud Deployment:** Render platform with build caching and environment management
 
-## Getting Started
+## 📋 Portfolio Content
+
+- **Home Page:** Welcome message with personal introduction and navigation
+- **About Me:** A brief introduction and background information
+- **Projects:** Detailed case studies and links to my best work, with descriptions, tech stacks, and outcomes
+- **CV/Resume:** Viewable resume with professional experience and skills
+- **Contact:** A form to get in touch with me directly
+
+## ✨ Features
+
+- **Responsive Design:** Optimized for desktop, tablet, and mobile devices
+- **Modern UI:** Clean, professional design using TailwindCSS
+- **Dynamic Content:** GitHub integration for live repository data
+- **Email Integration:** Contact form powered by Resend email service
+- **Performance Optimized:** Fast loading with Next.js optimizations
+- **SEO Ready:** Proper meta tags and OpenGraph integration
+- **Accessibility:** WCAG compliant with proper semantic HTML
+
+## 🔌 API Endpoints
+
+- **`/api/contact`** - Handles contact form submissions using Resend email service
+- **`/api/github`** - Fetches GitHub profile and repository data for dynamic content
+
+## 🚀 Getting Started
 
 1. Clone the repository:
    ```sh
@@ -70,135 +97,110 @@ The portfolio includes:
    npx nx dev portfolio
    ```
 
-## Project Structure
+## 📁 Project Structure
 
-- `apps/portfolio/` - Main portfolio application (Next.js)
-- `apps/r-lang-portfolio-e2e/` - End-to-end tests (Cypress)
-- `libs/` - (if you add shared libraries in the future)
+This is an Nx monorepo containing:
+- **Portfolio App** (`apps/portfolio/`) - Next.js application with App Router
+- **E2E Tests** (`apps/r-lang-portfolio-e2e/`) - Comprehensive Cypress test suite
+- **Shared Configuration** - TypeScript, ESLint, TailwindCSS, and deployment configs
 
-## Run Tasks
+### Key Configuration Files
+- `render.yaml` - Render deployment configuration
+- `nx.json` - Nx workspace configuration
+- `package.json` - Project dependencies and scripts
+- `eslint.config.mjs` - ESLint configuration
+- `tailwind.config.js` - TailwindCSS configuration
+- `tsconfig.base.json` - TypeScript base configuration
 
-To run the dev server for your app, use:
+## ⚡ Quick Start
 
+### Local Development
 ```sh
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-npx nx dev portfolio
-```
 
-To create a production bundle:
-
-```sh
+# Build for production
 npm run build
-# or
-npx nx build portfolio
-```
 
-To serve the production build:
-
-```sh
-npm run serve
-# or
-npx nx serve portfolio
-```
-
-To see all available targets to run for a project, run:
-
-```sh
-npx nx show project portfolio
-```
-
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Testing
-
-### Unit Tests
-Run unit tests with:
-```sh
-npx nx test portfolio
-```
-
-### End-to-End Tests
-Run Cypress e2e tests with:
-```sh
+# Run tests
 npm run test:e2e
-# or
-npx nx e2e r-lang-portfolio-e2e
 ```
 
-Additional e2e test options:
-```sh
-# Run tests in headless mode
-npm run test:e2e:headless
-
-# Run specific test files
-npm run test:e2e:deployment
-npm run test:e2e:production-debug
-```
-
-## Linting & Formatting
-
-To lint the codebase:
-```sh
-npm run lint
-# or
-npx nx lint portfolio
-```
-
-To format all files:
-```sh
-npx prettier --write .
-```
-
-## Deployment
-
-This project is configured for deployment on Render. Configuration files:
-- `render.yaml` - Render service configuration
-- `.render-buildpacks` - Buildpack specification
-
-### Deploy to Render
-1. Connect your GitHub repository to Render
-2. Create a new Web Service
-3. Render will automatically detect the configuration
-4. Your site will be available at `https://r-lang-portfolio.onrender.com`
-
-### Alternative Deployment Options
-- **Vercel**: Use `vercel.json` configuration
-- **Netlify**: Use `netlify.toml` configuration
-- **Docker**: Use `Dockerfile` and `docker-compose.yml`
-
-## Environment Setup
-
-Create a `.env.local` file in the `apps/portfolio` directory:
+### Available Scripts
 
 ```bash
-# Resend API Key for email functionality
-RESEND_API_KEY=your_resend_api_key_here
+# Development
+npm run dev              # Start development server
+npm run build            # Build for production
+npm run serve            # Serve production build locally
 
-# GitHub API Token (optional, for higher rate limits)
-GITHUB_TOKEN=your_github_token_here
+# Testing
+npm run test:e2e         # Run E2E tests in interactive mode
+npm run test:e2e:headless # Run E2E tests in CI/CD mode
+npm run test:e2e:production # Test production deployment
+npm run test:e2e:deployment # Test deployment-specific features
 
-# Environment
-NODE_ENV=development
+# Code Quality
+npm run lint             # Run ESLint across the workspace
+
+# Nx Commands
+npx nx dev portfolio     # Start portfolio development server
+npx nx build portfolio   # Build portfolio application
+npx nx e2e r-lang-portfolio-e2e # Run E2E test suite
 ```
 
-## Useful Links
+## 🧪 Testing
+
+Comprehensive E2E testing with Cypress covering:
+- **Functionality** - Navigation, content, and user interactions
+- **Performance** - Load times, responsive design, accessibility
+- **Production** - API endpoints, security headers, cross-browser compatibility
+- **Deployment** - End-to-end deployment validation
+
+### Testing Commands
+```bash
+npm run test:e2e         # Run E2E tests in interactive mode
+npm run test:e2e:headless # Run E2E tests in CI/CD mode
+npm run test:e2e:production # Test production deployment
+npm run test:e2e:deployment # Test deployment-specific features
+```
+
+## 🚀 Deployment
+
+Deployed on **Render** with:
+- **Build caching** for faster deployments
+- **Automatic deployments** from GitHub
+- **Environment variables** for API keys
+
+**Live Portfolio:** [r-lang-portfolio.onrender.com](https://r-lang-portfolio.onrender.com)
+
+### CI/CD Pipeline
+- **GitHub Actions** - Automated testing and deployment workflows
+- **Quality Gates** - Linting, type checking, and E2E tests before deployment
+- **Environment Parity** - Consistent environments from development to production
+
+## 🔧 Environment Setup
+
+Create `.env.local` in `apps/portfolio/`:
+```bash
+RESEND_API_KEY=your_resend_api_key_here
+GITHUB_TOKEN=your_github_token_here  # Optional
+```
+
+## 📚 Useful Links
 
 - [Nx Documentation](https://nx.dev)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [TailwindCSS Documentation](https://tailwindcss.com/docs)
 - [Cypress Documentation](https://docs.cypress.io/)
-- [Jest Documentation](https://jestjs.io/docs/getting-started)
+- [Render Documentation](https://render.com/docs)
+- [Resend Documentation](https://resend.com/docs)
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
-
-
-## Finish your CI setup
-
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/LbpNYs9x6Y)
 
 

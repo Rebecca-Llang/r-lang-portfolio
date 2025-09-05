@@ -30,12 +30,16 @@ jobs:
           node-version: 20.19.1
           cache: 'npm'
 
-      - run: npm ci --legacy-peer-deps
+      - run: npm ci
       - run: npx cypress install
       - uses: nrwl/nx-set-shas@v4
 
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
       # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
-      # When you enable task distribution, run the e2e-ci task instead of e2e
-      - run: npx nx affected -t lint build e2e
+      # Run lint and build first, then e2e tests
+      - run: npx nx affected -t lint build
+      - run: npx nx affected -t e2e --spec="src/e2e/app.cy.ts"
+        env:
+          NODE_ENV: production
+          CI: true

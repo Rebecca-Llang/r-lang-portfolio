@@ -52,7 +52,7 @@ npm run test:e2e:production-debug
 ### Manual Testing
 ```bash
 # Open Cypress UI for interactive testing
-npx cypress open --config-file apps/r-lang-portfolio-e2e/cypress.config.ts
+npx cypress open --config-file apps/r-lang-portfolio-e2e/cypress.config.js
 
 # Run specific test file
 npx nx e2e r-lang-portfolio-e2e --spec="src/e2e/deployment.cy.ts"
@@ -60,8 +60,8 @@ npx nx e2e r-lang-portfolio-e2e --spec="src/e2e/deployment.cy.ts"
 
 ## 🔧 Configuration
 
-### Local Development (`cypress.config.ts`)
-- Base URL: `http://127.0.0.1:3000`
+### Local Development (`cypress.config.js`)
+- Base URL: `http://localhost:3000`
 - Starts local dev server automatically
 - Good for testing during development
 
@@ -125,7 +125,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20.19.1'
       - run: npm ci
       - run: npm run build
       - run: npm run test:e2e:headless

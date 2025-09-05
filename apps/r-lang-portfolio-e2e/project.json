@@ -16,7 +16,7 @@
       },
       "configurations": {
         "production": {
-          "devServerTarget": "portfolio:start"
+          "devServerTarget": "portfolio:serve:production"
         }
       }
     }
