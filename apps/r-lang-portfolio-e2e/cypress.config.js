@@ -11,9 +11,9 @@ export default {
         default: 'npx nx run portfolio:dev',
       },
       ciWebServerCommand: 'npx nx run portfolio:serve:production',
-      ciBaseUrl: 'http://localhost:3000',
+      ciBaseUrl: 'http://localhost:4200',
     }),
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'http://localhost:4200',
     // Please ensure you use `cy.origin()` when navigating between domains and remove this option.
     // See https://docs.cypress.io/app/references/migration-guide#Changes-to-cyorigin
     injectDocumentDomain: true,

@@ -1,7 +1,5 @@
-// next.config.js
-import { withNx } from '@nx/next/plugins/with-nx.js';
-
-/** @type {import('@nx/next/plugins/with-nx').WithNxOptions} */
+// next.config.prod.js - Production config without Nx plugin for deployment
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -13,7 +11,6 @@ const nextConfig = {
       },
     ],
   },
-  nx: { svgr: false },
   // Security configurations
   poweredByHeader: false, // Remove X-Powered-By header
   compress: true, // Enable compression
@@ -24,18 +21,6 @@ const nextConfig = {
   },
   // Optimize build output
   output: 'standalone',
-  // CI-specific optimizations
-  ...(process.env.CI && {
-    // Optimize for CI builds
-    generateBuildId: () => 'ci-build',
-    // Disable source maps in CI for faster builds
-    productionBrowserSourceMaps: false,
-    // Reduce memory usage in CI
-    onDemandEntries: {
-      maxInactiveAge: 25 * 1000,
-      pagesBufferLength: 2,
-    },
-  }),
   // Headers configuration (additional to middleware)
   async headers() {
     return [
@@ -52,4 +37,4 @@ const nextConfig = {
   },
 };
 
-export default withNx(nextConfig);
+export default nextConfig;

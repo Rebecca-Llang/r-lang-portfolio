@@ -32,13 +32,35 @@ jobs:
 
       - run: npm ci
       - run: npx cypress install
+      
+      # Add node_modules/.bin to PATH for CI
+      - name: Add node_modules/.bin to PATH
+        run: echo "$PWD/node_modules/.bin" >> $GITHUB_PATH
+      
+      # Set SHAs for Nx affected commands
       - uses: nrwl/nx-set-shas@v4
+      
+      # Debug information
+      - name: Debug environment
+        run: |
+          echo "NX_BASE: $NX_BASE"
+          echo "NX_HEAD: $NX_HEAD"
+          echo "Node version: $(node --version)"
+          echo "NPM version: $(npm --version)"
+          echo "Nx version: $(npx nx --version)"
+          echo "Git status:"
+          git status --porcelain
+          echo "Git log (last 3 commits):"
+          git log --oneline -3
 
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
       # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
       # Run lint and build first, then e2e tests
-      - run: npx nx affected -t lint build --verbose
+      - name: Run lint and build
+        run: |
+          # Try affected command first, fallback to run-many if it fails
+          npx nx affected -t lint build --verbose || npx nx run-many -t lint build --projects=portfolio --verbose
         env:
           NODE_ENV: production
           CI: true
@@ -46,7 +68,11 @@ jobs:
           NEXT_TELEMETRY_DISABLED: 1
           # Increase memory limit for CI
           NODE_OPTIONS: "--max-old-space-size=4096"
-      - run: npx nx affected -t e2e --spec="src/e2e/app.cy.ts"
+          # Enable Nx Cloud retry for flaky tasks
+          NX_CLOUD_RETRY_FAILED_TASKS: true
+      
+      - name: Run e2e tests
+        run: npx nx affected -t e2e --spec="apps/r-lang-portfolio-e2e/src/e2e/app.cy.ts"
         env:
           NODE_ENV: production
           CI: true

@@ -4,13 +4,15 @@ services:
     env: node
     plan: free
     nodeVersion: 20.19.1
-    buildCommand: npm ci && npx nx build portfolio
+    buildCommand: npm ci && npm run build:render
     startCommand: cd dist/apps/portfolio && next start -p $PORT
     envVars:
       - key: NODE_ENV
         value: production
       - key: NX_VERBOSE_LOGGING
         value: false
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
     healthCheckPath: /
     autoDeploy: true
     buildCache:
