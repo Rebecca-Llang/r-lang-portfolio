@@ -24,6 +24,13 @@ const nextConfig = {
   },
   // Optimize build output
   output: 'standalone',
+  // CI-specific optimizations
+  ...(process.env.CI && {
+    // Disable telemetry in CI
+    telemetry: false,
+    // Optimize for CI builds
+    generateBuildId: () => 'ci-build',
+  }),
   // Headers configuration (additional to middleware)
   async headers() {
     return [
