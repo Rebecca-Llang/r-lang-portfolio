@@ -10,7 +10,7 @@ export default {
       webServerCommands: {
         default: 'npx nx run portfolio:dev',
       },
-      ciWebServerCommand: 'npx nx run portfolio:serve:production',
+      ciWebServerCommand: 'npx nx run portfolio:serve:production --port=4200',
       ciBaseUrl: 'http://localhost:4200',
     }),
     baseUrl: 'http://localhost:4200',

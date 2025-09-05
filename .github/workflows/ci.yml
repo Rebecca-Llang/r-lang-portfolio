@@ -76,3 +76,4 @@ jobs:
         env:
           NODE_ENV: production
           CI: true
+          NEXT_TELEMETRY_DISABLED: 1

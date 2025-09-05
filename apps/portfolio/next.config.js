@@ -17,25 +17,6 @@ const nextConfig = {
   // Security configurations
   poweredByHeader: false, // Remove X-Powered-By header
   compress: true, // Enable compression
-  // Build optimization for caching
-  experimental: {
-    // Enable SWC minification for better performance
-    swcMinify: true,
-  },
-  // Optimize build output
-  output: 'standalone',
-  // CI-specific optimizations
-  ...(process.env.CI && {
-    // Optimize for CI builds
-    generateBuildId: () => 'ci-build',
-    // Disable source maps in CI for faster builds
-    productionBrowserSourceMaps: false,
-    // Reduce memory usage in CI
-    onDemandEntries: {
-      maxInactiveAge: 25 * 1000,
-      pagesBufferLength: 2,
-    },
-  }),
   // Headers configuration (additional to middleware)
   async headers() {
     return [
