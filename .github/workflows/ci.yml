@@ -66,15 +66,15 @@ jobs:
           NODE_OPTIONS: "--max-old-space-size=4096"
           # Enable Nx Cloud retry for flaky tasks
           NX_CLOUD_RETRY_FAILED_TASKS: true
-          # Add API key for CI builds
-          RESEND_API_KEY: "re_test_dummy_key_for_ci"
       
       - name: Restore original config
         run: git checkout apps/portfolio/next.config.js
       
       - name: Run e2e tests
-        run: npx nx affected -t e2e --spec="apps/r-lang-portfolio-e2e/src/e2e/app.cy.ts"
+        run: |
+          git checkout apps/portfolio/next.config.js
+          npx nx affected -t e2e --spec="apps/r-lang-portfolio-e2e/src/e2e/app.cy.ts"
         env:
-          NODE_ENV: production
+          NODE_ENV: development
           CI: true
           NEXT_TELEMETRY_DISABLED: 1

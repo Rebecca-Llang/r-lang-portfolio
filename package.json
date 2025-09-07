@@ -8,10 +8,10 @@
   },
   "scripts": {
     "nx": "nx",
-    "build": "npx nx build portfolio",
+    "build": "cp apps/portfolio/next.config.prod.js apps/portfolio/next.config.js && cd apps/portfolio && npx next build",
     "dev": "npx nx dev portfolio",
     "serve": "npx nx serve portfolio",
-    "start": "cd dist/apps/portfolio && next start -p $PORT",
+    "start": "cd apps/portfolio && next start -p $PORT",
     "lint": "eslint .",
     "test:e2e": "npx nx e2e r-lang-portfolio-e2e",
     "test:e2e:headless": "npx nx e2e r-lang-portfolio-e2e --headless",

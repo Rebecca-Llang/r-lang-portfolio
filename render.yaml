@@ -13,8 +13,6 @@ services:
         value: false
       - key: NEXT_TELEMETRY_DISABLED
         value: "1"
-      - key: RESEND_API_KEY
-        value: "re_test_dummy_key_for_render"
     healthCheckPath: /
     autoDeploy: true
     buildCache:
