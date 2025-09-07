@@ -4,8 +4,8 @@ services:
     env: node
     plan: free
     nodeVersion: 20.19.1
-    buildCommand: npm ci && npm run build:render
-    startCommand: cd dist/apps/portfolio && next start -p $PORT
+    buildCommand: npm ci && rm -rf dist apps/portfolio/.next && cp apps/portfolio/next.config.prod.js apps/portfolio/next.config.js && cd apps/portfolio && npx next build
+    startCommand: cd apps/portfolio && next start -p $PORT
     envVars:
       - key: NODE_ENV
         value: production
@@ -13,6 +13,8 @@ services:
         value: false
       - key: NEXT_TELEMETRY_DISABLED
         value: "1"
+      - key: RESEND_API_KEY
+        value: "re_test_dummy_key_for_render"
     healthCheckPath: /
     autoDeploy: true
     buildCache:

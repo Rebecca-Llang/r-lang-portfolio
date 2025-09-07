@@ -61,8 +61,10 @@ jobs:
         run: |
           # Use production config for CI builds to avoid Nx plugin issues
           cp apps/portfolio/next.config.prod.js apps/portfolio/next.config.js
-          # Try affected command first, fallback to run-many if it fails
-          npx nx affected -t lint build --verbose || npx nx run-many -t lint build --projects=portfolio --verbose
+          # Run lint through Nx (works fine)
+          npx nx affected -t lint --verbose || npx nx run-many -t lint --projects=portfolio --verbose
+          # Run build directly with Next.js to avoid Nx plugin conflicts
+          cd apps/portfolio && npx next build
         env:
           NODE_ENV: production
           CI: true
@@ -72,6 +74,8 @@ jobs:
           NODE_OPTIONS: "--max-old-space-size=4096"
           # Enable Nx Cloud retry for flaky tasks
           NX_CLOUD_RETRY_FAILED_TASKS: true
+          # Add API key for CI builds
+          RESEND_API_KEY: "re_test_dummy_key_for_ci"
       
       - name: Restore original config
         run: git checkout apps/portfolio/next.config.js
