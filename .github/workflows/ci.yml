@@ -59,6 +59,8 @@ jobs:
       # Run lint and build first, then e2e tests
       - name: Run lint and build
         run: |
+          # Use production config for CI builds to avoid Nx plugin issues
+          cp apps/portfolio/next.config.prod.js apps/portfolio/next.config.js
           # Try affected command first, fallback to run-many if it fails
           npx nx affected -t lint build --verbose || npx nx run-many -t lint build --projects=portfolio --verbose
         env:
@@ -70,6 +72,9 @@ jobs:
           NODE_OPTIONS: "--max-old-space-size=4096"
           # Enable Nx Cloud retry for flaky tasks
           NX_CLOUD_RETRY_FAILED_TASKS: true
+      
+      - name: Restore original config
+        run: git checkout apps/portfolio/next.config.js
       
       - name: Run e2e tests
         run: npx nx affected -t e2e --spec="apps/r-lang-portfolio-e2e/src/e2e/app.cy.ts"
