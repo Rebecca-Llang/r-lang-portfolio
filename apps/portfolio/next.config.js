@@ -1,4 +1,3 @@
-// next.config.js
 import { withNx } from '@nx/next/plugins/with-nx.js';
 
 /** @type {import('@nx/next/plugins/with-nx').WithNxOptions} */
