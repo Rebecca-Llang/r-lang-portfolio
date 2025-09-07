@@ -11,7 +11,7 @@
     "build": "cp apps/portfolio/next.config.prod.js apps/portfolio/next.config.js && cd apps/portfolio && npx next build",
     "dev": "npx nx dev portfolio",
     "serve": "npx nx serve portfolio",
-    "start": "cd apps/portfolio && next start -p $PORT",
+    "start": "cd apps/portfolio && next start -p $PORT -H 0.0.0.0",
     "lint": "eslint .",
     "test:e2e": "npx nx e2e r-lang-portfolio-e2e",
     "test:e2e:headless": "npx nx e2e r-lang-portfolio-e2e --headless",

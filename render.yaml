@@ -5,7 +5,7 @@ services:
     plan: free
     nodeVersion: 20.19.1
     buildCommand: npm ci && rm -rf dist apps/portfolio/.next && cp apps/portfolio/next.config.prod.js apps/portfolio/next.config.js && cd apps/portfolio && npx next build
-    startCommand: cd apps/portfolio && next start -p $PORT
+    startCommand: cd apps/portfolio && next start -p $PORT -H 0.0.0.0
     envVars:
       - key: NODE_ENV
         value: production
