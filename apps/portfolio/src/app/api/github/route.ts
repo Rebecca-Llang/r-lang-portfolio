@@ -2,15 +2,18 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    // Fetch GitHub user data
+    const headers: HeadersInit = {
+      Accept: 'application/vnd.github.v3+json',
+      'User-Agent': 'portfolio-app',
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+
     const userResponse = await fetch(
       'https://api.github.com/users/Rebecca-Llang',
-      {
-        headers: {
-          Accept: 'application/vnd.github.v3+json',
-          'User-Agent': 'portfolio-app',
-        },
-      }
+      { headers }
     );
 
     if (!userResponse.ok) {
@@ -19,15 +22,9 @@ export async function GET() {
 
     const userData = await userResponse.json();
 
-    // Fetch repositories
     const reposResponse = await fetch(
       'https://api.github.com/users/Rebecca-Llang/repos?sort=updated&per_page=6',
-      {
-        headers: {
-          Accept: 'application/vnd.github.v3+json',
-          'User-Agent': 'portfolio-app',
-        },
-      }
+      { headers }
     );
 
     if (!reposResponse.ok) {

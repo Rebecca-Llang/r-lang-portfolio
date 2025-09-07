@@ -3,12 +3,23 @@ import { details, repoDisplayNames } from '../constants/project-info';
 
 export async function getRepos() {
   try {
+    const headers: HeadersInit = {
+      Accept: 'application/vnd.github.v3+json',
+      'User-Agent': 'portfolio-app',
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+
     const [personalRes, keaRes] = await Promise.all([
       fetch('https://api.github.com/users/Rebecca-Llang/repos', {
+        headers,
         next: { revalidate: 2000 },
-        //   next: { revalidate: 172800 }, for 48hrs
       }),
-      fetch('https://api.github.com/repos/kea-commerce/kea-commerce'),
+      fetch('https://api.github.com/repos/kea-commerce/kea-commerce', {
+        headers,
+      }),
     ]);
 
     const [personalData, keaData] = await Promise.all([
@@ -58,10 +69,18 @@ export function getFallbackLanguages(repoName: string): string[] {
 
 export async function getLanguages(languagesURL: string, repoName: string) {
   try {
-    const res = await fetch(languagesURL);
+    const headers: HeadersInit = {
+      Accept: 'application/vnd.github.v3+json',
+      'User-Agent': 'portfolio-app',
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+
+    const res = await fetch(languagesURL, { headers });
 
     if (!res.ok) {
-      // console.error(`Failed to fetch languages from ${languagesURL}`);
       return getFallbackLanguages(repoName);
     }
 
@@ -79,17 +98,21 @@ export async function getLanguages(languagesURL: string, repoName: string) {
 
 export const getContributors = async (repoName: string) => {
   try {
-    const token = process.env.GITHUB_TOKEN;
+    const headers: HeadersInit = {
+      Accept: 'application/vnd.github.v3+json',
+      'User-Agent': 'portfolio-app',
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+
     const apiUrl =
       repoName === 'kea-commerce'
         ? 'https://api.github.com/repos/kea-commerce/kea-commerce/contributors'
         : `https://api.github.com/repos/Rebecca-Llang/${repoName}/contributors`;
 
-    const res = await fetch(apiUrl, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const res = await fetch(apiUrl, { headers });
 
     if (!res.ok) {
       // console.error(`Failed to fetch contributors for ${repoName}`);
