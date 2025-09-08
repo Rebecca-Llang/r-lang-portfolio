@@ -17,7 +17,12 @@ export async function GET() {
     );
 
     if (!userResponse.ok) {
-      throw new Error('Failed to fetch GitHub user data');
+      console.error(
+        `GitHub API user error: ${userResponse.status} ${userResponse.statusText}`
+      );
+      throw new Error(
+        `Failed to fetch GitHub user data: ${userResponse.status}`
+      );
     }
 
     const userData = await userResponse.json();
@@ -28,7 +33,12 @@ export async function GET() {
     );
 
     if (!reposResponse.ok) {
-      throw new Error('Failed to fetch GitHub repositories');
+      console.error(
+        `GitHub API repos error: ${reposResponse.status} ${reposResponse.statusText}`
+      );
+      throw new Error(
+        `Failed to fetch GitHub repositories: ${reposResponse.status}`
+      );
     }
 
     const reposData = await reposResponse.json();
