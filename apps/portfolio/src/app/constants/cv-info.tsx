@@ -194,7 +194,6 @@ export const cvInfo: CVinfo[] = [
       'The Bush',
     ].join(' • '),
   },
-  // #TODO update Nora & portfolio to projects
   {
     section: 'Projects',
     title: 'Nora AI',
