@@ -11,16 +11,11 @@ export default {
       ciWebServerCommand: '',
       ciBaseUrl: '',
     }),
-    // Configure this to point to your production URL
-    baseUrl: 'https://rebecca-lang-portfolio.onrender.com', // Your Render production domain
-    // Please ensure you use `cy.origin()` when navigating between domains and remove this option.
-    // See https://docs.cypress.io/app/references/migration-guide#Changes-to-cyorigin
+    baseUrl: 'https://rebecca-lang-portfolio.onrender.com',
     injectDocumentDomain: true,
-    // Increase timeouts for production testing
     defaultCommandTimeout: 10000,
     requestTimeout: 10000,
     responseTimeout: 10000,
-    // Record video and screenshots for debugging
     video: true,
     screenshotOnRunFailure: true,
   },

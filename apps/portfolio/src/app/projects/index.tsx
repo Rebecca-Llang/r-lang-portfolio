@@ -1,16 +1,11 @@
 import { Repo, Peer } from '../models/projects';
-import { details, repoDisplayNames } from '../constants/project-info';
+import { details } from '../constants/project-info';
+import { getGitHubHeaders } from '../utils/github-api';
+import { getFallbackLanguages, getRepoName } from '../utils/repository';
 
 export async function getRepos() {
   try {
-    const headers: HeadersInit = {
-      Accept: 'application/vnd.github.v3+json',
-      'User-Agent': 'portfolio-app',
-    };
-
-    if (process.env.GITHUB_TOKEN) {
-      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-    }
+    const headers = getGitHubHeaders();
 
     const [personalRes, keaRes] = await Promise.all([
       fetch('https://api.github.com/users/Rebecca-Llang/repos', {
@@ -48,34 +43,9 @@ export async function getRepos() {
   }
 }
 
-export function getFallbackLanguages(repoName: string): string[] {
-  const normalName =
-    Object.keys(repoDisplayNames).find(
-      (key) =>
-        key.toLowerCase() === repoName.toLowerCase() ||
-        repoDisplayNames[key].toLowerCase() === repoName.toLowerCase()
-    ) || repoName;
-
-  const projectDetails = details.find(
-    (detail) =>
-      detail.repoName.toLowerCase() === normalName.toLowerCase() ||
-      detail.repoName.toLowerCase().replace(/\s+/g, '-') ===
-        normalName.toLowerCase()
-  );
-
-  return projectDetails?.languages || ['No languages found'];
-}
-
 export async function getLanguages(languagesURL: string, repoName: string) {
   try {
-    const headers: HeadersInit = {
-      Accept: 'application/vnd.github.v3+json',
-      'User-Agent': 'portfolio-app',
-    };
-
-    if (process.env.GITHUB_TOKEN) {
-      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-    }
+    const headers = getGitHubHeaders();
 
     const res = await fetch(languagesURL, { headers });
 
@@ -96,14 +66,7 @@ export async function getLanguages(languagesURL: string, repoName: string) {
 
 export const getContributors = async (repoName: string) => {
   try {
-    const headers: HeadersInit = {
-      Accept: 'application/vnd.github.v3+json',
-      'User-Agent': 'portfolio-app',
-    };
-
-    if (process.env.GITHUB_TOKEN) {
-      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-    }
+    const headers = getGitHubHeaders();
 
     const apiUrl =
       repoName === 'kea-commerce'
@@ -126,6 +89,3 @@ export const getContributors = async (repoName: string) => {
     return [];
   }
 };
-
-export const getRepoName = (repoName: string) =>
-  repoDisplayNames[repoName] || repoName;

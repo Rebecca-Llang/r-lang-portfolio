@@ -1,6 +1,11 @@
 'use server';
 
 import { Resend } from 'resend';
+import {
+  extractFormData,
+  validateEmail,
+  validateRequired,
+} from '../utils/validation';
 
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
@@ -14,11 +19,14 @@ export async function submitContactForm(
     return { error: 'Email service not configured' };
   }
 
-  const email = formData.get('email')?.toString();
-  const message = formData.get('message')?.toString();
+  const { email, message } = extractFormData(formData);
 
-  if (!email || !message) {
+  if (!validateRequired(email) || !validateRequired(message)) {
     return { error: 'Email and message are required' };
+  }
+
+  if (!validateEmail(email!)) {
+    return { error: 'Please enter a valid email address' };
   }
 
   try {

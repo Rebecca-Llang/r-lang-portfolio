@@ -1,15 +1,9 @@
 import { NextResponse } from 'next/server';
+import { getGitHubHeaders } from '../../utils/github-api';
 
 export async function GET() {
   try {
-    const headers: HeadersInit = {
-      Accept: 'application/vnd.github.v3+json',
-      'User-Agent': 'portfolio-app',
-    };
-
-    if (process.env.GITHUB_TOKEN) {
-      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-    }
+    const headers = getGitHubHeaders();
 
     const userResponse = await fetch(
       'https://api.github.com/users/Rebecca-Llang',

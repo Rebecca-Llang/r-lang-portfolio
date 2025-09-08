@@ -1,5 +1,6 @@
 import { contact, cvInfo, cvSections } from '../constants/cv-info';
-import { getRepoName, getRepos } from '../projects';
+import { getRepos } from '../projects';
+import { getRepoName } from '../utils/repository';
 import Icon from '../components/icon-comp';
 
 const repos = await getRepos();

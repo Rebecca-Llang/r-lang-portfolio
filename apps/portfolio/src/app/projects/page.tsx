@@ -1,4 +1,5 @@
-import { getRepos, getContributors, getLanguages, getRepoName } from '.';
+import { getRepos, getContributors, getLanguages } from '.';
+import { getRepoName } from '../utils/repository';
 import { Repo, Peer } from '../models/projects';
 import Image from 'next/image';
 import { FaLink } from 'react-icons/fa';
