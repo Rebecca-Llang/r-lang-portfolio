@@ -35,7 +35,6 @@ export async function submitContactForm(
       email: '',
     };
   } catch (error) {
-    // console.error('Error sending email:', error);
     return {
       error: 'Failed to send email. Please try again.',
       email,

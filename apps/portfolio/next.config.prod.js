@@ -16,7 +16,6 @@ const nextConfig = {
   experimental: {
     swcMinify: true,
   },
-  output: 'standalone',
   async headers() {
     return [
       {

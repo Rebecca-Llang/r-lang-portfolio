@@ -7,6 +7,23 @@ import Icon from '../components/icon-comp';
 export default async function Projects() {
   const repos = await getRepos();
 
+  // Handle case where GitHub API fails during build
+  if (!repos || repos.length === 0) {
+    return (
+      <div className="container mx-auto max-w-[90%] px-4">
+        <div className="text-center pt-5 pb-5">
+          <h1>Projects</h1>
+          <h2>My Github Projects</h2>
+        </div>
+        <div className="text-center py-8">
+          <p className="text-gray-600">
+            Unable to load projects at the moment. Please try again later.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   const fullRepos = await Promise.all(
     repos.map(async (repo: Repo) => {
       const [languages, collaborators] = await Promise.all([

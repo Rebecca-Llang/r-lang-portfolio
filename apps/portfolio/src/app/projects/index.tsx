@@ -44,7 +44,6 @@ export async function getRepos() {
 
     return reposWithDetails;
   } catch (error) {
-    // console.error('Error fetching repos:', error);
     return [];
   }
 }
@@ -91,7 +90,6 @@ export async function getLanguages(languagesURL: string, repoName: string) {
       ? repoLanguages
       : getFallbackLanguages(repoName);
   } catch (error) {
-    // console.error('Error fetching languages:', error);
     return getFallbackLanguages(repoName);
   }
 }
@@ -115,7 +113,6 @@ export const getContributors = async (repoName: string) => {
     const res = await fetch(apiUrl, { headers });
 
     if (!res.ok) {
-      // console.error(`Failed to fetch contributors for ${repoName}`);
       return [];
     }
 
@@ -126,7 +123,6 @@ export const getContributors = async (repoName: string) => {
       avatar_url: peer.avatar_url,
     }));
   } catch (error) {
-    // console.error('Error fetching contributors:', error);
     return [];
   }
 };
