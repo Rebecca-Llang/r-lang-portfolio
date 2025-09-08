@@ -20,7 +20,6 @@ export default function ContactForm() {
       setState(result);
     } catch (error) {
       setState({ error: 'Something went wrong. Please try again.' });
-      // console.error(error);
     } finally {
       setIsLoading(false);
     }

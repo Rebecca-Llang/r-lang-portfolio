@@ -1,14 +1,20 @@
 import { Repo, Peer } from '../models/projects';
-import { details, repoDisplayNames } from '../constants/project-info';
+import { details } from '../constants/project-info';
+import { getGitHubHeaders } from '../utils/github-api';
+import { getFallbackLanguages, getRepoName } from '../utils/repository';
 
 export async function getRepos() {
   try {
+    const headers = getGitHubHeaders();
+
     const [personalRes, keaRes] = await Promise.all([
       fetch('https://api.github.com/users/Rebecca-Llang/repos', {
+        headers,
         next: { revalidate: 2000 },
-        //   next: { revalidate: 172800 }, for 48hrs
       }),
-      fetch('https://api.github.com/repos/kea-commerce/kea-commerce'),
+      fetch('https://api.github.com/repos/kea-commerce/kea-commerce', {
+        headers,
+      }),
     ]);
 
     const [personalData, keaData] = await Promise.all([
@@ -33,35 +39,17 @@ export async function getRepos() {
 
     return reposWithDetails;
   } catch (error) {
-    // console.error('Error fetching repos:', error);
     return [];
   }
 }
 
-export function getFallbackLanguages(repoName: string): string[] {
-  const normalName =
-    Object.keys(repoDisplayNames).find(
-      (key) =>
-        key.toLowerCase() === repoName.toLowerCase() ||
-        repoDisplayNames[key].toLowerCase() === repoName.toLowerCase()
-    ) || repoName;
-
-  const projectDetails = details.find(
-    (detail) =>
-      detail.repoName.toLowerCase() === normalName.toLowerCase() ||
-      detail.repoName.toLowerCase().replace(/\s+/g, '-') ===
-        normalName.toLowerCase()
-  );
-
-  return projectDetails?.languages || ['No languages found'];
-}
-
 export async function getLanguages(languagesURL: string, repoName: string) {
   try {
-    const res = await fetch(languagesURL);
+    const headers = getGitHubHeaders();
+
+    const res = await fetch(languagesURL, { headers });
 
     if (!res.ok) {
-      // console.error(`Failed to fetch languages from ${languagesURL}`);
       return getFallbackLanguages(repoName);
     }
 
@@ -72,27 +60,22 @@ export async function getLanguages(languagesURL: string, repoName: string) {
       ? repoLanguages
       : getFallbackLanguages(repoName);
   } catch (error) {
-    // console.error('Error fetching languages:', error);
     return getFallbackLanguages(repoName);
   }
 }
 
 export const getContributors = async (repoName: string) => {
   try {
-    const token = process.env.GITHUB_TOKEN;
+    const headers = getGitHubHeaders();
+
     const apiUrl =
       repoName === 'kea-commerce'
         ? 'https://api.github.com/repos/kea-commerce/kea-commerce/contributors'
         : `https://api.github.com/repos/Rebecca-Llang/${repoName}/contributors`;
 
-    const res = await fetch(apiUrl, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const res = await fetch(apiUrl, { headers });
 
     if (!res.ok) {
-      // console.error(`Failed to fetch contributors for ${repoName}`);
       return [];
     }
 
@@ -103,10 +86,6 @@ export const getContributors = async (repoName: string) => {
       avatar_url: peer.avatar_url,
     }));
   } catch (error) {
-    // console.error('Error fetching contributors:', error);
     return [];
   }
 };
-
-export const getRepoName = (repoName: string) =>
-  repoDisplayNames[repoName] || repoName;
