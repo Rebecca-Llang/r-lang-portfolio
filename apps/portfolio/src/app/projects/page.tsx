@@ -8,7 +8,6 @@ import Icon from '../components/icon-comp';
 export default async function Projects() {
   const repos = await getRepos();
 
-  // Handle case where GitHub API fails during build
   if (!repos || repos.length === 0) {
     return (
       <div className="container mx-auto max-w-[90%] px-4">
