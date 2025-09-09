@@ -12,6 +12,7 @@ export default {
       ciBaseUrl: '',
     }),
     baseUrl: 'https://rebecca-lang-portfolio.onrender.com',
+    supportFile: 'src/support/e2e.ts',
     injectDocumentDomain: true,
     defaultCommandTimeout: 10000,
     requestTimeout: 10000,

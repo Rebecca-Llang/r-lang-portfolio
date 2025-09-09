@@ -13,11 +13,11 @@
     "serve": "npx nx serve portfolio",
     "start": "cd apps/portfolio && next start -p $PORT -H 0.0.0.0",
     "lint": "eslint .",
-    "test:e2e": "npx nx e2e r-lang-portfolio-e2e",
-    "test:e2e:headless": "npx nx e2e r-lang-portfolio-e2e --headless",
-    "test:e2e:production": "cypress run --config-file apps/r-lang-portfolio-e2e/cypress.production.config.ts",
-    "test:e2e:deployment": "npx nx e2e r-lang-portfolio-e2e --spec=\"apps/r-lang-portfolio-e2e/src/e2e/deployment.cy.ts\"",
-    "test:e2e:production-debug": "cypress run --config-file apps/r-lang-portfolio-e2e/cypress.production.config.ts --spec=\"apps/r-lang-portfolio-e2e/src/e2e/production.cy.ts\""
+    "test": "npx nx e2e r-lang-portfolio-e2e",
+    "test:ci": "npx nx e2e r-lang-portfolio-e2e",
+    "test:production": "cypress run --config-file apps/r-lang-portfolio-e2e/cypress.production.config.ts",
+    "test:deployment": "npx nx e2e r-lang-portfolio-e2e --spec=\"apps/r-lang-portfolio-e2e/src/e2e/deployment.cy.ts\"",
+    "test:debug": "cypress run --config-file apps/r-lang-portfolio-e2e/cypress.production.config.ts --spec=\"apps/r-lang-portfolio-e2e/src/e2e/production.cy.ts\""
   },
   "type": "module",
   "private": true,
