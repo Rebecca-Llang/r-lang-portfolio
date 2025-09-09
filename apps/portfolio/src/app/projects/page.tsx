@@ -37,7 +37,7 @@ export default async function Projects() {
         ogRepoName: repo.name,
         name: getRepoName(repo.name),
         html_url: repo.html_url,
-        description: repo.description || 'N/A',
+        description: repo.description || repo.details?.details || 'N/A',
         updated_at: repo.updated_at,
         languages,
         collaborators,

@@ -4,7 +4,7 @@ export const details: Details[] = [
   {
     repoName: 'My Karaoke Playlist',
     details:
-      'This full stack personal project connects lets users build and manage their own personal karaoke playlist. Songs are able to be filtered by decade and genre.',
+      'This full stack personal project lets users build and manage their own personal karaoke playlist. Songs are able to be filtered by decade and genre.',
     role: 'Personal Project',
     languages: [
       'TypeScript',

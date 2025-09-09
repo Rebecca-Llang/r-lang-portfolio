@@ -199,7 +199,8 @@ export const cvInfo: CVinfo[] = [
     title: 'Nora AI',
     date: '2025 - ongoing',
     subtitle: 'Personal project with mentor support',
-    content: 'Nora is incredible',
+    content:
+      'Nora is an AI agent whose role is to support, advise and chat as an ADHD/life coach. Her learning journey is based on kindness, science and collaboration.',
     details: 'Technologies Used: Python, Ollama, ',
   },
   {
@@ -238,7 +239,7 @@ export const cvInfo: CVinfo[] = [
     date: '2024',
     subtitle: 'Product Owner and Programmer',
     content:
-      'This full stack personal project connects to the Spotify API and allows users to build and manage their own personal karaoke playlist. Songs are able to be filtered by decade and genre. The app also features a chatgpt integration to generate playlists based on a selection of songs.',
+      'This full stack personal project allows users to build and manage their own personal karaoke playlist. Songs are able to be filtered by decade and genre. The app also features a chatgpt integration to generate playlists based on a selection of songs.',
     details:
       'Technologies Used: React.js, Typescript, Node.js, Express & Knex.js/SQLite3, Vitest',
   },
