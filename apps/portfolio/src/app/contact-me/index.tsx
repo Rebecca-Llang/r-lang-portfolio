@@ -39,7 +39,7 @@ export default function ContactForm() {
           defaultValue={state.name}
           required
           placeholder=" your name"
-          className="pl-2 mr-1 text-accent min-w-80 min-h-10"
+          className="pl-2 mr-1 text-text min-w-80 min-h-10 border border-accent rounded"
         ></input>
       </div>
       <div className="pr-2 pb-2">
@@ -54,7 +54,7 @@ export default function ContactForm() {
           defaultValue={state.email}
           required
           placeholder=" your@email.com"
-          className="pl-2 text-accent min-w-80 min-h-10"
+          className="pl-2 text-text min-w-80 min-h-10 border border-accent rounded"
         ></input>
       </div>
       <div className="flex flex-col-2 mr-7">
@@ -69,7 +69,7 @@ export default function ContactForm() {
           defaultValue={state.message}
           placeholder="Type your message here..."
           rows={8}
-          className="pl-2 pt-2 mr-3 text-accent min-w-80 min-h-80"
+          className="pl-2 pt-2 mr-3 text-text min-w-80 min-h-80 border border-accent rounded"
         />
       </div>
 

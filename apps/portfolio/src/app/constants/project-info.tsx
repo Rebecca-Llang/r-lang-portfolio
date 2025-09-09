@@ -14,6 +14,7 @@ export const details: Details[] = [
       'Dockerfile',
       'Procfile',
     ],
+    frameworks: ['React', 'Express', 'Knex.js', 'SQLite3', 'Vitest'],
   },
   {
     repoName: 'DonateMate',
@@ -28,6 +29,8 @@ export const details: Details[] = [
       'Dockerfile',
       'Procfile',
     ],
+    frameworks: ['React', 'Express', 'Knex.js', 'SQLite3'],
+    apis: ['Auth0', 'Google Maps API'],
   },
   {
     repoName: 'Kea Commerce',
@@ -35,6 +38,8 @@ export const details: Details[] = [
     details:
       'A  e-commerce site created and built by a 3 person group.  With a high-quality UE,  database and eventual admin portal. Using Agile, Kanban,  user stories and a learning focused approach to build a polished, functional app with industry standard checks from a experienced technical lead.',
     languages: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
+    frameworks: ['NX', 'React', 'React Query', 'Tailwind CSS'],
+    apis: ['React Query Dev Tools'],
   },
   {
     repoName: 'Nora AI',
@@ -42,6 +47,8 @@ export const details: Details[] = [
     details:
       'Nora is my AI agent who supports me in my life. An ongoing project exploring AI capabilities and personal assistance.',
     languages: ['Python'],
+    frameworks: ['Ollama', 'Python'],
+    apis: ['AI/LLM APIs'],
   },
   {
     repoName: "Rebecca Lang's Portfolio",
@@ -49,6 +56,8 @@ export const details: Details[] = [
     details:
       'My personal portfolio is built using an NX monorepo and integrates the GitHub API to showcase my projects dynamically. It features React, TypeScript, and Tailwind CSS, with plans for a styling update to enhance the user experience. I also aim to incorporate an AI agent in the future, expanding its functionality and allowing for direct engagement with my portfolio.',
     languages: ['TypeScript', 'JavaScript', 'CSS'],
+    frameworks: ['Next.js', 'React', 'Tailwind CSS', 'NX'],
+    apis: ['GitHub API', 'Resend API', 'Render'],
   },
   {
     repoName: 'Kairos AI',
@@ -56,6 +65,8 @@ export const details: Details[] = [
     details:
       'Kairos is my AI agent whose role is that of an ADHD/Life coach. Born and adapted from the Luna AI project. Luna was created for my friend ZanKris, who was Product Owner while I led and skill shared the development. Kairos is a personalised agent, inspired by a combination of Nora and Luna.',
     languages: ['Python'],
+    frameworks: ['Ollama', 'Python'],
+    apis: ['AI/LLM APIs'],
   },
 ];
 

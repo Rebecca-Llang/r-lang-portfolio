@@ -139,7 +139,7 @@ npm run serve            # Serve production build locally
 
 # Testing
 npm run test         # Run E2E tests in interactive mode
-npm run test:headless # Run E2E tests in CI/CD mode
+npm run test:ci      # Run E2E tests in CI/CD mode
 npm run test:production # Test production deployment
 npm run test:deployment # Test deployment-specific features
 
@@ -163,7 +163,7 @@ Comprehensive E2E testing with Cypress covering:
 ### Testing Commands
 ```bash
 npm run test         # Run E2E tests in interactive mode
-npm run test:headless # Run E2E tests in CI/CD mode
+npm run test:ci      # Run E2E tests in CI/CD mode
 npm run test:production # Test production deployment
 npm run test:deployment # Test deployment-specific features
 ```

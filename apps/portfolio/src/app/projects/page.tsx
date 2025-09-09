@@ -60,9 +60,13 @@ export default async function Projects() {
         {orderedRepos.map((repo) => (
           <li
             key={repo.id}
-            className="border-2 border-eggshell border-opacity-30 rounded-md p-4 mb-6"
+            className="relative border-2 border-eggshell border-opacity-30 rounded-md p-4 mb-6 overflow-hidden"
           >
-            <div className="p-6">
+            <div
+              className="absolute inset-0 rounded-md opacity-5 pointer-events-none"
+              style={{ backgroundColor: '#A67C52' }}
+            />
+            <div className="relative p-6">
               <h3 className="pr-4 pb-5">{repo.name}</h3>
 
               <p className="pb-3 flex items-center gap-1">
@@ -98,6 +102,34 @@ export default async function Projects() {
                     ))
                   : 'N/A'}
               </p>
+
+              {repo.details.frameworks && (
+                <p className="flex flex-wrap gap-2 pb-4">
+                  Frameworks:{' '}
+                  {repo.details.frameworks.map((framework, index) => (
+                    <span
+                      key={index}
+                      className="bg-accent text-white text-sm px-3 py-1 rounded-full"
+                    >
+                      {framework}
+                    </span>
+                  ))}
+                </p>
+              )}
+
+              {repo.details.apis && (
+                <p className="flex flex-wrap gap-2 pb-4">
+                  APIs:{' '}
+                  {repo.details.apis.map((api, index) => (
+                    <span
+                      key={index}
+                      className="bg-accent text-white text-sm px-3 py-1 rounded-full"
+                    >
+                      {api}
+                    </span>
+                  ))}
+                </p>
+              )}
 
               <p>Contributors:</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 items-center pb-6">
