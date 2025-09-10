@@ -83,6 +83,18 @@ export default function CV() {
                             </h3>
                           )
                       )}
+                      {info.demoLink && (
+                        <p className="mt-2">
+                          <a
+                            href={info.demoLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-accent flex items-center gap-1"
+                          >
+                            Live Demo →
+                          </a>
+                        </p>
+                      )}
                       <p className="mt-2">
                         {info.subtitle + '  |  ' + info.date}
                       </p>

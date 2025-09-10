@@ -82,6 +82,21 @@ export default async function Projects() {
                 </a>
               </p>
 
+              {repo.details.demoLink && (
+                <p className="pb-3 flex items-center gap-1">
+                  Live Demo:
+                  <a
+                    href={repo.details.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover-grow h3 flex items-center gap-1 text-accent"
+                  >
+                    View Live Demo
+                    <Icon icon={<FaLink size={16} />} />
+                  </a>
+                </p>
+              )}
+
               <p className="pb-3">Role: {repo.details.role}</p>
               <p className="pb-3">
                 Description: {repo.description || 'No description available.'}

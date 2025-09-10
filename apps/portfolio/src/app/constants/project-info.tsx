@@ -31,6 +31,7 @@ export const details: Details[] = [
     ],
     frameworks: ['React', 'Express', 'Knex.js', 'SQLite3'],
     apis: ['Auth0', 'Google Maps API'],
+    demoLink: 'https://donatemate.pushed.nz',
   },
   {
     repoName: 'Kea Commerce',
@@ -43,7 +44,7 @@ export const details: Details[] = [
   },
   {
     repoName: 'Nora AI',
-    role: 'Personal Project supported by Mentor',
+    role: 'Personal Project',
     details:
       'Nora is my AI agent who supports me in my life. An ongoing project exploring AI capabilities and personal assistance.',
     languages: ['Python'],

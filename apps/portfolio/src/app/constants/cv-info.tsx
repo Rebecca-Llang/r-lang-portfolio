@@ -94,7 +94,7 @@ export const cvInfo: CVinfo[] = [
     date: '2024',
     subtitle: 'Immersive 17-week full stack development bootcamp',
     content:
-      'Developed a range of technical and project management skills through hands-on coding and collaboration. Engaged in solo programming, pair programming, and group projects (3-7 members), using Agile methodologies to plan and build applications.Led group projects as Product Owner, improving team coordination and fostering effective communication. Gained experience in JavaScript, TypeScript, HTML, CSS, React.js, Node.js, RESTful APIs, Vitest, Superagent, Express, Knex.js & SQLite3, Git, Github and npm. Emphasised soft skills such as active listening, empathy, and courageous conversations to navigate team dynamics and project challenges.',
+      'Developed a range of technical and project management skills through hands-on coding and collaboration. Engaged in solo programming, pair programming, and group projects (3-7 members), using Agile methodologies to plan and build applications. Led group projects as Product Owner, improving team coordination and fostering effective communication. Gained experience in JavaScript, TypeScript, HTML, CSS, React.js, Node.js, RESTful APIs, Vitest, Superagent, Express, Knex.js & SQLite3, Git, Github and npm. Emphasised soft skills such as active listening, empathy, and courageous conversations to navigate team dynamics and project challenges.',
   },
   {
     section: 'Experience',
@@ -224,6 +224,7 @@ Warm, curious and enthusiastic, I thrive in collaborative teams and knowledge sh
       'I led the design, planning  and presentation of DonateMate. This app allowed donors to filter organisations by donation type, and provided profiles for donation centres to share and prioritise needs. I worked on Auth0, Maps API, and filtering by donation type. As well as a vertical slice through the organisation profile page to the database. As PO, I allocated tickets, refined scope and supported my team through their own tickets. I managed group time and availability, to maximise the final product.',
     details:
       'Technologies Used: React, TypeScript, Node.js, Express, Google Maps API & Knex.js/SQLite3',
+    demoLink: 'https://donatemate.pushed.nz',
   },
   {
     section: 'Projects',

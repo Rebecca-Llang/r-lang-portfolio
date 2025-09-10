@@ -7,6 +7,7 @@ export type CVinfo = {
   subtitle: string;
   content: string;
   details?: string;
+  demoLink?: string;
 };
 
 export type Contact = {

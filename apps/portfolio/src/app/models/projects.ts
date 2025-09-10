@@ -13,6 +13,7 @@ export interface Repo {
     languages: string[];
     frameworks?: string[];
     apis?: string[];
+    demoLink?: string;
   };
 }
 
@@ -23,6 +24,7 @@ export type Details = {
   languages: string[];
   frameworks?: string[];
   apis?: string[];
+  demoLink?: string;
 };
 
 export type Peer = {
