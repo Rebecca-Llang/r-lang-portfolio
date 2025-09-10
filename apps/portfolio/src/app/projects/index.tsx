@@ -1,7 +1,7 @@
-import { Repo, Peer } from '../models/projects';
-import { details } from '../constants/project-info';
+import { GitHubRepo, Collaborator } from '../models/projects';
+import { getProjectByRepoName } from '../constants/projects';
 import { getGitHubHeaders } from '../utils/github-api';
-import { getFallbackLanguages, getRepoName } from '../utils/repository';
+import { getFallbackLanguages } from '../utils/repository';
 
 export async function getRepos() {
   try {
@@ -23,25 +23,40 @@ export async function getRepos() {
     ]);
 
     const personalRepos = personalData.filter(
-      (repo: Repo) => !repo.private && !repo.name.includes('Rebecca-LLang')
+      (repo: GitHubRepo) =>
+        !repo.private && !repo.name.includes('Rebecca-LLang')
     );
 
-    const reposWithDetails = [...personalRepos, keaData].map((repo: Repo) => {
-      const repoDetails = details.find(
-        (d) => getRepoName(repo.name) === d.repoName
-      ) || {
-        details: 'N/A',
-        role: 'N/A',
-        languages: [],
-        frameworks: [],
-        apis: [],
-      };
+    const reposWithDetails = [...personalRepos, keaData].map(
+      (repo: GitHubRepo) => {
+        const projectData = getProjectByRepoName(repo.name);
 
-      return {
-        ...repo,
-        details: repoDetails,
-      };
-    });
+        if (!projectData) {
+          return {
+            ...repo,
+            details: {
+              details: 'N/A',
+              role: 'N/A',
+              languages: [],
+              frameworks: [],
+              apis: [],
+            },
+          };
+        }
+
+        return {
+          ...repo,
+          details: {
+            details: projectData.description,
+            role: projectData.role,
+            languages: projectData.technologies.languages,
+            frameworks: projectData.technologies.frameworks,
+            apis: projectData.technologies.apis,
+            demoLink: projectData.demoLink,
+          },
+        };
+      }
+    );
 
     return reposWithDetails;
   } catch (error) {
@@ -86,7 +101,7 @@ export const getContributors = async (repoName: string) => {
     }
 
     const contributors = await res.json();
-    return contributors.map((peer: Peer) => ({
+    return contributors.map((peer: Collaborator) => ({
       login: peer.login,
       html_url: peer.html_url,
       avatar_url: peer.avatar_url,

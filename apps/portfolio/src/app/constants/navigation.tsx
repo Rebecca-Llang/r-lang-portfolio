@@ -1,9 +1,9 @@
-import { NavLink } from '../models/nav';
-
-export const navLinks: NavLink[] = [
+export const navLinks = [
   { href: '/', title: 'Home' },
   { href: '/about-me', title: 'About Me' },
   { href: '/cv', title: 'CV' },
   { href: '/projects', title: 'Projects' },
   { href: '/contact-me', title: 'Contact Me' },
-];
+] as const;
+
+export type NavLink = (typeof navLinks)[number];

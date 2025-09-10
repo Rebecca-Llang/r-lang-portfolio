@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { navLinks } from '../constants/navigation';
-import { contact } from '../constants/cv-info';
+import { contact } from '../constants/cv-data';
 import Link from 'next/link';
 import Icon from './icon-comp';
 

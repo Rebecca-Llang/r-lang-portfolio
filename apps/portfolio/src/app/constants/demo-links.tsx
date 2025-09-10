@@ -1,6 +1,4 @@
-import { DemoLink } from '../models/demo-links';
-
-export const demoLinks: DemoLink[] = [
+export const demoLinks = [
   {
     projectName: 'DonateMate',
     liveUrl: 'https://donatemate.pushed.nz',
@@ -13,6 +11,6 @@ export const demoLinks: DemoLink[] = [
   },
 ];
 
-export const getDemoLink = (projectName: string): DemoLink | undefined => {
+export const getDemoLink = (projectName: string) => {
   return demoLinks.find((demo) => demo.projectName === projectName);
 };

@@ -1,4 +1,34 @@
-export interface Repo {
+export interface Project {
+  id: string;
+  name: string;
+  githubRepo: string;
+  description: string;
+  role: ProjectRole;
+  technologies: {
+    languages: string[];
+    frameworks?: string[];
+    apis?: string[];
+  };
+  demoLink?: string;
+  collaborators?: Collaborator[];
+  lastUpdated: string;
+  cvDescription?: string;
+  cvDetails?: string;
+}
+
+export enum ProjectRole {
+  PERSONAL = 'Personal Project',
+  GROUP_PO = 'Group Project: Product Owner and Programmer',
+  GROUP_DEV = 'Group Project: Developer, Collaborator and Programmer',
+}
+
+export interface Collaborator {
+  avatar_url: string;
+  html_url: string;
+  login: string;
+}
+
+export interface GitHubRepo {
   id: number;
   name: string;
   html_url: string;
@@ -7,28 +37,13 @@ export interface Repo {
   languages_url: string;
   private: boolean;
   avatar_url: string;
-  details?: {
-    details: string;
-    role: string;
-    languages: string[];
-    frameworks?: string[];
-    apis?: string[];
-    demoLink?: string;
-  };
 }
 
-export type Details = {
-  repoName: string;
-  details: string;
-  role: string;
-  languages: string[];
-  frameworks?: string[];
-  apis?: string[];
-  demoLink?: string;
-};
-
-export type Peer = {
-  avatar_url: string;
-  html_url: string;
-  login: string;
+export const repoDisplayNames: Record<string, string> = {
+  'my-karaoke-playlist': 'My Karaoke Playlist',
+  'donate-mate': 'DonateMate',
+  'r-lang-portfolio': "Rebecca Lang's Portfolio",
+  'kea-commerce': 'Kea Commerce',
+  'nora-ai': 'Nora AI',
+  'kairos-ai': 'Kairos AI',
 };
