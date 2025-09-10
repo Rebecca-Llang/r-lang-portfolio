@@ -125,7 +125,9 @@ export const cvInfo: CVinfo[] = [
     title: 'About Me',
     date: '2025',
     subtitle: 'About Me',
-    content: `Kia ora! I'm Rebecca, a full stack software developer passionate about people and creating user-centric solutions. My curiosity about technology, particularly how it's built and refined to serve users, led me to pursue a career in this field. I graduated from Dev Academy, where I gained hands-on experience across the full tech stack, developing skills in modern technologies, Agile methodologies, and collaborative development. My final project focused heavily on web accessibility and UX, areas that continue to inspire my work. My enthusiasm for development has only deepened since. I'm excited to apply my technical and interpersonal skills in real-world projects. Currently, I'm actively involved in building an e-commerce site as part of a small group project, where I'm learning .NET and C# to expand my full stack capabilities. With a background in customer service and management, I excel in team settings, balancing kindness with efficiency. I'm committed to continuous learning and eager to take on new challenges in my first web development role.`,
+    content: `Kia ora! I’m Rebecca, a full-stack software engineer passionate about people and user-focused solutions. I graduated from Dev Academy, gaining hands-on experience across the full stack with modern technologies, Agile practices, and collaborative development. Since then, I’ve built projects including an e-commerce site, my personal portfolio and AI chatbots, sharpening my skills in frontend and backend development, CI/CD pipelines, and testing.
+Warm, curious and enthusiastic, I thrive in collaborative teams and knowledge sharing environments, while also enjoying independent problem-solving. With a background in customer service and management, I bring strong interpersonal skills, adaptability, and a commitment to continuous learning. I’m driven to create software that is accessible, inclusive, and genuinely useful.
+`,
   },
   {
     section: 'Skills',
@@ -199,7 +201,8 @@ export const cvInfo: CVinfo[] = [
     title: 'Nora AI',
     date: '2025 - ongoing',
     subtitle: 'Personal project with mentor support',
-    content: 'Nora is incredible',
+    content:
+      'Nora is an AI agent whose role is to support, advise and chat as an ADHD/life coach. Her learning journey is based on kindness, science and collaboration.',
     details: 'Technologies Used: Python, Ollama, ',
   },
   {
@@ -208,7 +211,7 @@ export const cvInfo: CVinfo[] = [
     date: '2025 - ongoing',
     subtitle: 'Personal project',
     content:
-      'Portfolio to show my skills in the fullstack and ai arena. Learn all about Rebecca Lang and the fruits of her computer',
+      'A modern, responsive portfolio site showcasing fullstack development skills. Includes dynamic GitHub integration, contact forms with Resend API, and comprehensive E2E testing with Cypress.',
     details:
       'Technologies Used: React, TypeScript, NX, Next.js, Github & Resend API, Tailwind CSS',
   },
@@ -238,7 +241,7 @@ export const cvInfo: CVinfo[] = [
     date: '2024',
     subtitle: 'Product Owner and Programmer',
     content:
-      'This full stack personal project connects to the Spotify API and allows users to build and manage their own personal karaoke playlist. Songs are able to be filtered by decade and genre. The app also features a chatgpt integration to generate playlists based on a selection of songs.',
+      'This full stack personal project allows users to build and manage their own personal karaoke playlist. Songs are able to be filtered by decade and genre. The app also features a chatgpt integration to generate playlists based on a selection of songs.',
     details:
       'Technologies Used: React.js, Typescript, Node.js, Express & Knex.js/SQLite3, Vitest',
   },

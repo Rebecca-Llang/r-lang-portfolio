@@ -29,7 +29,13 @@ export async function getRepos() {
     const reposWithDetails = [...personalRepos, keaData].map((repo: Repo) => {
       const repoDetails = details.find(
         (d) => getRepoName(repo.name) === d.repoName
-      ) || { details: 'N/A', role: 'N/A' };
+      ) || {
+        details: 'N/A',
+        role: 'N/A',
+        languages: [],
+        frameworks: [],
+        apis: [],
+      };
 
       return {
         ...repo,

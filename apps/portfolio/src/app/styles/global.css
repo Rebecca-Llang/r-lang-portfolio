@@ -5,23 +5,23 @@
 /* ===== Base Layer Styles ===== */
 @layer base {
   body {
-    @apply bg-background text-text min-h-screen m-0 p-0;
+    @apply min-h-screen m-0 p-0 bg-background text-text;
   }
 
   h1 {
-    @apply text-h1 text-primary mb-6 mt-0;
+    @apply mb-6 mt-0 text-h1 text-primary;
   }
 
   h2 {
-    @apply text-h2 text-secondary mb-4 mt-0;
+    @apply mb-4 mt-0 text-h2 text-secondary;
   }
 
   h3 {
-    @apply text-h3 text-accent mb-2 mt-0;
+    @apply mb-2 mt-0 text-h3 text-accent;
   }
 
   p {
-    @apply text-base text-text leading-relaxed mb-4;
+    @apply text-base leading-relaxed mb-4 text-text;
   }
 
   a {

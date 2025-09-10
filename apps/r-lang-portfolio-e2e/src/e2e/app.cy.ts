@@ -16,25 +16,25 @@ describe('r-lang-portfolio-e2e', () => {
   // navigation tests
 
   it('should have a working navigation link to contact page', () => {
-    cy.get('a[href*="contact-me"][data-testid="/contact-me"]').click();
+    cy.get('a[data-testid="/contact-me"]').click();
     cy.wait(1000); // Wait for navigation to complete
     cy.url().should('include', '/contact-me');
   });
 
   it('should have a working navigation link to cv page', () => {
-    cy.get('a[href*="cv"][data-testid="/cv"]').click();
+    cy.get('a[data-testid="/cv"]').click();
     cy.wait(1000); // Wait for navigation to complete
     cy.url().should('include', '/cv');
   });
 
   it('should have a working navigation link to about me page', () => {
-    cy.get('a[href*="about-me"][data-testid="/about-me"]').click();
+    cy.get('a[data-testid="/about-me"]').click();
     cy.wait(1000); // Wait for navigation to complete
     cy.url().should('include', '/about-me');
   });
 
   it('should have a working navigation link to projects page', () => {
-    cy.get('a[href*="projects"][data-testid="/projects"]').click();
+    cy.get('a[data-testid="/projects"]').click();
     cy.wait(1000); // Wait for navigation to complete
     cy.url().should('include', '/projects');
   });

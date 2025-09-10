@@ -10,6 +10,9 @@ export interface Repo {
   details?: {
     details: string;
     role: string;
+    languages: string[];
+    frameworks?: string[];
+    apis?: string[];
   };
 }
 
@@ -18,6 +21,8 @@ export type Details = {
   details: string;
   role: string;
   languages: string[];
+  frameworks?: string[];
+  apis?: string[];
 };
 
 export type Peer = {

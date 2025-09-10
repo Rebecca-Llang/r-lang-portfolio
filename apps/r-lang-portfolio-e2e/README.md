@@ -31,22 +31,22 @@ This directory contains end-to-end tests to help debug deployment issues and ens
 ### Local Development Testing
 ```bash
 # Run all E2E tests against local development server
-npm run test:e2e
+npm run test
 
 # Run tests in headless mode (for CI/CD)
-npm run test:e2e:headless
+npm run test:ci
 
 # Run only deployment health checks
-npm run test:e2e:deployment
+npm run test:deployment
 ```
 
 ### Production Testing
 ```bash
 # Test against production deployment
-npm run test:e2e:production
+npm run test:production
 
 # Run production debugging tests
-npm run test:e2e:production-debug
+npm run test:debug
 ```
 
 ### Manual Testing
@@ -128,14 +128,14 @@ jobs:
           node-version: '20.19.1'
       - run: npm ci
       - run: npm run build
-      - run: npm run test:e2e:headless
+      - run: npm run test:ci
 ```
 
 ### Render Integration
 ```json
 {
   "scripts": {
-    "render-build": "npm run build && npm run test:e2e:headless"
+    "render-build": "npm run build && npm run test:ci"
   }
 }
 ```
@@ -183,8 +183,8 @@ it('should handle new feature correctly', () => {
 
 When deployment issues occur, run these tests in order:
 
-1. **Basic functionality**: `npm run test:e2e:deployment`
-2. **Production health**: `npm run test:e2e:production-debug`
+1. **Basic functionality**: `npm run test:deployment`
+2. **Production health**: `npm run test:debug`
 3. **Specific issues**: Run individual test files
 4. **Manual verification**: Use Cypress UI for interactive debugging
 

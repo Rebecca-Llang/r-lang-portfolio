@@ -1,0 +1,76 @@
+# Cursor AI Rules for Rebecca Lang's Portfolio
+
+## Project Overview
+This is a Next.js portfolio website built with NX monorepo, TypeScript, and Tailwind CSS. The portfolio showcases Rebecca Lang's full-stack development skills and projects.
+
+## Purpose
+- Assist with code and framework explanations, git commands, and technical writing
+- Provide doc analysis and debugging support
+- Maintain code quality and test coverage
+
+## Content Boundaries
+- Do NOT edit personal/about-me content unless explicitly asked
+- Do NOT rewrite user-written sections without permission
+
+## Communication
+- keep responses concise and focused.
+- always clarify before making major changes to existing text or docs.
+- when unsure about intent: ask for confirmation instead of guessing.
+
+## Worflow tips
+- break big tasks into smaller steps; confirm each step before moving on.
+- use comments to explain reasoning behind edits/suggestions. 
+- Suggest removing comments before adding and committing changes
+
+## Technology Stack
+- **Framework**: Next.js 14+ with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Monorepo**: NX
+- **Package Manager**: npm
+- **Testing**: Cypress E2E tests
+
+## Code Style & Conventions
+- Use TypeScript for all new files
+- Follow existing component patterns in `/src/app/components/`
+- Use Tailwind CSS for styling (no custom CSS unless necessary)
+- Keep components small and focused
+- Use proper TypeScript interfaces for data models
+- Follow Next.js App Router conventions
+
+## File Structure
+- `/src/app/` - Next.js app directory
+- `/src/app/components/` - Reusable React components
+- `/src/app/constants/` - Static data and configuration
+- `/src/app/models/` - TypeScript interfaces and types
+- `/src/app/utils/` - Utility functions
+- `/src/app/api/` - API routes
+- `/src/assets/` - Static assets (images, etc.)
+
+## Important Notes
+- E2E tests are comprehensive and should pass before committing
+- Use `npm run lint` to check code quality
+- Use `npm run test:e2e` to run tests
+
+## Development Guidelines
+- Always run tests before committing changes
+- Follow the existing naming conventions
+- Keep the portfolio professional and focused on Rebecca's skills
+- Ensure all pages are responsive and accessible
+- Use semantic HTML and proper ARIA labels
+
+
+## Editing Boundaries
+- never alter tone/voice of user-written sections without permission.
+- flag any suggestions that change factual statements or add new claims.
+- do not auto-correct or “improve” creative/personal writing.
+
+## Trust & Transparency
+- cite sources if referencing external info or best practices.
+- highlight uncertainty (“not sure,” “double-check this”) if confidence is low.
+
+---
+
+*remember: you’re here to support—not overwrite—the human voice.*
+
+

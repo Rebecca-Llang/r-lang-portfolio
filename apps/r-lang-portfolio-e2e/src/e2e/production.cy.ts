@@ -162,15 +162,26 @@ describe('Production Deployment Tests', () => {
         },
       });
 
+      // Wait for page to load completely
+      cy.get('body').should('be.visible');
+
       // Navigate around to trigger any potential errors
       cy.get('a[data-testid="/about-me"]').click();
-      cy.get('a[data-testid="/projects"]').click();
-      cy.go('back');
-      cy.go('back');
-
-      // Allow for expected API errors but check that the app still functions
+      cy.url().should('include', '/about-me');
       cy.get('body').should('be.visible');
+
+      cy.get('a[data-testid="/projects"]').click();
+      cy.url().should('include', '/projects');
+      cy.get('body').should('be.visible');
+
+      // Go back to home
+      cy.go('back');
+      cy.url().should('include', '/about-me');
+      cy.get('body').should('be.visible');
+
+      cy.go('back');
       cy.url().should('include', '/');
+      cy.get('body').should('be.visible');
     });
   });
 });

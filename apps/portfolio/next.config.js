@@ -1,6 +1,5 @@
-import { withNx } from '@nx/next/plugins/with-nx.js';
-
-/** @type {import('@nx/next/plugins/with-nx').WithNxOptions} */
+// next.config.prod.js - Production config without Nx plugin for deployment
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -12,9 +11,11 @@ const nextConfig = {
       },
     ],
   },
-  nx: { svgr: false },
   poweredByHeader: false,
   compress: true,
+  experimental: {
+    swcMinify: true,
+  },
   async headers() {
     return [
       {
@@ -30,4 +31,4 @@ const nextConfig = {
   },
 };
 
-export default withNx(nextConfig);
+export default nextConfig;

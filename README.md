@@ -126,7 +126,7 @@ npm run dev
 npm run build
 
 # Run tests
-npm run test:e2e
+npm run test
 ```
 
 ### Available Scripts
@@ -138,10 +138,10 @@ npm run build            # Build for production
 npm run serve            # Serve production build locally
 
 # Testing
-npm run test:e2e         # Run E2E tests in interactive mode
-npm run test:e2e:headless # Run E2E tests in CI/CD mode
-npm run test:e2e:production # Test production deployment
-npm run test:e2e:deployment # Test deployment-specific features
+npm run test         # Run E2E tests in interactive mode
+npm run test:ci      # Run E2E tests in CI/CD mode
+npm run test:production # Test production deployment
+npm run test:deployment # Test deployment-specific features
 
 # Code Quality
 npm run lint             # Run ESLint across the workspace
@@ -162,10 +162,10 @@ Comprehensive E2E testing with Cypress covering:
 
 ### Testing Commands
 ```bash
-npm run test:e2e         # Run E2E tests in interactive mode
-npm run test:e2e:headless # Run E2E tests in CI/CD mode
-npm run test:e2e:production # Test production deployment
-npm run test:e2e:deployment # Test deployment-specific features
+npm run test         # Run E2E tests in interactive mode
+npm run test:ci      # Run E2E tests in CI/CD mode
+npm run test:production # Test production deployment
+npm run test:deployment # Test deployment-specific features
 ```
 
 ## 🚀 Deployment
