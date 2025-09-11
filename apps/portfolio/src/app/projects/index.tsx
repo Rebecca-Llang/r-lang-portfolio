@@ -1,7 +1,12 @@
-import { Repo, Peer } from '../models/projects';
-import { details } from '../constants/project-info';
+import {
+  GitHubRepo,
+  Collaborator,
+  ProjectWithGitHub,
+  ProjectRole,
+} from '../models/projects';
+import { getProjectByRepoName } from '../constants/projects';
 import { getGitHubHeaders } from '../utils/github-api';
-import { getFallbackLanguages, getRepoName } from '../utils/repository';
+import { getFallbackLanguages } from '../utils/repository';
 
 export async function getRepos() {
   try {
@@ -23,27 +28,45 @@ export async function getRepos() {
     ]);
 
     const personalRepos = personalData.filter(
-      (repo: Repo) => !repo.private && !repo.name.includes('Rebecca-LLang')
+      (repo: GitHubRepo) =>
+        !repo.private && !repo.name.includes('Rebecca-LLang')
     );
 
-    const reposWithDetails = [...personalRepos, keaData].map((repo: Repo) => {
-      const repoDetails = details.find(
-        (d) => getRepoName(repo.name) === d.repoName
-      ) || {
-        details: 'N/A',
-        role: 'N/A',
-        languages: [],
-        frameworks: [],
-        apis: [],
-      };
+    const projectsWithGitHubData = [...personalRepos, keaData]
+      .map((repo: GitHubRepo) => {
+        const projectData = getProjectByRepoName(repo.name);
 
-      return {
-        ...repo,
-        details: repoDetails,
-      };
-    });
+        if (!projectData) {
+          return {
+            id: repo.id,
+            name: repo.name,
+            githubRepo: repo.name,
+            description: repo.description || 'N/A',
+            role: ProjectRole.UNKNOWN,
+            technologies: {
+              languages: [],
+              frameworks: [],
+              apis: [],
+            },
+            lastUpdated: repo.updated_at,
+            html_url: repo.html_url,
+            updated_at: repo.updated_at,
+            languages_url: repo.languages_url,
+            avatar_url: repo.avatar_url,
+          } as ProjectWithGitHub;
+        }
 
-    return reposWithDetails;
+        return {
+          ...projectData,
+          html_url: repo.html_url,
+          updated_at: repo.updated_at,
+          languages_url: repo.languages_url,
+          avatar_url: repo.avatar_url,
+        } as ProjectWithGitHub;
+      })
+      .filter((project): project is ProjectWithGitHub => project !== null);
+
+    return projectsWithGitHubData;
   } catch (error) {
     return [];
   }
@@ -86,7 +109,7 @@ export const getContributors = async (repoName: string) => {
     }
 
     const contributors = await res.json();
-    return contributors.map((peer: Peer) => ({
+    return contributors.map((peer: Collaborator) => ({
       login: peer.login,
       html_url: peer.html_url,
       avatar_url: peer.avatar_url,

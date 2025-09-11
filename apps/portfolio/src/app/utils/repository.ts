@@ -1,23 +1,21 @@
-import { repoDisplayNames, details } from '../constants/project-info';
+import { repoDisplayNames, projects } from '../constants/projects';
 
 export function getFallbackLanguages(repoName: string): string[] {
-  // First try to find by original repo name (e.g., 'r-lang-portfolio')
-  let projectDetails = details.find((detail) => {
+  let projectDetails = projects.find((project) => {
     const displayName = getRepoName(repoName);
-    return detail.repoName.toLowerCase() === displayName.toLowerCase();
+    return project.name.toLowerCase() === displayName.toLowerCase();
   });
 
-  // If not found, try to find by repo name directly
   if (!projectDetails) {
-    projectDetails = details.find(
-      (detail) =>
-        detail.repoName.toLowerCase() === repoName.toLowerCase() ||
-        detail.repoName.toLowerCase().replace(/\s+/g, '-') ===
+    projectDetails = projects.find(
+      (project) =>
+        project.name.toLowerCase() === repoName.toLowerCase() ||
+        project.name.toLowerCase().replace(/\s+/g, '-') ===
           repoName.toLowerCase()
     );
   }
 
-  return projectDetails?.languages || ['No languages found'];
+  return projectDetails?.technologies.languages || ['No languages found'];
 }
 
 export const getRepoName = (repoName: string) =>
