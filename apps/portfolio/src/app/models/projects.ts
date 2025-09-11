@@ -1,5 +1,5 @@
 export interface Project {
-  id: string;
+  id: number;
   name: string;
   githubRepo: string;
   description: string;
@@ -14,12 +14,14 @@ export interface Project {
   lastUpdated: string;
   cvDescription?: string;
   cvDetails?: string;
+  cvTech?: string[];
 }
 
 export enum ProjectRole {
   PERSONAL = 'Personal Project',
   GROUP_PO = 'Group Project: Product Owner and Programmer',
   GROUP_DEV = 'Group Project: Developer, Collaborator and Programmer',
+  UNKNOWN = 'Ask!',
 }
 
 export interface Collaborator {
@@ -37,6 +39,14 @@ export interface GitHubRepo {
   languages_url: string;
   private: boolean;
   avatar_url: string;
+}
+
+export interface ProjectWithGitHub extends Project {
+  html_url: string;
+  updated_at: string;
+  languages_url: string;
+  avatar_url: string;
+  languages?: string[];
 }
 
 export const repoDisplayNames: Record<string, string> = {

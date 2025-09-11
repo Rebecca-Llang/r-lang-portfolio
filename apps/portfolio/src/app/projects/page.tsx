@@ -1,6 +1,6 @@
 import { getRepos, getContributors, getLanguages } from '.';
 import { getRepoName } from '../utils/repository';
-import { Repo, Peer } from '../models/projects';
+import { ProjectWithGitHub, Collaborator } from '../models/projects';
 import Image from 'next/image';
 import { FaLink } from 'react-icons/fa';
 import Icon from '../components/icon-comp';
@@ -24,27 +24,22 @@ export default async function Projects() {
     );
   }
 
-  const fullRepos = await Promise.all(
-    repos.map(async (repo: Repo) => {
+  const fullProjects = await Promise.all(
+    repos.map(async (project: ProjectWithGitHub) => {
       const [languages, collaborators] = await Promise.all([
-        getLanguages(repo.languages_url, repo.name),
-        getContributors(repo.name),
+        getLanguages(project.languages_url, project.githubRepo),
+        getContributors(project.githubRepo),
       ]);
 
       return {
-        id: repo.id,
-        ogRepoName: repo.name,
-        name: getRepoName(repo.name),
-        html_url: repo.html_url,
-        description: repo.description || repo.details?.details || 'N/A',
-        updated_at: repo.updated_at,
+        ...project,
+        name: getRepoName(project.githubRepo),
         languages,
         collaborators,
-        details: repo.details,
       };
     })
   );
-  const orderedRepos = fullRepos.sort(
+  const orderedProjects = fullProjects.sort(
     (a, b) =>
       new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
   );
@@ -57,9 +52,10 @@ export default async function Projects() {
       </div>
 
       <ul>
-        {orderedRepos.map((repo) => (
+        {orderedProjects.map((project) => (
           <li
-            key={repo.id}
+            key={project.id}
+            id={project.githubRepo}
             className="relative border-2 border-eggshell border-opacity-30 rounded-md p-4 mb-6 overflow-hidden"
           >
             <div
@@ -67,26 +63,26 @@ export default async function Projects() {
               style={{ backgroundColor: '#A67C52' }}
             />
             <div className="relative p-6">
-              <h3 className="pr-4 pb-5">{repo.name}</h3>
+              <h3 className="pr-4 pb-5">{project.name}</h3>
 
               <p className="pb-3 flex items-center gap-1">
                 Repo:
                 <a
-                  href={repo.html_url}
+                  href={project.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover-grow h3 flex items-center gap-1"
                 >
-                  {repo.ogRepoName}
+                  {project.githubRepo}
                   <Icon icon={<FaLink size={16} />} />
                 </a>
               </p>
 
-              {repo.details.demoLink && (
+              {project.demoLink && (
                 <p className="pb-3 flex items-center gap-1">
                   Live Demo:
                   <a
-                    href={repo.details.demoLink}
+                    href={project.demoLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover-grow h3 flex items-center gap-1 text-accent"
@@ -97,17 +93,16 @@ export default async function Projects() {
                 </p>
               )}
 
-              <p className="pb-3">Role: {repo.details.role}</p>
+              <p className="pb-3">Role: {project.role}</p>
               <p className="pb-3">
-                Description: {repo.description || 'No description available.'}
+                Description:{' '}
+                {project.description || 'No description available.'}
               </p>
-
-              <p className="pb-3">Details: {repo.details.details}</p>
 
               <p className="flex flex-wrap gap-2 pb-4">
                 Languages:{' '}
-                {repo.languages?.length
-                  ? repo.languages.map((language, index) => (
+                {project.languages?.length
+                  ? project.languages.map((language, index) => (
                       <span
                         key={index}
                         className="bg-accent text-white text-sm px-3 py-1 rounded-full"
@@ -118,10 +113,10 @@ export default async function Projects() {
                   : 'N/A'}
               </p>
 
-              {repo.details.frameworks && (
+              {project.technologies.frameworks && (
                 <p className="flex flex-wrap gap-2 pb-4">
                   Frameworks:{' '}
-                  {repo.details.frameworks.map((framework, index) => (
+                  {project.technologies.frameworks.map((framework, index) => (
                     <span
                       key={index}
                       className="bg-accent text-white text-sm px-3 py-1 rounded-full"
@@ -132,10 +127,10 @@ export default async function Projects() {
                 </p>
               )}
 
-              {repo.details.apis && (
+              {project.technologies.apis && (
                 <p className="flex flex-wrap gap-2 pb-4">
                   APIs:{' '}
-                  {repo.details.apis.map((api, index) => (
+                  {project.technologies.apis.map((api, index) => (
                     <span
                       key={index}
                       className="bg-accent text-white text-sm px-3 py-1 rounded-full"
@@ -148,8 +143,8 @@ export default async function Projects() {
 
               <p>Contributors:</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 items-center pb-6">
-                {repo.collaborators.length > 0 ? (
-                  repo.collaborators.map((peer: Peer) => (
+                {project.collaborators && project.collaborators.length > 0 ? (
+                  project.collaborators.map((peer: Collaborator) => (
                     <div key={peer.login} className="flex items-center gap-2">
                       <Image
                         src={peer.avatar_url}
@@ -175,7 +170,7 @@ export default async function Projects() {
 
               <div className="pt-3">
                 Last Updated:{' '}
-                {new Date(repo.updated_at).toLocaleDateString('en-US', {
+                {new Date(project.updated_at).toLocaleDateString('en-US', {
                   month: 'long',
                   year: 'numeric',
                 })}

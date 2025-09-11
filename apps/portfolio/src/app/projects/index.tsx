@@ -1,4 +1,9 @@
-import { GitHubRepo, Collaborator } from '../models/projects';
+import {
+  GitHubRepo,
+  Collaborator,
+  ProjectWithGitHub,
+  ProjectRole,
+} from '../models/projects';
 import { getProjectByRepoName } from '../constants/projects';
 import { getGitHubHeaders } from '../utils/github-api';
 import { getFallbackLanguages } from '../utils/repository';
@@ -27,38 +32,41 @@ export async function getRepos() {
         !repo.private && !repo.name.includes('Rebecca-LLang')
     );
 
-    const reposWithDetails = [...personalRepos, keaData].map(
-      (repo: GitHubRepo) => {
+    const projectsWithGitHubData = [...personalRepos, keaData]
+      .map((repo: GitHubRepo) => {
         const projectData = getProjectByRepoName(repo.name);
 
         if (!projectData) {
           return {
-            ...repo,
-            details: {
-              details: 'N/A',
-              role: 'N/A',
+            id: repo.id,
+            name: repo.name,
+            githubRepo: repo.name,
+            description: repo.description || 'N/A',
+            role: ProjectRole.UNKNOWN,
+            technologies: {
               languages: [],
               frameworks: [],
               apis: [],
             },
-          };
+            lastUpdated: repo.updated_at,
+            html_url: repo.html_url,
+            updated_at: repo.updated_at,
+            languages_url: repo.languages_url,
+            avatar_url: repo.avatar_url,
+          } as ProjectWithGitHub;
         }
 
         return {
-          ...repo,
-          details: {
-            details: projectData.description,
-            role: projectData.role,
-            languages: projectData.technologies.languages,
-            frameworks: projectData.technologies.frameworks,
-            apis: projectData.technologies.apis,
-            demoLink: projectData.demoLink,
-          },
-        };
-      }
-    );
+          ...projectData,
+          html_url: repo.html_url,
+          updated_at: repo.updated_at,
+          languages_url: repo.languages_url,
+          avatar_url: repo.avatar_url,
+        } as ProjectWithGitHub;
+      })
+      .filter((project): project is ProjectWithGitHub => project !== null);
 
-    return reposWithDetails;
+    return projectsWithGitHubData;
   } catch (error) {
     return [];
   }

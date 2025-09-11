@@ -76,7 +76,7 @@ export default function CV() {
             {section === 'Experience' && (
               <div className="p-2">
                 {experience.map((exp) => (
-                  <div key={exp.title} className="mb-4">
+                  <div key={exp.title} className="mb-2 pb-2">
                     <h3>{exp.title}</h3>
                     <p>{`${exp.company} | ${exp.dateRange}`}</p>
                     <p>{exp.description}</p>
@@ -89,7 +89,7 @@ export default function CV() {
               <div className="p-2">
                 {projects.map((project) => {
                   const repo = repos.find(
-                    (r) => getRepoName(r.name) === project.name
+                    (r) => getRepoName(r.githubRepo) === project.name
                   );
                   return (
                     <div key={project.id} className="mb-4">
@@ -120,17 +120,22 @@ export default function CV() {
                       <p className="mt-2">
                         {project.role} | {project.lastUpdated}
                       </p>
-                      <p className="mt-2">
-                        Details: {project.cvDescription || project.description}
-                      </p>
-                      <p className="mt-2">
-                        Technologies Used:{' '}
-                        {project.technologies.languages.join(', ')}
-                        {project.technologies.frameworks &&
-                          `, ${project.technologies.frameworks.join(', ')}`}
-                        {project.technologies.apis &&
-                          `, ${project.technologies.apis.join(', ')}`}
-                      </p>
+                      <p className="mt-2">Details: {project.cvDescription}</p>
+                      {project.cvTech && (
+                        <div className="mt-2 pb-6">
+                          <span className="inline">Technologies Used: </span>
+                          <div className="inline-flex flex-wrap gap-2">
+                            {project.cvTech.map((tech, index) => (
+                              <span
+                                key={index}
+                                className="bg-accent text-white text-sm px-3 py-1 rounded-full"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
