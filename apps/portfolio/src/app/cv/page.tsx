@@ -12,9 +12,8 @@ import { getRepos } from '../projects';
 import { getRepoName } from '../utils/repository';
 import Icon from '../components/icon-comp';
 
-const repos = await getRepos();
-
-export default function CV() {
+export default async function CV() {
+  const repos = await getRepos();
   return (
     <div className="container mx-auto max-w-[90%] px-4">
       <h1 className="text-center pt-7 pb-2">Curriculum Vitae</h1>
