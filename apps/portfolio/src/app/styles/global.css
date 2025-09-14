@@ -5,7 +5,7 @@
 /* ===== Base Layer Styles ===== */
 @layer base {
   body {
-    @apply min-h-screen m-0 p-0 bg-background text-text;
+    @apply min-h-screen m-0 p-0 bg-background text-textGray;
   }
 
   h1 {
@@ -21,7 +21,7 @@
   }
 
   p {
-    @apply text-base leading-relaxed mb-4 text-text;
+    @apply text-base leading-relaxed mb-4 text-textGray;
   }
 
   a {

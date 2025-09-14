@@ -29,7 +29,12 @@ export default async function CV() {
             }`}
             key={section}
           >
-            <h2 className="pt-3">{section}</h2>
+            <h2
+              className="pt-3"
+              id={section.toLowerCase().replace(/\s+/g, '-')}
+            >
+              {section}
+            </h2>
 
             {section === 'About Me' && (
               <div className="p-2">
@@ -50,7 +55,7 @@ export default async function CV() {
             )}
 
             {section === 'Skills' && (
-              <div className="p-2">
+              <div id="skills" className="p-2">
                 {skills.map((skillCategory) => (
                   <div
                     key={skillCategory.title}

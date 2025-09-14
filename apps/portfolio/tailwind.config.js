@@ -17,14 +17,15 @@ export default {
     extend: {
       colors: {
         // numbers represent lightest (1) to darkest (8)
-        primary: '#A67C52', // Warm tan 5
-        secondary: '#A57F56', // rich caramel 6
-        third: '#4A3224', // dark chestnut 7
-        accent: '#3D7068', // deep teal green 4
-        background: '#FDF9F3', // soft ivory 1
-        text: '#2C2A28', // charcoal brown 8
-        eggshell: '#95b2a9', // muted sage green 2
-        secondAccent: '#86A79D', // dusty teal 3
+        primary: '#A67C52', // Medium brown - main brand color
+        secondary: '#A57F56', // Light brown - secondary actions
+        third: '#4A3224', // Dark brown - text/accents
+        darkBrown: '#6B4E3D', // Darker brown
+        accent: '#3D7068', // Dark teal - highlights
+        background: '#FDF9F3', // Cream - page background
+        textGray: '#2C2A28', // Dark gray - main text
+        eggshell: '#95b2a9', // Sage green - subtle backgrounds
+        secondAccent: '#86A79D', // Gray-green - secondary highlights
       },
       fontSize: {
         h1: ['1.875rem', { lineHeight: '2.25rem', fontWeight: '700' }], // 30px

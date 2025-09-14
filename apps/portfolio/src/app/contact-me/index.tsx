@@ -28,7 +28,7 @@ export default function ContactForm() {
   return (
     <form action={handleAction} className="flex flex-col items-center">
       <div className="pr-2 pb-2">
-        <label htmlFor="name" className="pr-4 text-text">
+        <label htmlFor="name" className="pr-4 text-textGray">
           Name:
         </label>
         <input
@@ -39,11 +39,11 @@ export default function ContactForm() {
           defaultValue={state.name}
           required
           placeholder=" your name"
-          className="pl-2 mr-1 text-text min-w-80 min-h-10 border border-accent rounded"
+          className="pl-2 mr-1 text-textGray min-w-80 min-h-10 border border-accent rounded"
         ></input>
       </div>
       <div className="pr-2 pb-2">
-        <label htmlFor="email" className="pr-4 text-text">
+        <label htmlFor="email" className="pr-4 text-textGray">
           Email:
         </label>
         <input
@@ -54,11 +54,11 @@ export default function ContactForm() {
           defaultValue={state.email}
           required
           placeholder=" your@email.com"
-          className="pl-2 text-text min-w-80 min-h-10 border border-accent rounded"
+          className="pl-2 text-textGray min-w-80 min-h-10 border border-accent rounded"
         ></input>
       </div>
       <div className="flex flex-col-2 mr-7">
-        <label className="pr-5 pb-2 text-text" htmlFor="message">
+        <label className="pr-5 pb-2 text-textGray" htmlFor="message">
           Message:
         </label>
         <textarea
@@ -69,7 +69,7 @@ export default function ContactForm() {
           defaultValue={state.message}
           placeholder="Type your message here..."
           rows={8}
-          className="pl-2 pt-2 mr-3 text-text min-w-80 min-h-80 border border-accent rounded"
+          className="pl-2 pt-2 mr-3 text-textGray min-w-80 min-h-80 border border-accent rounded"
         />
       </div>
 
