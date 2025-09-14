@@ -11,6 +11,7 @@ export interface Project {
   };
   demoLink?: string;
   collaborators?: Collaborator[];
+  contributors?: Collaborator[];
   lastUpdated: string;
   cvDescription?: string;
   cvDetails?: string;

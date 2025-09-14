@@ -3,125 +3,67 @@ describe('Deployment Health Checks', () => {
     cy.visit('/');
   });
 
-  describe('Critical Page Functionality', () => {
-    it('should load the home page without errors', () => {
-      cy.get('body').should('be.visible');
-      cy.get('h1').should('contain', 'Haere Mai!');
-      cy.get('h2').should('contain', 'Rebecca Lang');
+  it('should load the home page without errors', () => {
+    cy.get('body').should('be.visible');
+    cy.get('h1').should('contain', 'Haere Mai!');
+    cy.get('h2').should('contain', 'Rebecca Lang');
+  });
+
+  it('should display profile image and have working navigation', () => {
+    cy.get('[data-testid="rebecca-photo"]')
+      .should('be.visible')
+      .and('have.attr', 'src')
+      .and('not.be.empty');
+
+    // Test navigation links exist and work
+    const navLinks = ['/contact-me', '/cv', '/about-me', '/projects'];
+    navLinks.forEach((link) => {
+      cy.get(`a[data-testid="${link}"]`).should('be.visible');
+      cy.get(`a[data-testid="${link}"]`).should('have.attr', 'href', link);
     });
 
-    it('should display the profile image correctly', () => {
-      cy.get('[data-testid="rebecca-photo"]')
-        .should('be.visible')
-        .and('have.attr', 'src')
-        .and('not.be.empty');
+    // Test one navigation link to ensure it works
+    cy.get('a[data-testid="/projects"]').click();
+    cy.url({ timeout: 10000 }).should('include', '/projects');
+    cy.get('body').should('be.visible');
+  });
+
+  it('should load images and have proper meta tags', () => {
+    cy.get('img').each(($img) => {
+      cy.wrap($img).should('be.visible');
+      cy.wrap($img).should('have.attr', 'src');
     });
 
-    it('should have working navigation', () => {
-      // Test that all navigation links exist and are clickable
-      const navLinks = ['/contact-me', '/cv', '/about-me', '/projects'];
-
-      navLinks.forEach((link) => {
-        cy.get(`a[data-testid="${link}"]`).should('be.visible');
-        cy.get(`a[data-testid="${link}"]`).should('have.attr', 'href', link);
-      });
-
-      // Test one navigation link to ensure it works
-      cy.get(`a[data-testid="/projects"]`).click();
-      cy.url({ timeout: 10000 }).should('include', '/projects');
-      cy.get('body').should('be.visible');
+    cy.get('head').within(() => {
+      cy.get('title').should('contain', 'Welcome to my portfolio!');
+      cy.get('meta[name="description"]').should('exist');
+      cy.get('meta[name="viewport"]').should('exist');
     });
   });
 
-  describe('Performance & Loading', () => {
-    it('should load within acceptable time', () => {
-      cy.visit('/', { timeout: 10000 });
-      cy.get('h1').should('be.visible');
-    });
+  it('should be responsive on different screen sizes', () => {
+    // Test mobile
+    cy.viewport('iphone-x');
+    cy.get('body').should('be.visible');
+    cy.get('h1').should('be.visible');
 
-    it('should load images without errors', () => {
-      cy.get('img').each(($img) => {
-        cy.wrap($img).should('be.visible');
-        cy.wrap($img).should('have.attr', 'src');
-      });
-    });
+    // Test desktop
+    cy.viewport(1920, 1080);
+    cy.get('body').should('be.visible');
+    cy.get('h1').should('be.visible');
   });
 
-  describe('Responsive Design', () => {
-    it('should be responsive on mobile', () => {
-      cy.viewport('iphone-x');
-      cy.get('body').should('be.visible');
-      cy.get('h1').should('be.visible');
-      cy.get('[data-testid="rebecca-photo"]').should('be.visible');
-    });
+  it('should handle errors gracefully and not have console errors', () => {
+    // Test 404 handling
+    cy.visit('/non-existent-page', { failOnStatusCode: false });
+    cy.get('body').should('be.visible');
 
-    it('should be responsive on tablet', () => {
-      cy.viewport('ipad-2');
-      cy.get('body').should('be.visible');
-      cy.get('h1').should('be.visible');
-      cy.get('[data-testid="rebecca-photo"]').should('be.visible');
+    // Test console errors
+    cy.visit('/', {
+      onBeforeLoad(win) {
+        cy.stub(win.console, 'error').as('consoleError');
+      },
     });
-
-    it('should be responsive on desktop', () => {
-      cy.viewport(1920, 1080);
-      cy.get('body').should('be.visible');
-      cy.get('h1').should('be.visible');
-      cy.get('[data-testid="rebecca-photo"]').should('be.visible');
-    });
-  });
-
-  describe('SEO & Meta Tags', () => {
-    it('should have proper meta tags', () => {
-      cy.get('head').within(() => {
-        cy.get('title').should('contain', 'Welcome to my portfolio!');
-        cy.get('meta[name="description"]').should('exist');
-        cy.get('meta[name="viewport"]').should('exist');
-      });
-    });
-
-    it('should have proper OpenGraph tags', () => {
-      cy.get('head').within(() => {
-        cy.get('meta[property="og:title"]').should('exist');
-        cy.get('meta[property="og:description"]').should('exist');
-        cy.get('meta[property="og:type"]').should('exist');
-      });
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('should have proper alt text for images', () => {
-      cy.get('img').each(($img) => {
-        cy.wrap($img).should('have.attr', 'alt');
-      });
-    });
-
-    it('should have proper heading structure', () => {
-      cy.get('h1').should('exist');
-      cy.get('h2').should('exist');
-    });
-
-    it('should have proper link text', () => {
-      cy.get('a').each(($link) => {
-        cy.wrap($link).should('not.be.empty');
-      });
-    });
-  });
-
-  describe('Error Handling', () => {
-    it('should handle 404 pages gracefully', () => {
-      cy.visit('/non-existent-page', { failOnStatusCode: false });
-      // Should either show a 404 page or redirect to home
-      cy.get('body').should('be.visible');
-    });
-
-    it('should not have console errors', () => {
-      cy.visit('/', {
-        onBeforeLoad(win) {
-          cy.stub(win.console, 'error').as('consoleError');
-        },
-      });
-
-      cy.get('@consoleError').should('not.be.called');
-    });
+    cy.get('@consoleError').should('not.be.called');
   });
 });

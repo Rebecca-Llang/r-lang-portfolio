@@ -105,7 +105,9 @@ export const getContributors = async (repoName: string) => {
     const res = await fetch(apiUrl, { headers });
 
     if (!res.ok) {
-      return [];
+      // Return fallback contributors from projects data when API fails
+      const projectData = getProjectByRepoName(repoName);
+      return projectData?.contributors || [];
     }
 
     const contributors = await res.json();
@@ -115,6 +117,8 @@ export const getContributors = async (repoName: string) => {
       avatar_url: peer.avatar_url,
     }));
   } catch (error) {
-    return [];
+    // Return fallback contributors from projects data when API fails
+    const projectData = getProjectByRepoName(repoName);
+    return projectData?.contributors || [];
   }
 };

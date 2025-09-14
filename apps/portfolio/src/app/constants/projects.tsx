@@ -1,4 +1,68 @@
-import { Project, ProjectRole } from '../models/projects';
+import { Project, ProjectRole, Collaborator } from '../models/projects';
+
+const contributors: Record<string, Collaborator[]> = {
+  'Rebecca-Llang': [
+    {
+      login: 'Rebecca-Llang',
+      html_url: 'https://github.com/Rebecca-Llang',
+      avatar_url: 'https://avatars.githubusercontent.com/u/12345678?v=4',
+    },
+  ],
+  'donate-mate-team': [
+    {
+      login: 'Rebecca-Llang',
+      html_url: 'https://github.com/Rebecca-Llang',
+      avatar_url: 'https://avatars.githubusercontent.com/u/12345678?v=4',
+    },
+    {
+      login: 'william-sadler',
+      html_url: 'https://github.com/william-sadler',
+      avatar_url: 'https://avatars.githubusercontent.com/u/12345679?v=4',
+    },
+    {
+      login: 'fran-berridge',
+      html_url: 'https://github.com/fran-berridge',
+      avatar_url: 'https://avatars.githubusercontent.com/u/12345680?v=4',
+    },
+    {
+      login: 'warkina-tujuba',
+      html_url: 'https://github.com/warkina-tujuba',
+      avatar_url: 'https://avatars.githubusercontent.com/u/12345681?v=4',
+    },
+    {
+      login: 'Lernaen',
+      html_url: 'https://github.com/Lernaen',
+      avatar_url: 'https://avatars.githubusercontent.com/u/12345682?v=4',
+    },
+    {
+      login: 'eric-mokuma',
+      html_url: 'https://github.com/eric-mokuma',
+      avatar_url: 'https://avatars.githubusercontent.com/u/12345683?v=4',
+    },
+  ],
+  'kea-commerce-team': [
+    {
+      login: 'Rebecca-Llang',
+      html_url: 'https://github.com/Rebecca-Llang',
+      avatar_url: 'https://avatars.githubusercontent.com/u/12345678?v=4',
+    },
+    {
+      login: 'olivia-burgess',
+      html_url: 'https://github.com/olivia-burgess',
+      avatar_url: 'https://avatars.githubusercontent.com/u/12345684?v=4',
+    },
+    {
+      login: 'Shae-Jacobs',
+      html_url: 'https://github.com/Shae-Jacobs',
+      avatar_url: 'https://avatars.githubusercontent.com/u/12345685?v=4',
+    },
+    {
+      login: 'bosh-code',
+      html_url: 'https://github.com/bosh-code',
+      avatar_url: 'https://avatars.githubusercontent.com/u/12345686?v=4',
+    },
+  ],
+};
 
 export const projects: Project[] = [
   {
@@ -20,6 +84,7 @@ export const projects: Project[] = [
       frameworks: ['React', 'Express', 'Knex.js', 'SQLite3', 'Vitest'],
     },
     lastUpdated: '2024-12-01',
+    contributors: contributors['Rebecca-Llang'],
     cvDescription:
       'This full stack personal project allows users to build and manage their own personal karaoke playlist. Songs are able to be filtered by decade and genre.',
     cvTech: [
@@ -53,6 +118,7 @@ export const projects: Project[] = [
     },
     demoLink: 'https://donatemate.pushed.nz',
     lastUpdated: '2024-10-01',
+    contributors: contributors['donate-mate-team'],
     cvDescription:
       'I led the design, planning and presentation of DonateMate. This app allowed donors to filter organisations by donation type, and provided profiles for donation centres to share and prioritise needs. I worked on Auth0, Maps API, and filtering by donation type. As well as a vertical slice through the organisation profile page to the database. As PO, I allocated tickets, refined scope and supported my team through their own tickets. I managed group time and availability, to maximise the final product.',
     cvTech: [
@@ -79,6 +145,7 @@ export const projects: Project[] = [
       apis: ['React Query Dev Tools'],
     },
     lastUpdated: '2024-11-01',
+    contributors: contributors['kea-commerce-team'],
     cvDescription:
       'A e-commerce site created and built by a 3 person group. With a high-quality UE, database and eventual admin portal. Using Agile, Kanban, user stories and a learning focused approach to build a polished, functional app with industry standard checks from a experienced technical lead.',
     cvTech: [
@@ -104,6 +171,7 @@ export const projects: Project[] = [
       apis: ['AI/LLM APIs'],
     },
     lastUpdated: '2025-01-01',
+    contributors: contributors['Rebecca-Llang'],
     cvDescription:
       'Nora is an AI agent whose role is to support, advise and chat as an ADHD/life coach. Her learning journey is based on kindness, science and collaboration.',
     cvTech: ['Python', 'Ollama', 'AI/LLM APIs'],
@@ -122,6 +190,7 @@ export const projects: Project[] = [
     },
     demoLink: 'https://rebecca-lang-portfolio.onrender.com',
     lastUpdated: '2025-01-15',
+    contributors: contributors['Rebecca-Llang'],
     cvDescription:
       'A modern, responsive portfolio site showcasing fullstack development skills. Includes dynamic GitHub integration, contact forms with Resend API, and comprehensive E2E testing with Cypress.',
     cvTech: [
@@ -149,6 +218,7 @@ export const projects: Project[] = [
       apis: ['AI/LLM APIs'],
     },
     lastUpdated: '2025-01-01',
+    contributors: contributors['Rebecca-Llang'],
     cvDescription:
       'Kairos is my AI agent whose role is that of an ADHD/Life coach. Born and adapted from the Luna AI project. Luna was created for my friend ZanKris, who was Product Owner while I led and skill shared the development. Kairos is a personalised agent, inspired by a combination of Nora and Luna.',
     cvTech: ['Python', 'Ollama', 'AI/LLM APIs'],
