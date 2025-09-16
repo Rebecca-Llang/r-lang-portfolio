@@ -59,20 +59,30 @@ This portfolio showcases my technical capabilities:
 ## 📋 Portfolio Content
 
 - **Home Page:** Welcome message with personal introduction and navigation
-- **About Me:** A brief introduction and background information
-- **Projects:** Detailed case studies and links to my best work, with descriptions, tech stacks, and outcomes
-- **CV/Resume:** Viewable resume with professional experience and skills
-- **Contact:** A form to get in touch with me directly
+- **About Me:** Introduction featuring:
+  - Project highlight (DonateMate) with live demo
+  - Core skills showcase with CV navigation
+- **Projects:** Case studies including:
+  - DonateMate (group project as Product Owner)
+  - Kea Commerce (e-commerce site with NX monorepo)
+  - Nora AI & Kairos AI (AI chatbot projects)
+  - This Portfolio (NX monorepo with GitHub integration)
+  - My Karaoke Playlist (full-stack personal project)
+- **CV/Resume:** 
+- **Contact:** Interactive form powered by Resend email service
 
 ## ✨ Features
 
-- **Responsive Design:** Optimized for desktop, tablet, and mobile devices
-- **Modern UI:** Clean, professional design using TailwindCSS
-- **Dynamic Content:** GitHub integration for live repository data
+- **Responsive Design:** Mobile-first approach optimized for all devices
+- **Modern UI:** Clean, professional design with custom color palette and TailwindCSS
+- **Dynamic Content:** GitHub API integration for live repository data
 - **Email Integration:** Contact form powered by Resend email service
-- **Performance Optimized:** Fast loading with Next.js optimizations
+- **Performance Optimized:** Fast loading with Next.js optimizations and image optimization
 - **SEO Ready:** Proper meta tags and OpenGraph integration
-- **Accessibility:** WCAG compliant with proper semantic HTML
+- **Accessibility:** WCAG compliant with semantic HTML and proper contrast ratios
+- **Interactive Navigation:** Smooth page transitions and anchor links to CV sections
+- **Project Showcases:** Live demos and repository links for featured projects
+- **Monorepo Architecture:** NX workspace with optimized build and testing
 
 ## 🔌 API Endpoints
 
@@ -154,11 +164,7 @@ npx nx e2e r-lang-portfolio-e2e # Run E2E test suite
 
 ## 🧪 Testing
 
-Comprehensive E2E testing with Cypress covering:
-- **Functionality** - Navigation, content, and user interactions
-- **Performance** - Load times, responsive design, accessibility
-- **Production** - API endpoints, security headers, cross-browser compatibility
-- **Deployment** - End-to-end deployment validation
+Comprehensive E2E testing with Cypress covering all pages, responsive design, accessibility, and functionality.
 
 ### Testing Commands
 ```bash

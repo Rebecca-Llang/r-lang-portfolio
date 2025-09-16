@@ -50,7 +50,7 @@ This is a Next.js portfolio website built with NX monorepo, TypeScript, and Tail
 ## Important Notes
 - E2E tests are comprehensive and should pass before committing
 - Use `npm run lint` to check code quality
-- Use `npm run test:e2e` to run tests
+- Use `npm run test` to run tests
 
 ## Development Guidelines
 - Always run tests before committing changes

@@ -2,48 +2,75 @@
 
 import { useState } from 'react';
 import { submitContactForm } from '../constants/contact-actions';
+import { ContactFormState, initialContactFormState } from '../models/contact';
 
 export default function ContactForm() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [state, setState] = useState<{
-    success?: string;
-    error?: string;
-    email?: string;
-    message?: string;
-    name?: string;
-  }>({ name: '', email: '', message: '' });
+  const [state, setState] = useState<ContactFormState>(initialContactFormState);
 
   const handleAction = async (formData: FormData) => {
-    setIsLoading(true);
+    setState((prev) => ({ ...prev, status: 'loading' }));
+
     try {
       const result = await submitContactForm('', formData);
-      setState(result);
+
+      if (result.success) {
+        setState({
+          data: { name: '', email: '', message: '' },
+          status: 'success',
+          message: result.success,
+        });
+      } else {
+        setState((prev) => ({
+          ...prev,
+          status: 'error',
+          message: result.error || 'Something went wrong. Please try again.',
+          data: result.data ? { ...prev.data, ...result.data } : prev.data,
+        }));
+      }
     } catch (error) {
-      setState({ error: 'Something went wrong. Please try again.' });
-    } finally {
-      setIsLoading(false);
+      setState((prev) => ({
+        ...prev,
+        status: 'error',
+        message:
+          'Something went wrong. Please try again or contact me on LinkedIn.',
+      }));
     }
   };
 
   return (
-    <form action={handleAction} className="flex flex-col items-center">
-      <div className="pr-2 pb-2">
-        <label htmlFor="name" className="pr-4 text-text">
+    <form
+      action={handleAction}
+      className="flex flex-col items-center w-full max-w-md mx-auto px-6 py-8 border-2 border-primary border-opacity-10 rounded-md bg-background shadow-sm"
+    >
+      <div className="w-full mb-4">
+        <label
+          htmlFor="name"
+          className="block text-textGray mb-2 text-sm md:text-base"
+        >
           Name:
         </label>
         <input
           autoComplete="on"
-          type="name"
+          type="text"
           id="name"
           name="name"
-          defaultValue={state.name}
+          value={state.data.name}
+          onChange={(e) =>
+            setState((prev) => ({
+              ...prev,
+              data: { ...prev.data, name: e.target.value },
+            }))
+          }
           required
           placeholder=" your name"
-          className="pl-2 mr-1 text-text min-w-80 min-h-10 border border-accent rounded"
-        ></input>
+          className="w-full px-4 py-3 text-textGray min-h-12 border border-primary border-opacity-20 rounded-md text-sm md:text-base bg-white focus:border-primary focus:border-opacity-60 focus:outline-none transition-colors duration-200"
+        />
       </div>
-      <div className="pr-2 pb-2">
-        <label htmlFor="email" className="pr-4 text-text">
+      <div className="w-full mb-4">
+        <label
+          htmlFor="email"
+          className="block text-textGray mb-2 text-sm md:text-base"
+        >
           Email:
         </label>
         <input
@@ -51,14 +78,23 @@ export default function ContactForm() {
           type="email"
           id="email"
           name="email"
-          defaultValue={state.email}
+          value={state.data.email}
+          onChange={(e) =>
+            setState((prev) => ({
+              ...prev,
+              data: { ...prev.data, email: e.target.value },
+            }))
+          }
           required
           placeholder=" your@email.com"
-          className="pl-2 text-text min-w-80 min-h-10 border border-accent rounded"
-        ></input>
+          className="w-full px-4 py-3 text-textGray min-h-12 border border-primary border-opacity-20 rounded-md text-sm md:text-base bg-white focus:border-primary focus:border-opacity-60 focus:outline-none transition-colors duration-200"
+        />
       </div>
-      <div className="flex flex-col-2 mr-7">
-        <label className="pr-5 pb-2 text-text" htmlFor="message">
+      <div className="w-full mb-6">
+        <label
+          className="block text-textGray mb-2 text-sm md:text-base"
+          htmlFor="message"
+        >
           Message:
         </label>
         <textarea
@@ -66,23 +102,37 @@ export default function ContactForm() {
           id="message"
           name="message"
           required
-          defaultValue={state.message}
+          value={state.data.message}
+          onChange={(e) =>
+            setState((prev) => ({
+              ...prev,
+              data: { ...prev.data, message: e.target.value },
+            }))
+          }
           placeholder="Type your message here..."
-          rows={8}
-          className="pl-2 pt-2 mr-3 text-text min-w-80 min-h-80 border border-accent rounded"
+          rows={6}
+          className="w-full px-4 py-3 text-textGray min-h-32 border border-primary border-opacity-20 rounded-md text-sm md:text-base bg-white focus:border-primary focus:border-opacity-60 focus:outline-none transition-colors duration-200 resize-vertical"
         />
       </div>
 
       <button
-        className="button mt-5 max-w-fit"
+        className="button mt-2 w-full md:w-auto md:min-w-fit px-6 py-3 text-sm md:text-base"
         type="submit"
-        disabled={isLoading}
+        disabled={state.status === 'loading'}
       >
-        {isLoading ? 'Sending message' : 'Send Message'}
+        {state.status === 'loading' ? 'Sending message' : 'Send Message'}
       </button>
 
-      {state.success && <p className="text-green-500">{state.success}</p>}
-      {state.error && <p className="text-red-500">{state.error}</p>}
+      {state.status === 'success' && state.message && (
+        <div className="mt-6 w-full p-4 bg-green-50 text-green-700 rounded-md border border-green-200 shadow-sm">
+          <p className="text-center text-sm md:text-base">{state.message}</p>
+        </div>
+      )}
+      {state.status === 'error' && state.message && (
+        <div className="mt-6 w-full p-4 bg-red-50 text-red-700 rounded-md border border-red-200 shadow-sm">
+          <p className="text-center text-sm md:text-base">{state.message}</p>
+        </div>
+      )}
     </form>
   );
 }

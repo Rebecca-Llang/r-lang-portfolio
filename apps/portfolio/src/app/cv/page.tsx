@@ -12,16 +12,15 @@ import { getRepos } from '../projects';
 import { getRepoName } from '../utils/repository';
 import Icon from '../components/icon-comp';
 
-const repos = await getRepos();
-
-export default function CV() {
+export default async function CV() {
+  const repos = await getRepos();
   return (
     <div className="container mx-auto max-w-[90%] px-4">
       <h1 className="text-center pt-7 pb-2">Curriculum Vitae</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         {cvSections.map((section) => (
           <div
-            className={`border-2 border-eggshell border-opacity-30 rounded-md p-4 ${
+            className={`border-2 border-primary border-opacity-10 rounded-md p-4 bg-background ${
               section === 'About Me' ||
               section === 'Experience' ||
               section === 'Projects'
@@ -30,7 +29,12 @@ export default function CV() {
             }`}
             key={section}
           >
-            <h2 className="pt-3">{section}</h2>
+            <h2
+              className="pt-3"
+              id={section.toLowerCase().replace(/\s+/g, '-')}
+            >
+              {section}
+            </h2>
 
             {section === 'About Me' && (
               <div className="p-2">
@@ -51,7 +55,7 @@ export default function CV() {
             )}
 
             {section === 'Skills' && (
-              <div className="p-2">
+              <div id="skills" className="p-2">
                 {skills.map((skillCategory) => (
                   <div
                     key={skillCategory.title}

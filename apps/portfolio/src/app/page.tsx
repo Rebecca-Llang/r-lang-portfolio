@@ -9,7 +9,7 @@ export default function Home() {
         alt="Photo of Rebecca Lang"
         width={350}
         priority={true}
-        className="flex-shrink-0 max-w-[350px] max-h-[400px] w-full h-auto rounded-full"
+        className="flex-shrink-0 max-w-[350px] max-h-[400px] w-full h-auto rounded-full shadow-xl border-4 border-white/20 object-cover"
         data-testid="rebecca-photo"
       />
       <div className="flex flex-col gap-4">
