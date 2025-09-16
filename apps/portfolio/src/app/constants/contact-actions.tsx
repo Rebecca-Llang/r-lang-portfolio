@@ -6,6 +6,7 @@ import {
   validateEmail,
   validateRequired,
 } from '../utils/validation';
+import { ContactFormResult } from '../models/contact';
 
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
@@ -14,13 +15,11 @@ const resend = process.env.RESEND_API_KEY
 export async function submitContactForm(
   previousState: string,
   formData: FormData
-) {
+): Promise<ContactFormResult> {
   if (!resend) {
     return {
       error: 'Email service not configured',
-      name: '',
-      email: '',
-      message: '',
+      data: { name: '', email: '', message: '' },
     };
   }
 
@@ -33,18 +32,14 @@ export async function submitContactForm(
   ) {
     return {
       error: 'Name, email and message are required',
-      name: name || '',
-      email: email || '',
-      message: message || '',
+      data: { name: name || '', email: email || '', message: message || '' },
     };
   }
 
   if (!validateEmail(email!)) {
     return {
       error: 'Please enter a valid email address',
-      name: name || '',
-      email: email || '',
-      message: message || '',
+      data: { name: name || '', email: email || '', message: message || '' },
     };
   }
 
@@ -58,16 +53,11 @@ export async function submitContactForm(
 
     return {
       success: 'Email sent successfully! I look forward to replying promptly.',
-      name: '',
-      message: '',
-      email: '',
     };
   } catch (error) {
     return {
       error: 'Failed to send email. Please try again.',
-      name: name || '',
-      email: email || '',
-      message: message || '',
+      data: { name: name || '', email: email || '', message: message || '' },
     };
   }
 }

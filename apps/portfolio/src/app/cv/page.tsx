@@ -20,7 +20,7 @@ export default async function CV() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         {cvSections.map((section) => (
           <div
-            className={`border-2 border-eggshell border-opacity-30 rounded-md p-4 ${
+            className={`border-2 border-primary border-opacity-10 rounded-md p-4 bg-background ${
               section === 'About Me' ||
               section === 'Experience' ||
               section === 'Projects'

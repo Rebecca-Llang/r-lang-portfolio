@@ -8,7 +8,7 @@ import { interests, skills } from '../constants/cv-data';
 
 export default function AboutMe() {
   return (
-    <main className="p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32">
+    <main className="bg-white p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32">
       <div className="relative pb-8 md:pb-16">
         <Image
           src={tieke}
@@ -46,7 +46,7 @@ export default function AboutMe() {
         </div>
       </div>
 
-      <div className="pb-8 mb-16 md:pb-16">
+      <div className="pb-8 pl-6 pr-4 mb-16 border-2 border-primary border-opacity-10 rounded-md bg-background md:pb-16">
         <h2 className="text-xl mt-6 md:mt-8 md:text-2xl font-bold mb-4 md:mb-6 text-center md:text-left">
           Project Highlight
         </h2>

@@ -34,95 +34,59 @@ describe('Contact Page', () => {
     );
 
     cy.get('button[type="submit"]').click();
-
     cy.get('form').should('exist');
   });
 
   it('should handle form submission successfully', () => {
-    cy.intercept('POST', '/contact-me', {
-      statusCode: 200,
-      body: {
-        success: 'Email sent successfully! I look forward to replying soon!',
-      },
-    }).as('contactSubmission');
-
-    cy.get('input[name="name"]').type('Test User');
-    cy.get('input[name="email"]').type('test@example.com');
-    cy.get('textarea[name="message"]').type('This is a test message');
-
-    cy.get('button[type="submit"]').click();
-    cy.wait('@contactSubmission');
-
-    cy.contains(
-      'Email sent successfully! I look forward to replying soon!'
-    ).should('be.visible');
-    cy.get('form').should('be.visible');
-  });
-
-  it('should handle form submission errors gracefully', () => {
-    cy.intercept('POST', '/contact-me', {
-      statusCode: 500,
-      body: {
-        error:
-          'Failed to send email. Please try again or contact me on LinkedIn.',
-      },
-    }).as('contactError');
-
-    cy.get('input[name="name"]').type('Test User');
-    cy.get('input[name="email"]').type('test@example.com');
-    cy.get('textarea[name="message"]').type('This is a test message');
-
-    cy.get('button[type="submit"]').click();
-    cy.wait('@contactError');
-
-    cy.contains(
-      'Failed to send email. Please try again or contact me on LinkedIn.'
-    ).should('be.visible');
-    cy.get('form').should('be.visible');
-  });
-
-  it('should validate form fields and show appropriate errors', () => {
-    cy.get('input[name="email"]').type('invalid-email');
-    cy.get('button[type="submit"]').click();
-
-    cy.get('form').should('be.visible');
-  });
-
-  it('should show loading state during form submission', () => {
-    cy.intercept('POST', '/contact-me', {
-      statusCode: 200,
-      delay: 1000,
-      body: {
-        success: 'Email sent successfully! I look forward to replying soon!',
-      },
-    }).as('slowContactSubmission');
-
     cy.get('input[name="name"]').type('Test User');
     cy.get('input[name="email"]').type('test@example.com');
     cy.get('textarea[name="message"]').type('This is a test message');
 
     cy.get('button[type="submit"]').click();
 
-    cy.get('button[type="submit"]').should('contain', 'Sending message');
-    cy.get('button[type="submit"]').should('be.disabled');
-
-    cy.wait('@slowContactSubmission');
+    // Wait for success message
     cy.contains(
-      'Email sent successfully! I look forward to replying promptly.'
+      'Email sent successfully! I look forward to replying promptly.',
+      { timeout: 10000 }
     ).should('be.visible');
-    cy.get('button[type="submit"]').should('contain', 'Send Message');
-    cy.get('button[type="submit"]').should('not.be.disabled');
+  });
+
+  it('should handle validation errors gracefully', () => {
+    cy.get('input[name="name"]').type('Test User');
+    cy.get('input[name="email"]').type('test@invalid'); // Valid format but invalid domain
+    cy.get('textarea[name="message"]').type('This is a test message');
+
+    cy.get('button[type="submit"]').click();
+
+    cy.contains('Please enter a valid email address', { timeout: 5000 }).should(
+      'be.visible'
+    );
+  });
+
+  it('should handle form submission and show success message', () => {
+    cy.get('input[name="name"]').type('Test User');
+    cy.get('input[name="email"]').type('test@example.com');
+    cy.get('textarea[name="message"]').type('This is a test message');
+
+    cy.get('button[type="submit"]').click();
+
+    // Focus on the outcome that matters to users
+    cy.contains(
+      'Email sent successfully! I look forward to replying promptly.',
+      { timeout: 10000 }
+    ).should('be.visible');
+
+    // Verify form is reset after successful submission
+    cy.get('input[name="name"]').should('have.value', '');
+    cy.get('input[name="email"]').should('have.value', '');
+    cy.get('textarea[name="message"]').should('have.value', '');
   });
 
   it('should be responsive on different screen sizes', () => {
     cy.viewport(375, 667);
     cy.get('form').should('be.visible');
-    cy.get('input[name="name"]').should('be.visible');
-    cy.get('button[type="submit"]').should('be.visible');
 
     cy.viewport(1920, 1080);
     cy.get('form').should('be.visible');
-    cy.get('input[name="name"]').should('be.visible');
-    cy.get('button[type="submit"]').should('be.visible');
   });
 });

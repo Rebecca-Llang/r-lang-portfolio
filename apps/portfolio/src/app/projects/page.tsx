@@ -56,12 +56,9 @@ export default async function Projects() {
           <li
             key={project.id}
             id={project.githubRepo}
-            className="relative border-2 border-eggshell border-opacity-30 rounded-md p-4 mb-6 overflow-hidden"
+            className="relative border-2 border-primary border-opacity-10 rounded-md p-4 mb-6 overflow-hidden bg-background"
           >
-            <div
-              className="absolute inset-0 rounded-md opacity-5 pointer-events-none"
-              style={{ backgroundColor: '#A67C52' }}
-            />
+            <div className="absolute inset-0 rounded-md opacity-5 pointer-events-none bg-" />
             <div className="relative p-6">
               <h3 className="pr-4 pb-5">{project.name}</h3>
 

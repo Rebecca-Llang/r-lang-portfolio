@@ -5,7 +5,7 @@
 /* ===== Base Layer Styles ===== */
 @layer base {
   body {
-    @apply min-h-screen m-0 p-0 bg-background text-textGray;
+    @apply min-h-screen m-0 p-0 bg-white text-textGray;
   }
 
   h1 {
