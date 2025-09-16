@@ -66,7 +66,7 @@ export default function AboutMe() {
             </p>
             <div className="space-y-2 text-center lg:text-left">
               <a
-                href={`https://github.com/rebeccalang/${
+                href={`https://github.com/Rebecca-Llang/${
                   projects.find((project) => project.name === 'DonateMate')
                     ?.githubRepo
                 }`}
