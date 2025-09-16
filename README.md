@@ -2,6 +2,12 @@
 
 A modern, responsive portfolio showcasing my development skills and projects. Built with Next.js, TypeScript, and deployed on Render.
 
+![Node 20](https://img.shields.io/badge/node-20.19.1-339933?logo=node.js&logoColor=white)
+![Next.js 14](https://img.shields.io/badge/next.js-14.2.32-000000?logo=nextdotjs&logoColor=white)
+![Nx 20](https://img.shields.io/badge/Nx-20.8.0-143055?logo=nx&logoColor=white)
+![Cypress 14](https://img.shields.io/badge/Cypress-14.3.3-17202C?logo=cypress&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 ## 🚀 Live Demo
 
 **[View Portfolio](https://r-lang-portfolio.onrender.com)**
@@ -107,6 +113,13 @@ This portfolio showcases my technical capabilities:
    npx nx dev portfolio
    ```
 
+### Required versions
+
+```sh
+node -v  # v20.19.1 recommended (matches Render)
+npm -v   # >= 9
+```
+
 ## 📁 Project Structure
 
 This is an Nx monorepo containing:
@@ -143,9 +156,14 @@ npm run test
 
 ```bash
 # Development
-npm run dev              # Start development server
-npm run build            # Build for production
-npm run serve            # Serve production build locally
+npm run dev              # Start development server (Nx dev server for `portfolio`)
+
+# Build & Production
+npm run build            # Production build (uses apps/portfolio/next.config.prod.js)
+npm run start            # Serve the built app in production mode (after build)
+
+# Nx alternative
+npm run serve            # Nx serve target (dev server by default)
 
 # Testing
 npm run test         # Run E2E tests in interactive mode
@@ -195,6 +213,10 @@ Create `.env.local` in `apps/portfolio/`:
 RESEND_API_KEY=your_resend_api_key_here
 GITHUB_TOKEN=your_github_token_here  # Optional
 ```
+
+### Environment variable scopes
+- **RESEND_API_KEY**: Project-level API key. No special scopes required.
+- **GITHUB_TOKEN (optional)**: Improves rate limits for GitHub API calls. Use minimal scopes (e.g., `public_repo`) if you provide a token.
 
 ## 📚 Useful Links
 
