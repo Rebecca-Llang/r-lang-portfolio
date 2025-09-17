@@ -1,6 +1,5 @@
 import { Contact } from '../models/cv';
 
-// Helper function to render contact links appropriately
 export function renderContactLink(contactItem: Contact) {
   const { title, details, link } = contactItem;
 

@@ -45,7 +45,10 @@ export default function AboutMe() {
         </div>
       </div>
 
-      <div className="pb-8 pl-6 pr-4 mb-16 border-2 border-primary border-opacity-10 rounded-md bg-background md:pb-16">
+      <div
+        id="project-highlight"
+        className="card pb-8 pl-6 pr-4 mb-16 md:pb-16"
+      >
         <h2 className="text-xl mt-6 md:mt-8 md:text-2xl font-bold mb-4 md:mb-6 text-center md:text-left">
           Project Highlight
         </h2>

@@ -21,7 +21,7 @@ export default async function CV() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         {cvSections.map((section) => (
           <div
-            className={`border-2 border-primary border-opacity-10 rounded-md p-4 bg-background ${
+            className={`card p-4 ${
               section === 'About Me' ||
               section === 'Experience' ||
               section === 'Projects'
@@ -46,10 +46,22 @@ export default async function CV() {
             {section === 'Education' && (
               <div className="p-2">
                 {education.map((edu) => (
-                  <div key={edu.title} className="flex-1 mb-4">
-                    <h3>{edu.title}</h3>
-                    <p>{`${edu.institution} | ${edu.date}`}</p>
-                    <p>{edu.description}</p>
+                  <div key={edu.title} className="mb-6">
+                    <h3 className="mb-2">{edu.title}</h3>
+                    <p className="font-roboto-mono mb-1">
+                      {edu.institution} | {edu.date}
+                    </p>
+                    <p className="text-sm text-textGray mb-2">
+                      {edu.description}
+                    </p>
+                    {edu.title.includes('Software Development') && (
+                      <a
+                        href="/about-me#project-highlight"
+                        className="nav-link-mono hover:text-secondary transition-colors duration-200 text-sm"
+                      >
+                        View Final Project Highlights →
+                      </a>
+                    )}
                   </div>
                 ))}
               </div>

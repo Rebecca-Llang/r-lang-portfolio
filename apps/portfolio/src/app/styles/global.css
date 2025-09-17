@@ -36,20 +36,11 @@
   }
 
   .button {
-    @apply bg-accent text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply bg-accent text-white font-medium rounded-lg shadow-md transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
   }
 
-  .button-secondary {
-    @apply bg-secondary text-white font-medium py-2 px-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-105;
-  }
-
-  .button-outline {
-    @apply border border-primary text-primary font-medium py-2 px-4 rounded-lg shadow-md hover:bg-primary hover:text-white transition-colors duration-200;
-  }
-
-  /* Roboto Mono Custom Classes */
-  .skill-tag {
-    @apply font-roboto-mono inline-block bg-accent text-white px-3 py-1 rounded mr-2 mb-2 text-sm font-medium;
+  .card {
+    @apply border-2 border-primary border-opacity-10 rounded-md bg-background;
   }
 
   .nav-link-mono {
@@ -57,7 +48,7 @@
   }
 }
 
-/* ===== Utilities (Optional) ===== */
+/* ===== Utilities ===== */
 @layer utilities {
   .text-shadow {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);

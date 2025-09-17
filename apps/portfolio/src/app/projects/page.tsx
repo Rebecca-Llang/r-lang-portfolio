@@ -55,7 +55,7 @@ export default async function Projects() {
           <li
             key={project.id}
             id={project.githubRepo}
-            className="relative border-2 border-primary border-opacity-10 rounded-md p-4 mb-6 overflow-hidden bg-background"
+            className="card relative p-4 mb-6 overflow-hidden"
           >
             <div className="absolute inset-0 rounded-md opacity-5 pointer-events-none bg-" />
             <div className="relative p-6">
