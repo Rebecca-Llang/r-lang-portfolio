@@ -40,8 +40,7 @@ export default async function Projects() {
     })
   );
   const orderedProjects = fullProjects.sort(
-    (a, b) =>
-      new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+    (a, b) => (a.order || 999) - (b.order || 999)
   );
 
   return (

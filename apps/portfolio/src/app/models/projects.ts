@@ -1,6 +1,7 @@
 export interface Project {
   id: number;
   name: string;
+  order: number;
   githubRepo: string;
   description: string;
   role: ProjectRole;

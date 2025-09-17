@@ -11,6 +11,7 @@ import { projects } from '../constants/projects';
 import { getRepos } from '../projects';
 import { getRepoName } from '../utils/repository';
 import Icon from '../components/icon-comp';
+import { renderContactLink } from './index';
 
 export default async function CV() {
   const repos = await getRepos();
@@ -88,64 +89,66 @@ export default async function CV() {
 
             {section === 'Projects' && (
               <div className="p-2">
-                {projects.map((project) => {
-                  const repo = repos.find(
-                    (r) => getRepoName(r.githubRepo) === project.name
-                  );
-                  return (
-                    <div key={project.id} className="mb-4">
-                      {repo && (
-                        <h3>
-                          <a
-                            href={repo.html_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-accent flex items-center gap-1"
-                          >
-                            {project.name} →
-                          </a>
-                        </h3>
-                      )}
-                      {project.demoLink && (
-                        <p className="mt-2">
-                          <a
-                            href={project.demoLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-accent flex items-center gap-1"
-                          >
-                            Live Demo →
-                          </a>
-                        </p>
-                      )}
-                      <p className="mt-2">
-                        {project.role} |{' '}
-                        {new Date(project.lastUpdated).toLocaleDateString(
-                          'en-US',
-                          {
-                            month: 'long',
-                            year: 'numeric',
-                          }
+                {projects
+                  .sort((a, b) => (a.order || 999) - (b.order || 999))
+                  .map((project) => {
+                    const repo = repos.find(
+                      (r) => getRepoName(r.githubRepo) === project.name
+                    );
+                    return (
+                      <div key={project.id} className="mb-4">
+                        {repo && (
+                          <h3>
+                            <a
+                              href={repo.html_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-accent flex items-center gap-1"
+                            >
+                              {project.name} →
+                            </a>
+                          </h3>
                         )}
-                      </p>
-                      <p className="mt-2">Details: {project.cvDescription}</p>
-                      {project.cvTech && (
-                        <div className="mt-2 pb-6">
-                          <span className="inline-block pb-4">
-                            Technologies Used:{' '}
-                          </span>
-                          <div className="inline-flex flex-wrap gap-2">
-                            {project.cvTech.map((tech, index) => (
-                              <span key={index} className="tech-stack">
-                                {tech}
-                              </span>
-                            ))}
+                        {project.demoLink && (
+                          <p className="mt-2">
+                            <a
+                              href={project.demoLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-accent flex items-center gap-1"
+                            >
+                              Live Demo →
+                            </a>
+                          </p>
+                        )}
+                        <p className="mt-2">
+                          {project.role} |{' '}
+                          {new Date(project.lastUpdated).toLocaleDateString(
+                            'en-US',
+                            {
+                              month: 'long',
+                              year: 'numeric',
+                            }
+                          )}
+                        </p>
+                        <p className="mt-2">Details: {project.cvDescription}</p>
+                        {project.cvTech && (
+                          <div className="mt-2 pb-6">
+                            <span className="inline-block pb-4">
+                              Technologies Used:{' '}
+                            </span>
+                            <div className="inline-flex flex-wrap gap-2">
+                              {project.cvTech.map((tech, index) => (
+                                <span key={index} className="tech-stack">
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+                        )}
+                      </div>
+                    );
+                  })}
               </div>
             )}
 
@@ -174,21 +177,7 @@ export default async function CV() {
                         <Icon icon={<contactItem.icon size={20} />} />
                       </div>
 
-                      {contactItem.title === 'LinkedIn' ||
-                      contactItem.title === 'Github' ? (
-                        <a
-                          href={contactItem.link?.toString()}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="pl-2"
-                        >
-                          {contactItem.details}
-                        </a>
-                      ) : (
-                        <a href={contactItem.link?.toString()} className="pl-2">
-                          {contactItem.details}
-                        </a>
-                      )}
+                      {renderContactLink(contactItem)}
                     </div>
                   </div>
                 ))}
