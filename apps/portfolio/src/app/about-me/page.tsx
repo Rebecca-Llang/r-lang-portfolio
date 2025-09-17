@@ -31,22 +31,24 @@ export default function AboutMe() {
       </div>
 
       <div className="pb-8 md:pb-14">
-        <div className="flex flex-wrap gap-2 md:gap-3 justify-center max-w-4xl mx-auto px-4">
-          <h2 className="pr-2 text-lg md:text-xl font-bold flex items-center">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-lg md:text-xl font-bold text-center mb-4">
             Interests
           </h2>
-          {interests.map((interest) => (
-            <div
-              key={interest.name}
-              className="p-2 px-3 md:px-4 bg-eggshell text-textGray rounded-lg text-center hover:shadow-md transition-shadow text-sm md:text-base"
-            >
-              {interest.name}
-            </div>
-          ))}
+          <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
+            {interests.map((interest) => (
+              <div key={interest.name} className="tech-stack">
+                {interest.name}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="pb-8 pl-6 pr-4 mb-16 border-2 border-primary border-opacity-10 rounded-md bg-background md:pb-16">
+      <div
+        id="project-highlight"
+        className="card pb-8 pl-6 pr-4 mb-16 md:pb-16"
+      >
         <h2 className="text-xl mt-6 md:mt-8 md:text-2xl font-bold mb-4 md:mb-6 text-center md:text-left">
           Project Highlight
         </h2>
@@ -130,7 +132,7 @@ export default function AboutMe() {
                 ?.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="bg-eggshell text-textGray px-3 m-1 md:px-4 py-2 rounded-full hover:shadow-md transition-shadow text-sm md:text-base"
+                    className="tech-stack m-1 hover:shadow-md transition-shadow md:text-base"
                   >
                     {skill}
                   </span>

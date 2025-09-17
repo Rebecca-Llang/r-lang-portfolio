@@ -1,10 +1,21 @@
 import './styles/global.css';
-import { Inter } from 'next/font/google';
+import { Manrope, Roboto_Mono, Inconsolata } from 'next/font/google';
 import type { Metadata } from 'next';
 import Nav from './components/nav-comp';
 import Footer from './components/footer-comp';
 
-const inter = Inter({ subsets: ['latin'] });
+const manrope = Manrope({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-manrope',
+});
+const robotoMono = Roboto_Mono({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-roboto-mono',
+});
+const inconsolata = Inconsolata({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-inconsolata',
+});
 
 export const metadata: Metadata = {
   title: 'Welcome to my portfolio!',
@@ -29,7 +40,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html
+      lang="en"
+      className={`${manrope.variable} ${robotoMono.variable} ${inconsolata.variable} font-manrope`}
+    >
       <body className="flex flex-col min-h-screen m-0 p-0 overflow-visible">
         <Nav />
         <main className="flex-1">{children}</main>

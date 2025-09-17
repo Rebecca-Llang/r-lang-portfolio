@@ -9,15 +9,15 @@
   }
 
   h1 {
-    @apply mb-6 mt-0 text-h1 text-primary;
+    @apply mb-6 mt-0 text-h1 text-primary font-inconsolata;
   }
 
   h2 {
-    @apply mb-4 mt-0 text-h2 text-secondary;
+    @apply mb-4 mt-0 text-h2 text-third font-inconsolata;
   }
 
   h3 {
-    @apply mb-2 mt-0 text-h3 text-accent;
+    @apply mb-2 mt-0 text-h3 text-accent font-inconsolata;
   }
 
   p {
@@ -25,7 +25,7 @@
   }
 
   a {
-    @apply text-third hover:text-secondary transition-all duration-300 ease-in-out;
+    @apply font-roboto-mono text-third hover:text-secondary transition-all duration-300 ease-in-out font-medium;
   }
 }
 
@@ -36,19 +36,19 @@
   }
 
   .button {
-    @apply bg-accent text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply bg-accent text-white font-medium rounded-lg shadow-md transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
   }
 
-  .button-secondary {
-    @apply bg-secondary text-white font-medium py-2 px-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-105;
+  .card {
+    @apply border-2 border-primary border-opacity-10 rounded-md bg-background;
   }
 
-  .button-outline {
-    @apply border border-primary text-primary font-medium py-2 px-4 rounded-lg shadow-md hover:bg-primary hover:text-white transition-colors duration-200;
+  .nav-link-mono {
+    @apply font-roboto-mono text-third hover:text-secondary transition-all duration-300 ease-in-out font-medium;
   }
 }
 
-/* ===== Utilities (Optional) ===== */
+/* ===== Utilities ===== */
 @layer utilities {
   .text-shadow {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -60,5 +60,10 @@
 
   .hover-grow-large {
     @apply transition-transform duration-200 hover:text-xl;
+  }
+
+  .tech-stack {
+    font-family: var(--font-roboto-mono), 'Roboto Mono', monospace !important;
+    @apply text-white font-semibold bg-accent px-3 py-1 rounded-full text-sm;
   }
 }

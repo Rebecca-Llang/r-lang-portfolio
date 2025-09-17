@@ -69,10 +69,11 @@ This portfolio showcases my technical capabilities:
   - Project highlight (DonateMate) with live demo
   - Core skills showcase with CV navigation
 - **Projects:** Case studies including:
-  - DonateMate (group project as Product Owner)
+  - Rebecca Lang's Portfolio (NX monorepo with GitHub integration)
   - Kea Commerce (e-commerce site with NX monorepo)
-  - Nora AI & Kairos AI (AI chatbot projects)
-  - This Portfolio (NX monorepo with GitHub integration)
+  - DonateMate (group project as Product Owner)
+  - Kairos AI (AI chatbot project)
+  - Nora AI (AI chatbot project)
   - My Karaoke Playlist (full-stack personal project)
 - **CV/Resume:** 
 - **Contact:** Interactive form powered by Resend email service

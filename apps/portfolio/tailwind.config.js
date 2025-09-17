@@ -27,6 +27,11 @@ export default {
         eggshell: '#95b2a9', // Sage green - subtle backgrounds
         secondAccent: '#86A79D', // Gray-green - secondary highlights
       },
+      fontFamily: {
+        manrope: ['var(--font-manrope)', 'sans-serif'],
+        'roboto-mono': ['var(--font-roboto-mono)', 'monospace'],
+        inconsolata: ['var(--font-inconsolata)', 'monospace'],
+      },
       fontSize: {
         h1: ['1.875rem', { lineHeight: '2.25rem', fontWeight: '700' }], // 30px
         h2: ['1.5rem', { lineHeight: '2rem', fontWeight: '600' }], // 24px

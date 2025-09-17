@@ -33,8 +33,8 @@ export interface Contact {
 
 export enum CVSection {
   ABOUT_ME = 'About Me',
-  EDUCATION = 'Education',
   SKILLS = 'Skills',
+  EDUCATION = 'Education',
   EXPERIENCE = 'Experience',
   PROJECTS = 'Projects',
   CONTACT = 'Contact',

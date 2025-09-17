@@ -40,8 +40,7 @@ export default async function Projects() {
     })
   );
   const orderedProjects = fullProjects.sort(
-    (a, b) =>
-      new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+    (a, b) => (a.order || 999) - (b.order || 999)
   );
 
   return (
@@ -56,7 +55,7 @@ export default async function Projects() {
           <li
             key={project.id}
             id={project.githubRepo}
-            className="relative border-2 border-primary border-opacity-10 rounded-md p-4 mb-6 overflow-hidden bg-background"
+            className="card relative p-4 mb-6 overflow-hidden"
           >
             <div className="absolute inset-0 rounded-md opacity-5 pointer-events-none bg-" />
             <div className="relative p-6">
@@ -100,10 +99,7 @@ export default async function Projects() {
                 Languages:{' '}
                 {project.languages?.length
                   ? project.languages.map((language, index) => (
-                      <span
-                        key={index}
-                        className="bg-accent text-white text-sm px-3 py-1 rounded-full"
-                      >
+                      <span key={index} className="tech-stack">
                         {language}
                       </span>
                     ))
@@ -114,10 +110,7 @@ export default async function Projects() {
                 <p className="flex flex-wrap gap-2 pb-4">
                   Frameworks:{' '}
                   {project.technologies.frameworks.map((framework, index) => (
-                    <span
-                      key={index}
-                      className="bg-accent text-white text-sm px-3 py-1 rounded-full"
-                    >
+                    <span key={index} className="tech-stack">
                       {framework}
                     </span>
                   ))}
@@ -128,10 +121,7 @@ export default async function Projects() {
                 <p className="flex flex-wrap gap-2 pb-4">
                   APIs:{' '}
                   {project.technologies.apis.map((api, index) => (
-                    <span
-                      key={index}
-                      className="bg-accent text-white text-sm px-3 py-1 rounded-full"
-                    >
+                    <span key={index} className="tech-stack">
                       {api}
                     </span>
                   ))}

@@ -40,7 +40,7 @@ export default function ContactForm() {
   return (
     <form
       action={handleAction}
-      className="flex flex-col items-center w-full max-w-md mx-auto px-6 py-8 border-2 border-primary border-opacity-10 rounded-md bg-background shadow-sm"
+      className="card flex flex-col items-center w-full max-w-md mx-auto px-6 py-8 shadow-sm"
     >
       <div className="w-full mb-4">
         <label
