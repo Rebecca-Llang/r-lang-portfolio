@@ -100,10 +100,7 @@ export default async function Projects() {
                 Languages:{' '}
                 {project.languages?.length
                   ? project.languages.map((language, index) => (
-                      <span
-                        key={index}
-                        className="bg-accent text-white text-sm px-3 py-1 rounded-full"
-                      >
+                      <span key={index} className="tech-stack">
                         {language}
                       </span>
                     ))
@@ -114,10 +111,7 @@ export default async function Projects() {
                 <p className="flex flex-wrap gap-2 pb-4">
                   Frameworks:{' '}
                   {project.technologies.frameworks.map((framework, index) => (
-                    <span
-                      key={index}
-                      className="bg-accent text-white text-sm px-3 py-1 rounded-full"
-                    >
+                    <span key={index} className="tech-stack">
                       {framework}
                     </span>
                   ))}
@@ -128,10 +122,7 @@ export default async function Projects() {
                 <p className="flex flex-wrap gap-2 pb-4">
                   APIs:{' '}
                   {project.technologies.apis.map((api, index) => (
-                    <span
-                      key={index}
-                      className="bg-accent text-white text-sm px-3 py-1 rounded-full"
-                    >
+                    <span key={index} className="tech-stack">
                       {api}
                     </span>
                   ))}

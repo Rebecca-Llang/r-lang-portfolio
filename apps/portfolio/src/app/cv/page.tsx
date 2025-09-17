@@ -64,10 +64,7 @@ export default async function CV() {
                     <h3>{skillCategory.title}</h3>
                     <div className="flex flex-wrap gap-2 pb-4">
                       {skillCategory.skills.map((skill, index) => (
-                        <span
-                          key={index}
-                          className="bg-accent text-white text-sm px-3 py-1 rounded-full"
-                        >
+                        <span key={index} className="tech-stack">
                           {skill}
                         </span>
                       ))}
@@ -122,18 +119,24 @@ export default async function CV() {
                         </p>
                       )}
                       <p className="mt-2">
-                        {project.role} | {project.lastUpdated}
+                        {project.role} |{' '}
+                        {new Date(project.lastUpdated).toLocaleDateString(
+                          'en-US',
+                          {
+                            month: 'long',
+                            year: 'numeric',
+                          }
+                        )}
                       </p>
                       <p className="mt-2">Details: {project.cvDescription}</p>
                       {project.cvTech && (
                         <div className="mt-2 pb-6">
-                          <span className="inline">Technologies Used: </span>
+                          <span className="inline-block pb-4">
+                            Technologies Used:{' '}
+                          </span>
                           <div className="inline-flex flex-wrap gap-2">
                             {project.cvTech.map((tech, index) => (
-                              <span
-                                key={index}
-                                className="bg-accent text-white text-sm px-3 py-1 rounded-full"
-                              >
+                              <span key={index} className="tech-stack">
                                 {tech}
                               </span>
                             ))}
@@ -171,7 +174,8 @@ export default async function CV() {
                         <Icon icon={<contactItem.icon size={20} />} />
                       </div>
 
-                      {contactItem.title !== 'Phone' ? (
+                      {contactItem.title === 'LinkedIn' ||
+                      contactItem.title === 'Github' ? (
                         <a
                           href={contactItem.link?.toString()}
                           target="_blank"
@@ -181,7 +185,9 @@ export default async function CV() {
                           {contactItem.details}
                         </a>
                       ) : (
-                        <p className="pl-2">{contactItem.details}</p>
+                        <a href={contactItem.link?.toString()} className="pl-2">
+                          {contactItem.details}
+                        </a>
                       )}
                     </div>
                   </div>

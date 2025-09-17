@@ -13,10 +13,14 @@ export default function Home() {
         data-testid="rebecca-photo"
       />
       <div className="flex flex-col gap-4">
-        <h1 className="text-4xl font-bold">Haere Mai!</h1>
-        <h2 className="text-7xl font-bold">Rebecca Lang</h2>
-        <p>Software Development Portfolio</p>
-        <p>
+        <h1 className="text-4xl font-inconsolata text-primary">Haere Mai!</h1>
+        <h2 className="text-7xl font-inconsolata text-third font-bold">
+          Rebecca Lang
+        </h2>
+        <p className="text-xl font-roboto-mono text-accent font-medium">
+          Software Development Portfolio
+        </p>
+        <p className="text-lg text-textGray leading-relaxed max-w-md">
           Exploring technology and building user-friendly and efficient web
           applications.
         </p>
