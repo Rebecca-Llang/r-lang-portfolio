@@ -122,8 +122,8 @@ export default function AboutMe() {
 
           <div className="flex flex-col items-center md:w-1/2 lg:w-2/3">
             <div className="flex flex-wrap gap-2 md:gap-3 justify-center items-center max-w-4xl px-4">
-              <h2 className="pr-2 mt-2 text-lg md:text-xl font-bold flex items-center">
-                <a href="/cv" className="text-secondary hover:underline">
+              <h2 className=" pr-2 mt-2 text-lg md:text-xl font-bold flex items-center">
+                <a href="/cv" className="text-darkBrown hover:underline">
                   Core Skills:
                 </a>
               </h2>
@@ -139,8 +139,8 @@ export default function AboutMe() {
                 ))}
             </div>
             <div className="mt-6 flex justify-center">
-              <h2 className="text-lg mt-1 md:text-xl font-bold flex items-center">
-                <a href="/cv#skills" className="text-secondary hover:underline">
+              <h2 className=" text-lg mt-1 md:text-xl font-bold flex items-center">
+                <a href="/cv#skills" className="text-darkBrown hover:underline">
                   Technical Skills →
                 </a>
               </h2>

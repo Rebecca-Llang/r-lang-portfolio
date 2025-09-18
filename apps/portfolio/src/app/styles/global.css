@@ -9,19 +9,19 @@
   }
 
   h1 {
-    @apply mb-6 mt-0 text-h1 text-primary font-inconsolata;
+    @apply mb-4 sm:mb-6 mt-0 text-xl sm:text-h1 text-primary font-inconsolata;
   }
 
   h2 {
-    @apply mb-4 mt-0 text-h2 text-third font-inconsolata;
+    @apply mb-3 sm:mb-4 mt-0 text-lg sm:text-h2 text-third font-inconsolata;
   }
 
   h3 {
-    @apply mb-2 mt-0 text-h3 text-accent font-inconsolata;
+    @apply mb-2 mt-0 text-base sm:text-h3 text-accent font-inconsolata;
   }
 
   p {
-    @apply text-base leading-relaxed mb-4 text-textGray;
+    @apply text-sm sm:text-base leading-relaxed mb-3 sm:mb-4 text-textGray;
   }
 
   a {
@@ -36,7 +36,7 @@
   }
 
   .button {
-    @apply bg-accent text-white font-medium rounded-lg shadow-md transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply bg-accent text-white font-medium rounded-lg shadow-md transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 touch-manipulation;
   }
 
   .card {
@@ -64,6 +64,18 @@
 
   .tech-stack {
     font-family: var(--font-roboto-mono), 'Roboto Mono', monospace !important;
-    @apply text-white font-semibold bg-accent px-3 py-1 rounded-full text-sm;
+    @apply text-white font-semibold bg-accent px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm;
+  }
+
+  .responsive-image {
+    @apply w-full h-auto object-cover;
+  }
+
+  .responsive-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .mobile-container {
+    @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16;
   }
 }

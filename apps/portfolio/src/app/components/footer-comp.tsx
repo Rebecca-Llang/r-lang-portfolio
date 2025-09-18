@@ -12,53 +12,64 @@ const Footer = () => {
   return (
     <footer
       aria-label="Footer navigation"
-      className="flex items-center justify-between gap-4 min-w-full bg-black bg-opacity-80"
+      className="min-w-full bg-black bg-opacity-80"
     >
-      <div className="flex items-center justify-evenly w-full px-6 py-4">
-        {navLinks.map((link) => {
-          const isActive = pathname === link.href;
+      <div className="flex flex-col sm:flex-row items-center justify-evenly w-full px-4 sm:px-6 py-4 sm:py-6 gap-4 sm:gap-0">
+        {/* Navigation Links */}
+        <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
 
-          return (
-            <ul key={link.title} className="list-none">
-              <li>
-                <Link
-                  href={link.href}
-                  className={`text-eggshell ${
-                    isActive ? 'font-bold' : 'hover-grow'
-                  }`}
-                >
-                  {link.title}
-                </Link>
-              </li>
-            </ul>
-          );
-        })}
-
-        {contact
-          .filter(
-            (info) => info.title === 'Github' || info.title === 'LinkedIn'
-          )
-          .map((contact) => {
-            const isActive = pathname === contact.link;
             return (
-              <div key={contact.title} className="text-eggshell">
-                <Link
-                  href={contact.link}
-                  target="_blank"
-                  className={`text-eggshell flex items-center gap-1 ${
-                    isActive ? 'font-bold ' : 'hover-grow'
-                  }`}
-                >
-                  {contact.title}
-                  {contact.icon && (
-                    <Icon
-                      icon={<contact.icon size={20} className="text-white" />}
-                    />
-                  )}
-                </Link>
-              </div>
+              <ul key={link.title} className="list-none">
+                <li>
+                  <Link
+                    href={link.href}
+                    className={`text-eggshell text-sm sm:text-base touch-manipulation ${
+                      isActive ? 'font-bold' : 'hover-grow'
+                    }`}
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              </ul>
             );
           })}
+        </div>
+
+        {/* Social Links */}
+        <div className="flex justify-center sm:justify-end gap-4 sm:gap-6">
+          {contact
+            .filter(
+              (info) => info.title === 'Github' || info.title === 'LinkedIn'
+            )
+            .map((contact) => {
+              const isActive = pathname === contact.link;
+              return (
+                <div key={contact.title} className="text-eggshell">
+                  <Link
+                    href={contact.link}
+                    target="_blank"
+                    className={`text-eggshell flex items-center gap-1 text-sm sm:text-base touch-manipulation ${
+                      isActive ? 'font-bold ' : 'hover-grow'
+                    }`}
+                  >
+                    {contact.title}
+                    {contact.icon && (
+                      <Icon
+                        icon={
+                          <contact.icon
+                            size={16}
+                            className="text-white sm:w-5 sm:h-5"
+                          />
+                        }
+                      />
+                    )}
+                  </Link>
+                </div>
+              );
+            })}
+        </div>
       </div>
     </footer>
   );
