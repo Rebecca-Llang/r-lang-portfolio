@@ -18,11 +18,12 @@ A modern, responsive portfolio showcasing my development skills and projects. Bu
 - [Skills Demonstrated](#-skills-demonstrated)
 - [Portfolio Content](#-portfolio-content)
 - [Features](#-features)
-- [Getting Started](#-getting-started)
 - [Project Structure](#-project-structure)
+- [API Endpoints](#-api-endpoints)
+- [Environment Setup](#-environment-setup)
+- [Getting Started](#-getting-started)
 - [Testing](#-testing)
 - [Deployment](#-deployment)
-- [Environment Setup](#-environment-setup)
 - [Useful Links](#-useful-links)
 - [License](#-license)
 
@@ -31,20 +32,18 @@ A modern, responsive portfolio showcasing my development skills and projects. Bu
 - **Next.js 14.2.32** - React framework with App Router
 - **React 18.2.0** - Modern UI library with hooks
 - **TypeScript 5.3.3** - Type-safe development
-- **Nx 20.8.0** - Monorepo management and build optimization
+- **Nx 20.8.0** - Monorepo management and build optimisation
 - **TailwindCSS 3.4.17** - Utility-first CSS with responsive design
 - **Cypress 14.3.3** - Comprehensive end-to-end testing
 - **Render** - Cloud deployment with CI/CD
-- **Resend** - Modern email API integration
-- **GitHub API** - Dynamic content integration
 
 ## 💼 Skills Demonstrated
 
 This portfolio showcases my technical capabilities:
 
 ### Frontend Development
-- **Modern React Patterns:** Hooks, context, custom components, and performance optimization
-- **Next.js Expertise:** App Router, SSR/SSG, API routes, middleware, and image optimization
+- **Modern React Patterns:** Hooks, context, custom components, and performance optimisation
+- **Next.js:** App Router, SSR/SSG, API routes, middleware, and image optimisation
 - **Responsive Design:** Mobile-first approach with TailwindCSS utility classes
 - **Accessibility:** WCAG compliance with semantic HTML and ARIA attributes
 - **Performance:** Code splitting, lazy loading, and Core Web Vitals optimization
@@ -56,7 +55,7 @@ This portfolio showcases my technical capabilities:
 - **Environment Management:** Secure configuration and environment variable handling
 
 ### DevOps & Quality Assurance
-- **Monorepo Architecture:** Nx workspace with dependency management and build optimization
+- **Monorepo Architecture:** Nx workspace with dependency management and build optimisation
 - **Testing Strategy:** Comprehensive E2E testing with Cypress covering user journeys
 - **CI/CD Pipeline:** Automated testing, building, and deployment with GitHub Actions
 - **Code Quality:** ESLint, Prettier, and TypeScript strict mode enforcement
@@ -64,40 +63,51 @@ This portfolio showcases my technical capabilities:
 
 ## 📋 Portfolio Content
 
-- **Home Page:** Welcome message with personal introduction and navigation
-- **About Me:** Introduction featuring:
-  - Project highlight (DonateMate) with live demo
-  - Core skills showcase with CV navigation
-- **Projects:** Case studies including:
-  - Rebecca Lang's Portfolio (NX monorepo with GitHub integration)
-  - Kea Commerce (e-commerce site with NX monorepo)
-  - DonateMate (group project as Product Owner)
-  - Kairos AI (AI chatbot project)
-  - Nora AI (AI chatbot project)
-  - My Karaoke Playlist (full-stack personal project)
-- **CV/Resume:** 
-- **Contact:** Interactive form powered by Resend email service
+- **Home:** Personal introduction and navigation
+- **About Me:** Project highlights and skills showcase
+- **Projects:** Case studies including DonateMate, Kea Commerce, AI chatbots, and personal projects
+- **CV:** Professional experience, education, and skills
+- **Contact:** Interactive form with Resend email integration
 
 ## ✨ Features
 
-- **Responsive Design:** Mobile-first approach optimized for all devices
-- **Modern UI:** Clean, professional design with custom color palette and TailwindCSS
-- **Dynamic Content:** GitHub API integration for live repository data
-- **Email Integration:** Contact form powered by Resend email service
-- **Performance Optimized:** Fast loading with Next.js optimizations and image optimization
-- **SEO Ready:** Proper meta tags and OpenGraph integration
-- **Accessibility:** WCAG compliant with semantic HTML and proper contrast ratios
-- **Interactive Navigation:** Smooth page transitions and anchor links to CV sections
-- **Project Showcases:** Live demos and repository links for featured projects
-- **Monorepo Architecture:** NX workspace with optimized build and testing
+- **Responsive Design:** Mobile-first approach optimised for all devices
+- **Modern UI:** Clean design with TailwindCSS and custom colour palette
+- **Performance:** Fast loading with Next.js optimisations
+- **SEO Ready:** Meta tags and OpenGraph integration
+- **Accessibility:** WCAG compliant with semantic HTML
+- **Interactive Navigation:** Smooth transitions and CV anchor links
+- **Project Showcases:** Live demos and repository links
+
+## 📁 Project Structure
+
+Nx monorepo containing:
+- **Portfolio App** (`apps/portfolio/`) - Next.js application
+- **E2E Tests** (`apps/r-lang-portfolio-e2e/`) - Cypress test suite
+- **Shared Config** - TypeScript, ESLint, TailwindCSS, deployment
 
 ## 🔌 API Endpoints
 
-- **`/api/contact`** - Handles contact form submissions using Resend email service
-- **`/api/github`** - Fetches GitHub profile and repository data for dynamic content
+- **`/api/contact`** - Contact form submissions via Resend
+- **`/api/github`** - GitHub profile and repository data
+
+## 🔧 Environment Setup
+
+Create `.env.local` in `apps/portfolio/`:
+```bash
+RESEND_API_KEY=your_resend_api_key_here
+GITHUB_TOKEN=your_github_token_here  # Optional
+```
 
 ## 🚀 Getting Started
 
+### Prerequisites
+```sh
+node -v  # v20.19.1 recommended (matches Render)
+npm -v   # >= 9
+```
+
+### Installation
 1. Clone the repository:
    ```sh
    git clone <repo-url>
@@ -113,45 +123,6 @@ This portfolio showcases my technical capabilities:
    # or
    npx nx dev portfolio
    ```
-
-### Required versions
-
-```sh
-node -v  # v20.19.1 recommended (matches Render)
-npm -v   # >= 9
-```
-
-## 📁 Project Structure
-
-This is an Nx monorepo containing:
-- **Portfolio App** (`apps/portfolio/`) - Next.js application with App Router
-- **E2E Tests** (`apps/r-lang-portfolio-e2e/`) - Comprehensive Cypress test suite
-- **Shared Configuration** - TypeScript, ESLint, TailwindCSS, and deployment configs
-
-### Key Configuration Files
-- `render.yaml` - Render deployment configuration
-- `nx.json` - Nx workspace configuration
-- `package.json` - Project dependencies and scripts
-- `eslint.config.mjs` - ESLint configuration
-- `tailwind.config.js` - TailwindCSS configuration
-- `tsconfig.base.json` - TypeScript base configuration
-
-## ⚡ Quick Start
-
-### Local Development
-```sh
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Run tests
-npm run test
-```
 
 ### Available Scripts
 
@@ -183,41 +154,18 @@ npx nx e2e r-lang-portfolio-e2e # Run E2E test suite
 
 ## 🧪 Testing
 
-Comprehensive E2E testing with Cypress covering all pages, responsive design, accessibility, and functionality.
-
-### Testing Commands
-```bash
-npm run test         # Run E2E tests in interactive mode
-npm run test:ci      # Run E2E tests in CI/CD mode
-npm run test:production # Test production deployment
-npm run test:deployment # Test deployment-specific features
-```
+Comprehensive E2E testing with Cypress covering all pages, responsive design, accessibility, and functionality. See the [Available Scripts](#available-scripts) section above for testing commands.
 
 ## 🚀 Deployment
 
-Deployed on **Render** with:
-- **Build caching** for faster deployments
-- **Automatic deployments** from GitHub
-- **Environment variables** for API keys
+Deployed on **Render** with build caching, automatic deployments, and environment variable management.
 
 **Live Portfolio:** [r-lang-portfolio.onrender.com](https://r-lang-portfolio.onrender.com)
 
 ### CI/CD Pipeline
-- **GitHub Actions** - Automated testing and deployment workflows
-- **Quality Gates** - Linting, type checking, and E2E tests before deployment
-- **Environment Parity** - Consistent environments from development to production
-
-## 🔧 Environment Setup
-
-Create `.env.local` in `apps/portfolio/`:
-```bash
-RESEND_API_KEY=your_resend_api_key_here
-GITHUB_TOKEN=your_github_token_here  # Optional
-```
-
-### Environment variable scopes
-- **RESEND_API_KEY**: Project-level API key. No special scopes required.
-- **GITHUB_TOKEN (optional)**: Improves rate limits for GitHub API calls. Use minimal scopes (e.g., `public_repo`) if you provide a token.
+- **GitHub Actions** - Automated testing and deployment
+- **Quality Gates** - Linting, type checking, and E2E tests
+- **Environment Parity** - Consistent dev to production environments
 
 ## 📚 Useful Links
 

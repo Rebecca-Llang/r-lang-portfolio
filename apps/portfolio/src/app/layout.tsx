@@ -32,6 +32,11 @@ export const metadata: Metadata = {
     description: 'Software/Web Developer Portfolio',
     type: 'website',
   },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({
@@ -44,7 +49,7 @@ export default function RootLayout({
       lang="en"
       className={`${manrope.variable} ${robotoMono.variable} ${inconsolata.variable} font-manrope`}
     >
-      <body className="flex flex-col min-h-screen m-0 p-0 overflow-visible">
+      <body className="flex flex-col min-h-screen m-0 p-0 overflow-x-hidden">
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
