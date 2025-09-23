@@ -12,9 +12,9 @@ const Footer = () => {
   return (
     <footer
       aria-label="Footer navigation"
-      className="min-w-full bg-black bg-opacity-80"
+      className="min-w-full bg-darkerBrown bg-opacity-90"
     >
-      <div className="flex flex-col sm:flex-row items-center justify-evenly w-full px-4 sm:px-6 py-4 sm:py-6 gap-4 sm:gap-0">
+      <div className="flex flex-col sm:flex-row items-center justify-evenly w-full px-4 sm:px-4 py-4 sm:py-4 gap-4 sm:gap-1">
         {/* Navigation Links */}
         <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6">
           {navLinks.map((link) => {
@@ -54,7 +54,7 @@ const Footer = () => {
                       isActive ? 'font-bold ' : 'hover-grow'
                     }`}
                   >
-                    {contact.title}
+                    <span className="hidden sm:inline">{contact.title}</span>
                     {contact.icon && (
                       <Icon
                         icon={

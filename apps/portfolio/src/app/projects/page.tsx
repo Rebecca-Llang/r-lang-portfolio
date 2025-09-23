@@ -59,7 +59,7 @@ export default async function Projects() {
           >
             <div className="absolute inset-0 rounded-md opacity-5 pointer-events-none bg-" />
             <div className="relative p-6">
-              <h3 className="pr-4 pb-5">{project.name}</h3>
+              <h3 className="pr-4 pb-5 text-lg sm:text-xl">{project.name}</h3>
 
               <p className="pb-3 flex items-center gap-1">
                 Repo:
@@ -138,13 +138,13 @@ export default async function Projects() {
                         width={50}
                         height={50}
                         alt={`${peer.login}'s GitHub avatar`}
-                        className="rounded-full"
+                        className="rounded-full w-8 h-8 sm:w-10 sm:h-10"
                       />
                       <a
                         href={peer.html_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover-grow"
+                        className="hover-grow text-xs sm:text-sm"
                       >
                         {peer.login}
                       </a>
