@@ -26,6 +26,7 @@ export default {
         textGray: '#2C2A28', // Dark gray - main text
         eggshell: '#95b2a9', // Sage green - subtle backgrounds
         secondAccent: '#86A79D', // Gray-green - secondary highlights
+        darkerBrown: '#2E1E14', // Darkest rich warm brown
       },
       fontFamily: {
         manrope: ['var(--font-manrope)', 'sans-serif'],

@@ -14,7 +14,7 @@ function Nav() {
   };
 
   return (
-    <nav className="bg-black bg-opacity-80 min-h-16 sm:min-h-20">
+    <nav className="sticky top-0 z-50 bg-darkerBrown bg-opacity-90 min-h-16 sm:min-h-20">
       <div className="sm:hidden flex justify-end items-center p-4">
         <button
           onClick={toggleMenu}
@@ -58,7 +58,7 @@ function Nav() {
                   href={link.href}
                   data-testid={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block text-eggshell py-3 px-4 text-right transition-transform duration-200 transform touch-manipulation ${
+                  className={`block text-eggshell text-sm py-3 px-4 text-right transition-transform duration-200 transform touch-manipulation ${
                     isActive
                       ? 'font-bold bg-primary bg-opacity-20'
                       : 'hover-grow-large'

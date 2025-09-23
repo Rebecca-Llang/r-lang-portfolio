@@ -10,7 +10,10 @@ const Footer = () => {
   const pathname = usePathname();
 
   return (
-    <footer aria-label="Footer navigation" className="min-w-full bg-darkBrown">
+    <footer
+      aria-label="Footer navigation"
+      className="min-w-full bg-darkerBrown bg-opacity-90"
+    >
       <div className="flex flex-col sm:flex-row items-center justify-evenly w-full px-4 sm:px-4 py-4 sm:py-4 gap-4 sm:gap-1">
         {/* Navigation Links */}
         <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6">
@@ -26,15 +29,7 @@ const Footer = () => {
                       isActive ? 'font-bold' : 'hover-grow'
                     }`}
                   >
-                    <span className="sm:hidden">
-                      {link.title === 'About Me'
-                        ? 'About'
-                        : link.title === 'Contact Me'
-                        ? 'Contact'
-                        : link.title}
-                    </span>
-
-                    <span className="hidden sm:inline">{link.title}</span>
+                    {link.title}
                   </Link>
                 </li>
               </ul>
