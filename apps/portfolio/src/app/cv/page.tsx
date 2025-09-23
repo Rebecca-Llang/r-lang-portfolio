@@ -189,7 +189,9 @@ export default async function CV() {
                         <Icon icon={<contactItem.icon size={20} />} />
                       </div>
 
-                      {renderContactLink(contactItem)}
+                      <span className="text-xs sm:text-sm">
+                        {renderContactLink(contactItem)}
+                      </span>
                     </div>
                   </div>
                 ))}
