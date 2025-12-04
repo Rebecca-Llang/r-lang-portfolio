@@ -1,40 +1,116 @@
 {
   "migrations": [
     {
-      "cli": "nx",
-      "version": "20.8.0-beta.0",
-      "requires": { "cypress": ">=14.0.0" },
-      "description": "Replaces the `experimentalSkipDomainInjection` configuration option with the new `injectDocumentDomain` configuration option.",
-      "implementation": "./src/migrations/update-20-8-0/set-inject-document-domain",
-      "package": "@nx/cypress",
-      "name": "set-inject-document-domain"
+      "version": "21.0.0-beta.8",
+      "description": "Removes the legacy cache configuration from nx.json",
+      "implementation": "./src/migrations/update-21-0-0/remove-legacy-cache",
+      "package": "nx",
+      "name": "remove-legacy-cache"
+    },
+    {
+      "version": "21.0.0-beta.8",
+      "description": "Removes the legacy cache configuration from nx.json",
+      "implementation": "./src/migrations/update-21-0-0/remove-custom-tasks-runner",
+      "package": "nx",
+      "name": "remove-custom-tasks-runner"
+    },
+    {
+      "version": "21.0.0-beta.11",
+      "description": "Updates release version config based on the breaking changes in Nx v21",
+      "implementation": "./src/migrations/update-21-0-0/release-version-config-changes",
+      "package": "nx",
+      "name": "release-version-config-changes"
+    },
+    {
+      "version": "21.0.0-beta.11",
+      "description": "Updates release changelog config based on the breaking changes in Nx v21",
+      "implementation": "./src/migrations/update-21-0-0/release-changelog-config-changes",
+      "package": "nx",
+      "name": "release-changelog-config-changes"
+    },
+    {
+      "version": "21.1.0-beta.2",
+      "description": "Adds **/nx-rules.mdc and **/nx.instructions.md to .gitignore if not present",
+      "implementation": "./src/migrations/update-21-1-0/add-gitignore-entry",
+      "package": "nx",
+      "name": "21-1-0-add-ignore-entries-for-nx-rule-files"
+    },
+    {
+      "version": "22.0.0-beta.1",
+      "description": "Updates release version config based on the breaking changes in Nx v22",
+      "implementation": "./src/migrations/update-22-0-0/release-version-config-changes",
+      "package": "nx",
+      "name": "22-0-0-release-version-config-changes"
+    },
+    {
+      "version": "22.0.0-beta.2",
+      "description": "Consolidates releaseTag* options into nested releaseTag object structure",
+      "implementation": "./src/migrations/update-22-0-0/consolidate-release-tag-config",
+      "package": "nx",
+      "name": "22-0-0-consolidate-release-tag-config"
     },
     {
       "cli": "nx",
-      "version": "20.8.0-beta.0",
-      "requires": { "cypress": ">=14.0.0" },
-      "description": "Removes the `experimentalFetchPolyfill` configuration option.",
-      "implementation": "./src/migrations/update-20-8-0/remove-experimental-fetch-polyfill",
-      "package": "@nx/cypress",
-      "name": "remove-experimental-fetch-polyfill"
+      "version": "22.1.0-beta.5",
+      "description": "Updates the nx wrapper.",
+      "implementation": "./src/migrations/update-22-1-0/update-nx-wrapper",
+      "package": "nx",
+      "name": "22-1-0-update-nx-wrapper"
     },
     {
       "cli": "nx",
-      "version": "20.8.0-beta.0",
-      "requires": { "cypress": ">=14.0.0" },
-      "description": "Replaces the `experimentalJustInTimeCompile` configuration option with the new `justInTimeCompile` configuration option.",
-      "implementation": "./src/migrations/update-20-8-0/replace-experimental-just-in-time-compile",
-      "package": "@nx/cypress",
-      "name": "replace-experimental-just-in-time-compile"
+      "version": "21.0.0-beta.11",
+      "description": "Replaces `classProperties.loose` option with `loose`.",
+      "factory": "./src/migrations/update-21-0-0/update-babel-loose",
+      "package": "@nx/react",
+      "name": "update-21-0-0-update-babel-loose"
     },
     {
       "cli": "nx",
-      "version": "20.8.0-beta.0",
-      "requires": { "cypress": ">=14.0.0" },
-      "description": "Updates the module specifier for the Component Testing `mount` function.",
-      "implementation": "./src/migrations/update-20-8-0/update-component-testing-mount-imports",
+      "version": "22.0.0-beta.0",
+      "description": "Updates webpack configs using React to use the new withSvgr composable function instead of the svgr option in withReact or NxReactWebpackPlugin.",
+      "factory": "./src/migrations/update-22-0-0/add-svgr-to-webpack-config",
+      "package": "@nx/react",
+      "name": "update-22-0-0-add-svgr-to-webpack-config"
+    },
+    {
+      "cli": "nx",
+      "version": "22.0.0-beta.0",
+      "description": "Updates next.config.js files to add SVGR webpack configuration directly instead of using the nx.svgr option in withNx.",
+      "factory": "./src/migrations/update-22-0-0/add-svgr-to-next-config",
+      "package": "@nx/next",
+      "name": "update-22-0-0-add-svgr-to-next-config"
+    },
+    {
+      "version": "21.0.0-beta.10",
+      "description": "Removes the `tsConfig` and `copyFiles` options from the `@nx/cypress:cypress` executor.",
+      "implementation": "./src/migrations/update-21-0-0/remove-tsconfig-and-copy-files-options-from-cypress-executor",
       "package": "@nx/cypress",
-      "name": "update-component-testing-mount-imports"
+      "name": "remove-tsconfig-and-copy-files-options-from-cypress-executor"
+    },
+    {
+      "version": "22.1.0-beta.6",
+      "requires": { "cypress": ">=15.0.0" },
+      "description": "Renames `cy.exec().its('code')` usages to the new `exitCode` property introduced in Cypress v15.",
+      "implementation": "./src/migrations/update-22-1-0/rename-cy-exec-code-property",
+      "package": "@nx/cypress",
+      "name": "rename-cy-exec-code-property"
+    },
+    {
+      "version": "22.1.0-beta.6",
+      "requires": { "cypress": ">=15.0.0" },
+      "description": "Updates the deprecated `Cypress.SelectorPlayground` API to `Cypress.ElementSelector` and removes the unsupported `onElement` option.",
+      "implementation": "./src/migrations/update-22-1-0/update-selector-playground-api",
+      "package": "@nx/cypress",
+      "name": "update-selector-playground-api"
+    },
+    {
+      "version": "22.1.0-beta.6",
+      "requires": { "cypress": ">=15.0.0" },
+      "description": "For Angular component testing projects below v18, switches to the fallback `@cypress/angular` harness required by Cypress v15.",
+      "implementation": "./src/migrations/update-22-1-0/update-angular-component-testing-support",
+      "package": "@nx/cypress",
+      "name": "update-angular-component-testing-support"
     }
   ]
 }
