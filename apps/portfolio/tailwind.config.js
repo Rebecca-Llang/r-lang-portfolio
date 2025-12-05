@@ -1,8 +1,7 @@
-import { createGlobPatternsForDependencies } from '@nx/react/tailwind';
-import { join } from 'path';
+import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -11,7 +10,6 @@ export default {
     join(__dirname, 'components/**/*.{js,ts,jsx,tsx,mdx}'),
     join(__dirname, 'app/**/*.{js,ts,jsx,tsx,mdx}'),
     join(__dirname, 'src/**/*.{js,ts,jsx,tsx,mdx}'),
-    ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
     extend: {
