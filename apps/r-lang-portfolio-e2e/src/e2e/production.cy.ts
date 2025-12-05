@@ -71,7 +71,7 @@ describe('Production Deployment Tests', () => {
 
     // Go back and wait for navigation to be ready
     cy.go('back');
-    cy.url().should('eq', 'http://localhost:4200/');
+    cy.url().should('eq', Cypress.config().baseUrl + '/');
     cy.get('body').should('be.visible');
 
     // Wait for navigation link to be visible and clickable

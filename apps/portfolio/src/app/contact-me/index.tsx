@@ -27,9 +27,7 @@ export default function ContactForm() {
           data: result.data ? { ...prev.data, ...result.data } : prev.data,
         }));
       }
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Error sending email:', error);
+    } catch {
       setState((prev) => ({
         ...prev,
         status: 'error',
