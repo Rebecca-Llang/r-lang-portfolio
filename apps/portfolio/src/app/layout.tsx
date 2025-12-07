@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     description: 'Software/Web Developer Portfolio',
     type: 'website',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
 export default function RootLayout({
   children,
 }: {

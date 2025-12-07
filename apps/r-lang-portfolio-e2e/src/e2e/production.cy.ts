@@ -69,9 +69,13 @@ describe('Production Deployment Tests', () => {
     cy.url().should('include', '/about-me');
     cy.get('body').should('be.visible');
 
-    // Go back and test another route
+    // Go back and wait for navigation to be ready
     cy.go('back');
-    cy.get('a[data-testid="/projects"]').click();
+    cy.url().should('eq', Cypress.config().baseUrl + '/');
+    cy.get('body').should('be.visible');
+
+    // Wait for navigation link to be visible and clickable
+    cy.get('a[data-testid="/projects"]').should('be.visible').click();
     cy.url().should('include', '/projects');
     cy.get('body').should('be.visible');
   });

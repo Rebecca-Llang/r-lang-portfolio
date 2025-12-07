@@ -55,6 +55,7 @@ export async function submitContactForm(
       success: 'Email sent successfully! I look forward to replying promptly.',
     };
   } catch (error) {
+    console.error('Error sending email:', error);
     return {
       error: 'Failed to send email. Please try again.',
       data: { name: name || '', email: email || '', message: message || '' },

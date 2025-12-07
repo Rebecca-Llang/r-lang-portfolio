@@ -27,7 +27,7 @@ export default function ContactForm() {
           data: result.data ? { ...prev.data, ...result.data } : prev.data,
         }));
       }
-    } catch (error) {
+    } catch {
       setState((prev) => ({
         ...prev,
         status: 'error',

@@ -68,6 +68,8 @@ export async function getRepos() {
 
     return projectsWithGitHubData;
   } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Error getting repositories:', error);
     return [];
   }
 }
@@ -89,6 +91,8 @@ export async function getLanguages(languagesURL: string, repoName: string) {
       ? repoLanguages
       : getFallbackLanguages(repoName);
   } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Error getting languages:', error);
     return getFallbackLanguages(repoName);
   }
 }
@@ -117,6 +121,8 @@ export const getContributors = async (repoName: string) => {
       avatar_url: peer.avatar_url,
     }));
   } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Error getting contributors:', error);
     // Return fallback contributors from projects data when API fails
     const projectData = getProjectByRepoName(repoName);
     return projectData?.contributors || [];
