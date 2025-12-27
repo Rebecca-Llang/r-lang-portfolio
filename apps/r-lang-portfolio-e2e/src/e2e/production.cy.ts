@@ -21,7 +21,7 @@ describe('Production Deployment Tests', () => {
     cy.get('body').should('have.css', 'font-family');
   });
 
-  it('should handle contact form submission', () => {
+  it('should display contact form with required fields', () => {
     cy.visit('/contact-me');
 
     // Verify the contact form exists and is functional

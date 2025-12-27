@@ -44,8 +44,11 @@ This is a Next.js portfolio website built with NX monorepo, TypeScript, and Tail
 - `/src/app/constants/` - Static data and configuration
 - `/src/app/models/` - TypeScript interfaces and types
 - `/src/app/utils/` - Utility functions
-- `/src/app/**/index.tsx` - API routes
+- `/src/app/api/*/route.ts` - API Route Handlers (recommended pattern for REST endpoints)
+- `/src/app/**/route.ts` - Route Handlers can exist outside `/api` for special routes
 - `/src/assets/` - Static assets (images, etc.)
+
+**Note:** This project currently uses Server Actions (`'use server'`) instead of traditional API routes.
 
 ## Important Notes
 - E2E tests are comprehensive and should pass before committing

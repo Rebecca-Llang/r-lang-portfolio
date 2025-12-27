@@ -48,7 +48,6 @@ Thumbs.db
 out
 next-env.d.ts
 **/next.config.js
-!**/next.config.prod.js
 
 # Environment variables
 .env

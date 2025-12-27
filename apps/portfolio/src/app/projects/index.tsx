@@ -35,6 +35,7 @@ export async function getRepos() {
       }),
       fetch('https://api.github.com/repos/kea-commerce/kea-commerce', {
         headers,
+        next: { revalidate: 2000 },
       }),
     ]);
 
