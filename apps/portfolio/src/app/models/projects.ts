@@ -40,7 +40,6 @@ export interface GitHubRepo {
   updated_at: string;
   languages_url: string;
   private: boolean;
-  avatar_url: string;
 }
 
 export interface ProjectWithGitHub extends Project {

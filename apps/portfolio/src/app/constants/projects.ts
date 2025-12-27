@@ -5,61 +5,61 @@ const contributors: Record<string, Collaborator[]> = {
     {
       login: 'Rebecca-Llang',
       html_url: 'https://github.com/Rebecca-Llang',
-      avatar_url: 'https://avatars.githubusercontent.com/u/12345678?v=4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/125948480?v=4',
     },
   ],
   'donate-mate-team': [
     {
       login: 'Rebecca-Llang',
       html_url: 'https://github.com/Rebecca-Llang',
-      avatar_url: 'https://avatars.githubusercontent.com/u/12345678?v=4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/125948480?v=4',
     },
     {
       login: 'william-sadler',
       html_url: 'https://github.com/william-sadler',
-      avatar_url: 'https://avatars.githubusercontent.com/u/12345679?v=4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/171114650?v=4',
     },
     {
       login: 'fran-berridge',
       html_url: 'https://github.com/fran-berridge',
-      avatar_url: 'https://avatars.githubusercontent.com/u/12345680?v=4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/171234083?v=4',
     },
     {
       login: 'warkina-tujuba',
       html_url: 'https://github.com/warkina-tujuba',
-      avatar_url: 'https://avatars.githubusercontent.com/u/12345681?v=4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/120998499?v=4',
     },
     {
       login: 'Lernaen',
       html_url: 'https://github.com/Lernaen',
-      avatar_url: 'https://avatars.githubusercontent.com/u/12345682?v=4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/171352496?v=4',
     },
     {
       login: 'eric-mokuma',
       html_url: 'https://github.com/eric-mokuma',
-      avatar_url: 'https://avatars.githubusercontent.com/u/12345683?v=4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/171113091?v=4',
     },
   ],
   'kea-commerce-team': [
     {
       login: 'Rebecca-Llang',
       html_url: 'https://github.com/Rebecca-Llang',
-      avatar_url: 'https://avatars.githubusercontent.com/u/12345678?v=4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/125948480?v=4',
     },
     {
       login: 'olivia-burgess',
       html_url: 'https://github.com/olivia-burgess',
-      avatar_url: 'https://avatars.githubusercontent.com/u/12345684?v=4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/171209277?v=4',
     },
     {
       login: 'Shae-Jacobs',
       html_url: 'https://github.com/Shae-Jacobs',
-      avatar_url: 'https://avatars.githubusercontent.com/u/12345685?v=4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/171490998?v=4',
     },
     {
       login: 'bosh-code',
       html_url: 'https://github.com/bosh-code',
-      avatar_url: 'https://avatars.githubusercontent.com/u/12345686?v=4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/41498159?v=4',
     },
   ],
 };
