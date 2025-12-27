@@ -46,6 +46,9 @@ Thumbs.db
 # Next.js
 .next
 out
+next-env.d.ts
+**/next.config.js
+!**/next.config.prod.js
 
 # Environment variables
 .env
@@ -74,6 +77,14 @@ pids/
 coverage/
 *.lcov
 .nyc_output/
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+**/cypress/screenshots/
+**/cypress/videos/
+**/cypress/downloads/
 
 # Cache
 .npm
