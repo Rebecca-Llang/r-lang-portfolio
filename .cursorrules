@@ -44,7 +44,7 @@ This is a Next.js portfolio website built with NX monorepo, TypeScript, and Tail
 - `/src/app/constants/` - Static data and configuration
 - `/src/app/models/` - TypeScript interfaces and types
 - `/src/app/utils/` - Utility functions
-- `/src/app/api/` - API routes
+- `/src/app/**/index.tsx` - API routes
 - `/src/assets/` - Static assets (images, etc.)
 
 ## Important Notes
