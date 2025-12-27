@@ -4,9 +4,25 @@ import {
   ProjectWithGitHub,
   ProjectRole,
 } from '../models/projects';
-import { getProjectByRepoName } from '../constants/projects';
+import { getProjectByRepoName, projects } from '../constants/projects';
 import { getGitHubHeaders } from '../utils/github-api';
 import { getFallbackLanguages } from '../utils/repository';
+
+function getFallbackProjects(): ProjectWithGitHub[] {
+  return projects.map((project) => {
+    // Handle kea-commerce special case (different GitHub org)
+    const isKeaCommerce = project.githubRepo === 'kea-commerce';
+    const orgName = isKeaCommerce ? 'kea-commerce' : 'Rebecca-Llang';
+
+    return {
+      ...project,
+      html_url: `https://github.com/${orgName}/${project.githubRepo}`,
+      updated_at: project.lastUpdated,
+      languages_url: `https://api.github.com/repos/${orgName}/${project.githubRepo}/languages`,
+      avatar_url: project.contributors?.[0]?.avatar_url || '',
+    };
+  });
+}
 
 export async function getRepos() {
   try {
@@ -19,13 +35,40 @@ export async function getRepos() {
       }),
       fetch('https://api.github.com/repos/kea-commerce/kea-commerce', {
         headers,
+        next: { revalidate: 2000 },
       }),
     ]);
+
+    if (!personalRes.ok) {
+      // eslint-disable-next-line no-console
+      console.error(
+        'GitHub API error for personal repos:',
+        personalRes.status,
+        personalRes.statusText
+      );
+      return getFallbackProjects();
+    }
+
+    if (!keaRes.ok) {
+      // eslint-disable-next-line no-console
+      console.error(
+        'GitHub API error for kea-commerce:',
+        keaRes.status,
+        keaRes.statusText
+      );
+      return getFallbackProjects();
+    }
 
     const [personalData, keaData] = await Promise.all([
       personalRes.json(),
       keaRes.json(),
     ]);
+
+    if (!Array.isArray(personalData)) {
+      // eslint-disable-next-line no-console
+      console.error('GitHub API returned non-array for personal repos');
+      return getFallbackProjects();
+    }
 
     const personalRepos = personalData.filter(
       (repo: GitHubRepo) =>
@@ -52,7 +95,7 @@ export async function getRepos() {
             html_url: repo.html_url,
             updated_at: repo.updated_at,
             languages_url: repo.languages_url,
-            avatar_url: repo.avatar_url,
+            avatar_url: 'https://avatars.githubusercontent.com/u/125948480?v=4',
           } as ProjectWithGitHub;
         }
 
@@ -61,7 +104,7 @@ export async function getRepos() {
           html_url: repo.html_url,
           updated_at: repo.updated_at,
           languages_url: repo.languages_url,
-          avatar_url: repo.avatar_url,
+          avatar_url: projectData.contributors?.[0]?.avatar_url || '',
         } as ProjectWithGitHub;
       })
       .filter((project): project is ProjectWithGitHub => project !== null);
@@ -70,7 +113,7 @@ export async function getRepos() {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Error getting repositories:', error);
-    return [];
+    return getFallbackProjects();
   }
 }
 
@@ -123,7 +166,6 @@ export const getContributors = async (repoName: string) => {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Error getting contributors:', error);
-    // Return fallback contributors from projects data when API fails
     const projectData = getProjectByRepoName(repoName);
     return projectData?.contributors || [];
   }

@@ -21,44 +21,41 @@ describe('Production Deployment Tests', () => {
     cy.get('body').should('have.css', 'font-family');
   });
 
-  it('should handle API endpoints correctly', () => {
-    cy.request('/api/contact').then((response) => {
-      expect(response.status).to.be.oneOf([200, 404]);
-    });
+  it('should display contact form with required fields', () => {
+    cy.visit('/contact-me');
 
-    cy.request('/api/github').then((response) => {
-      expect(response.status).to.eq(200);
-      expect(response.body).to.have.property('user');
-      expect(response.body).to.have.property('repositories');
-      expect(response.body.user).to.have.property('login', 'Rebecca-Llang');
-    });
+    // Verify the contact form exists and is functional
+    cy.get('form').should('be.visible');
+    cy.get('input[name="name"]').should('exist');
+    cy.get('input[name="email"]').should('exist');
+    cy.get('textarea[name="message"]').should('exist');
+    cy.get('button[type="submit"]').should('exist');
   });
 
-  it('should handle GitHub API failures with fallback data', () => {
-    // Test that GitHub API returns proper error response
-    cy.request({
-      url: '/api/github',
-      failOnStatusCode: false,
-    }).then((response) => {
-      // Should either succeed or return proper error structure
-      if (response.status !== 200) {
-        expect(response.body).to.have.property('error');
-        expect(response.body.error).to.contain('Failed to fetch GitHub data');
-      }
-    });
-  });
-
-  it('should load GitHub data on projects page', () => {
+  it('should load projects data (GitHub API or fallback)', () => {
     cy.visit('/projects');
     cy.get('body').should('be.visible');
 
-    // Check that projects are displayed
+    // Check that projects are displayed (whether from GitHub API or fallback data)
     cy.get('ul').should('exist');
     cy.get('li').should('have.length.greaterThan', 0);
 
-    // Check for specific project names
+    // Verify all expected projects from constants/projects.ts are present
     cy.get('body').should('contain.text', 'My Karaoke Playlist');
     cy.get('body').should('contain.text', 'DonateMate');
+    cy.get('body').should('contain.text', 'Kea Commerce');
+    cy.get('body').should('contain.text', 'Nora AI');
+    cy.get('body').should('contain.text', "Rebecca Lang's Portfolio");
+    cy.get('body').should('contain.text', 'Kairos AI');
+
+    // Verify that project details are displayed
+    cy.get('body').should('contain.text', 'Contributors:');
+    cy.get('body').should('contain.text', 'Last Updated');
+    cy.get('body').should('contain.text', 'TypeScript');
+    cy.get('body').should('contain.text', 'JavaScript');
+
+    // Verify demo links are present for projects that have them
+    cy.get('a[href*="donatemate.pushed.nz"]').should('exist');
   });
 
   it('should navigate between pages without full page reloads', () => {

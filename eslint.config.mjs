@@ -9,7 +9,7 @@ import reactHooksPlugin from 'eslint-plugin-react-hooks';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 export default [
   {
     ignores: ['**/dist/**', '**/.next/**', '**/node_modules/**'],
